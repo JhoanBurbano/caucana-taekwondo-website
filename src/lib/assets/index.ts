@@ -8,14 +8,14 @@
  *   const meta = getAssetMeta('coach-1')
  */
 
-import type { ImageAssetId, LocalAssetId } from './types'
+import type { ImageAssetId } from './types'
 import { LOCAL_IMAGE_URLS } from './local'
 import { EXTERNAL_IMAGES, ASSET_META } from './constants'
 
 /** Obtiene la URL de una imagen por ID. Locales desde local.ts, externas desde constants. */
 export function getImageUrl(id: ImageAssetId): string {
   if (id in LOCAL_IMAGE_URLS) {
-    return LOCAL_IMAGE_URLS[id as LocalAssetId]
+    return LOCAL_IMAGE_URLS[id as keyof typeof LOCAL_IMAGE_URLS]
   }
   return (EXTERNAL_IMAGES as Record<string, string>)[id] ?? ''
 }
