@@ -21,8 +21,7 @@ export function AboutSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (!el) return;
+    if (!scrollRef.current) return;
     let rafId: number;
     let offset = 0;
     const speed = 0.4; // px per frame
@@ -30,7 +29,9 @@ export function AboutSection() {
     function tick() {
       offset += speed;
       if (offset >= ONE_COPY_WIDTH) offset = 0;
-      el.style.transform = `translateX(-${offset}px)`;
+      if (scrollRef.current) {
+        scrollRef.current.style.transform = `translateX(-${offset}px)`;
+      }
       rafId = requestAnimationFrame(tick);
     }
     rafId = requestAnimationFrame(tick);
