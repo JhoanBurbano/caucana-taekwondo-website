@@ -12,6 +12,12 @@ import type { AssetMetaMap } from './types'
 export const EXTERNAL_IMAGES = {
   'hero-fighter':
     'https://images.unsplash.com/photo-1617480348565-d60644e43fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+  'hero-taekwondo':
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
+  'hero-kickboxing':
+    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
+  'hero-acondicionamiento':
+    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
   'about-training':
     'https://images.unsplash.com/photo-1738835934988-ed0d238e8299?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
   'coach-1':
@@ -42,6 +48,9 @@ export const ASSET_META: AssetMetaMap = {
     alt: 'Silueta de luchador de Taekwondo en posición de combate',
     credit: 'Unsplash',
   },
+  'hero-taekwondo': { alt: 'Entrenamiento de Taekwondo ITF', credit: 'Unsplash' },
+  'hero-kickboxing': { alt: 'Clase de kickboxing', credit: 'Unsplash' },
+  'hero-acondicionamiento': { alt: 'Acondicionamiento físico y fuerza', credit: 'Unsplash' },
   'about-training': {
     alt: 'Instructor de Taekwondo enseñando técnicas de combate a estudiantes en el dojang',
     credit: 'Unsplash',

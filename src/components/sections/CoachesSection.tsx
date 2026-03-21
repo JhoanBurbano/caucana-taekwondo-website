@@ -1,9 +1,8 @@
 import { memo } from 'react';
 import { motion } from 'motion/react';
-import { Button } from '../ui/button';
-import { Award } from 'lucide-react';
+import { Award, Trophy, Target } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { COACHES } from '@/lib/data/coaches';
+import { MAESTRO } from '@/lib/data/maestro';
 import { getImageUrl } from '@/lib/assets';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { OptimizedImage } from '@/shared/OptimizedImage';
@@ -11,18 +10,18 @@ import { COLORS, FONTS, ANIMATIONS } from '@/lib/constants/theme';
 
 export const CoachesSection = memo(function CoachesSection() {
   const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.2 });
+  const m = MAESTRO;
 
   return (
     <section
       id="instructores"
       ref={ref}
-      className="py-20 relative overflow-hidden"
+      className="py-14 md:py-16 relative overflow-hidden"
       style={{
         backgroundColor: COLORS.background,
         backgroundImage: `linear-gradient(135deg, ${COLORS.background} 0%, ${COLORS.backgroundSecondary} 50%, ${COLORS.background} 100%)`,
       }}
     >
-      {/* Diagonal pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <div
           className="w-full h-full"
@@ -34,83 +33,124 @@ export const CoachesSection = memo(function CoachesSection() {
 
       <div className="container mx-auto px-4 relative z-10">
         <SectionTitle
-          title="Nuestros Maestros"
-          highlight="Maestros"
-          subtitle="Guiados por expertos comprometidos con la excelencia y el desarrollo de cada guerrero"
+          title="Nuestro Maestro"
+          highlight="Maestro"
+          subtitle="La experiencia y el compromiso detrás de nuestra academia"
           isInView={isInView}
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {COACHES.map((coach, index) => (
-            <motion.div
-              key={coach.name}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: ANIMATIONS.duration.normal, delay: index * ANIMATIONS.delay.stagger }}
-              className="group"
-            >
-              <div className="overflow-hidden relative" style={{ backgroundColor: COLORS.backgroundSecondary }}>
-                {/* Image */}
-                <div className="aspect-[3/4] overflow-hidden relative">
-                  <OptimizedImage
-                    src={getImageUrl(coach.image)}
-                    alt={`${coach.name}, ${coach.rank} - ${coach.bio}`}
-                    className="w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    style={{ aspectRatio: '3/4' }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80" />
-
-                  {/* Rank badge */}
-                  <div
-                    className="absolute top-4 right-4 px-3 py-1 flex items-center gap-1"
-                    style={{ backgroundColor: COLORS.primary }}
-                  >
-                    <Award className="w-4 h-4 text-white" />
-                    <span className="text-white" style={{ fontFamily: FONTS.heading, fontSize: '14px' }}>
-                      {coach.rank}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <h3
-                    className="text-white mb-2"
-                    style={{ fontFamily: FONTS.heading, fontSize: '24px', letterSpacing: '1px' }}
-                  >
-                    {coach.name}
-                  </h3>
-                  <p className="mb-4" style={{ fontFamily: FONTS.body, fontSize: '14px', lineHeight: '1.6', color: COLORS.textSecondary }}>
-                    {coach.bio}
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="w-full transition-all duration-300"
-                    style={{
-                      fontFamily: FONTS.heading,
-                      fontSize: '16px',
-                      borderRadius: '0',
-                      borderColor: COLORS.primary,
-                      color: COLORS.primary,
-                    }}
-                  >
-                    Ver Perfil
-                  </Button>
-                </div>
-
-                {/* Corner accents */}
-                <div
-                  className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ borderColor: COLORS.primary }}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: ANIMATIONS.duration.normal }}
+          className="flex flex-col md:flex-row gap-8 md:gap-10 items-center md:items-stretch max-w-6xl mx-auto"
+        >
+          {/* Foto del maestro - más pequeña, sección horizontal */}
+          <div className="flex-shrink-0 w-full max-w-[140px] md:max-w-[160px]">
+            <div className="relative overflow-hidden" style={{ backgroundColor: COLORS.backgroundSecondary }}>
+              <div className="aspect-[3/4] overflow-hidden relative">
+                <OptimizedImage
+                  src={getImageUrl(m.image)}
+                  alt={`${m.name} - Maestro de la Academia Caucana de Taekwondo ITF`}
+                  className="w-full h-full object-cover object-center"
+                  style={{ aspectRatio: '3/4' }}
                 />
-                <div
-                  className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ borderColor: COLORS.primary }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60" />
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <div
+                className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2"
+                style={{ borderColor: COLORS.primary }}
+              />
+              <div
+                className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2"
+                style={{ borderColor: COLORS.primary }}
+              />
+            </div>
+          </div>
+
+          {/* Biografía, disciplinas y logros - ocupa el resto en horizontal */}
+          <div className="flex-1 min-w-0 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            <h2
+              className="text-white lg:col-span-3"
+              style={{ fontFamily: FONTS.heading, fontSize: 'clamp(24px, 3vw, 32px)', letterSpacing: '1px' }}
+            >
+              {m.name}
+            </h2>
+
+            {/* Biografía deportiva */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-2 mb-3">
+                <Target className="w-5 h-5" style={{ color: COLORS.primary }} aria-hidden />
+                <h3
+                  className="text-white"
+                  style={{ fontFamily: FONTS.heading, fontSize: '18px', letterSpacing: '1px' }}
+                >
+                  Biografía deportiva
+                </h3>
+              </div>
+              <p
+                className="text-white/90"
+                style={{ fontFamily: FONTS.body, fontSize: '16px', lineHeight: '1.75' }}
+              >
+                {m.bio}
+              </p>
+            </div>
+
+            {/* Disciplinas y rangos */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Award className="w-5 h-5" style={{ color: COLORS.primary }} aria-hidden />
+                <h3
+                  className="text-white"
+                  style={{ fontFamily: FONTS.heading, fontSize: '18px', letterSpacing: '1px' }}
+                >
+                  Disciplinas y rangos
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                {m.disciplines.map((d) => (
+                  <li
+                    key={d.name}
+                    className="flex justify-between items-baseline gap-4 py-2 border-b border-white/10"
+                    style={{ fontFamily: FONTS.body, fontSize: '15px' }}
+                  >
+                    <span className="text-white/90">{d.name}</span>
+                    <span className="text-white font-medium" style={{ color: COLORS.primary }}>
+                      {d.rank}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Logros deportivos */}
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <Trophy className="w-5 h-5" style={{ color: COLORS.primary }} aria-hidden />
+                <h3
+                  className="text-white"
+                  style={{ fontFamily: FONTS.heading, fontSize: '18px', letterSpacing: '1px' }}
+                >
+                  Logros deportivos
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                {m.achievements.map((achievement, i) => (
+                  <li
+                    key={i}
+                    className="flex gap-3"
+                    style={{ fontFamily: FONTS.body, fontSize: '15px', color: COLORS.textSecondary }}
+                  >
+                    <span className="text-red-500 mt-1.5" style={{ color: COLORS.primary }} aria-hidden>
+                      •
+                    </span>
+                    <span>{achievement}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

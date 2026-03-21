@@ -3,6 +3,7 @@
 ## 📚 Índice
 
 ### Documentación Principal
+- [**Documentación Técnica**](./DOCUMENTACION_TECNICA.md) - Análisis técnico, stack, centrado de assets y contenido de negocio
 - [Resumen Ejecutivo](./SUMMARY.md) - Resumen de todas las mejoras implementadas
 - [Changelog](./CHANGELOG.md) - Historial de cambios
 - [Implementación Completa](./IMPLEMENTACION_COMPLETA.md) - Detalles de implementación

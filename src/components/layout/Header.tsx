@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { useScroll } from '@/hooks/useScroll';
 import { NAV_LINKS } from '@/lib/data/navigation';
 import { COLORS, FONTS } from '@/lib/constants/theme';
+import { getImageUrl } from '@/lib/assets';
 
 export function Header() {
   const isScrolled = useScroll(20);
@@ -18,14 +19,7 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: COLORS.primary }}
-            >
-              <span className="text-white" style={{ fontFamily: FONTS.heading, fontSize: '24px' }}>
-                AC
-              </span>
-            </div>
+            <img src={getImageUrl('logo-academia-caucana')} alt="Academia Caucana" className="w-12 h-12" />
             <div className="hidden md:block">
               <div className="text-white" style={{ fontFamily: FONTS.heading, fontSize: '18px', lineHeight: '1.2' }}>
                 Academia Caucana

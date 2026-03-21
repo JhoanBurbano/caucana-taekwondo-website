@@ -1,5 +1,8 @@
+export { HERO_SLIDES } from './hero';
+export { ABOUT_TIMELINE } from './about-timeline';
 export { NAV_LINKS } from './navigation';
 export { COACHES } from './coaches';
+export { MAESTRO } from './maestro';
 export { PRICING_PLANS } from './pricing';
 export { GALLERY_ITEMS } from './gallery';
 export { SPONSORS } from './sponsors';

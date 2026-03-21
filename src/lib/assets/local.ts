@@ -1,12 +1,16 @@
 /**
- * Assets locales (archivos en src/assets).
- * Cada import es resuelto por Vite y devuelve la URL pública del asset.
+ * Assets locales (archivos en src/assets/images | videos | icons).
+ * Nombrado por sección: hero-*, about-*, coaches-*, gallery-*, etc.
  */
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- Figma export alias
-// @ts-ignore - figma:asset resolved by Vite alias
-import heroPattern from 'figma:asset/7d88a0ddc9fa339c7172cbd46a9c8d728aead3c2.png';
+import heroPattern from '@/assets/images/hero-pattern.png';
+import logoAcademiaCaucana from '@/assets/images/logo.png';
+import heroTaekwondo from '@/assets/images/hero-taekwondo.png';
+import directorAcademia from '@/assets/images/director-academia.png';
 
 export const LOCAL_IMAGE_URLS = {
   'hero-pattern': heroPattern as string,
+  'hero-taekwondo': heroTaekwondo as string,
+  'logo-academia-caucana': logoAcademiaCaucana as string,
+  'director-academia': directorAcademia as string,
 } as const;
