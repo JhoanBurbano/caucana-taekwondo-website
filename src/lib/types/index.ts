@@ -18,17 +18,34 @@ export interface Coach {
   image: ExternalImageId;
 }
 
-/** Maestro principal: biografía deportiva, disciplinas/rangos y logros */
+/** Icono para destacados del perfil del maestro (lucide) */
+export type MaestroHighlightIcon = 'star' | 'medal' | 'trophy' | 'users';
+
+export interface MaestroHighlight {
+  icon: MaestroHighlightIcon;
+  label: string;
+}
+
+/** Maestro principal: biografía, disciplinas/rangos y logros */
 export interface Maestro {
   name: string;
   /** ID del asset en @/lib/assets */
   image: LocalAssetId;
-  /** Biografía deportiva */
+  /** Línea de rol (ej. Director y Primer Maestro) */
+  roleSubtitle: string;
+  /** Párrafo narrativo (trayectoria, filosofía breve) */
+  narrative: string;
+  /** Formación y credenciales (párrafo corto) */
   bio: string;
-  /** Disciplinas y rangos (ej. Taekwondo ITF 6to Dan) */
+  /** Disciplinas y rangos */
   disciplines: { name: string; rank: string }[];
-  /** Logros deportivos */
+  /** Logros deportivos (listado completo) */
   achievements: string[];
+  /** Cuatro destacados visuales bajo la biografía */
+  highlights: MaestroHighlight[];
+  quote: string;
+  /** Valores al pie, separados por | en UI */
+  footerPillars: string[];
 }
 
 export interface PricingPlan {

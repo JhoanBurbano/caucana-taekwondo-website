@@ -58,6 +58,7 @@ export const ASSET_META: AssetMetaMap = {
   'hero-pattern': {
     alt: '',
   },
+  'director-academia': { alt: 'Jonathan Daniel López Cepeda, director y maestro de la Academia Caucana' },
   'coach-1': { alt: 'Maestro Carlos Rodríguez, 6to Dan ITF' },
   'coach-2': { alt: 'Maestra Ana López, 5to Dan ITF' },
   'coach-3': { alt: 'Instructor Miguel Torres, 4to Dan ITF' },

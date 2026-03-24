@@ -1,19 +1,38 @@
 import type { Maestro } from '../types';
 
 export const MAESTRO: Maestro = {
-  name: 'Maestro Carlos Rodríguez',
+  name: 'Jonathan Daniel López Cepeda',
   image: 'director-academia',
-  bio: 'Más de 25 años en las artes marciales. Inició en Taekwondo ITF en 1998, obtuvo su cinturón negro en 2003 y desde entonces ha competido y formado campeones a nivel nacional e internacional. Fundador de la Academia Caucana de Taekwondo ITF y representante de la disciplina en el Cauca.',
+  roleSubtitle: 'Director y Primer Maestro de la Academia',
+  narrative:
+    'Con una trayectoria sólida en el combate y la enseñanza, ha representado a Colombia en el plano internacional y forma a nuevas generaciones con el mismo rigor con el que compitió en tatami y ring.',
+  bio: 'Licenciado en Educación Física por la Universidad Libre. Especialista en Entrenamiento Deportivo. Ex peleador de MMA. Conocimientos en BJJ (Jiu Jitsu Brasileño).',
   disciplines: [
-    { name: 'Taekwondo ITF', rank: '6to Dan' },
-    { name: 'Kickboxing', rank: 'Instructor certificado' },
-    { name: 'Acondicionamiento físico', rank: 'Entrenador deportivo' },
+    { name: 'Taekwon-Do', rank: 'Cinturón Negro II Dan' },
+    { name: 'Kick Boxing', rank: 'Cinturón Negro' },
+    { name: 'MMA', rank: 'Ex peleador' },
+    { name: 'BJJ (Jiu Jitsu Brasileño)', rank: 'Conocimientos' },
   ],
   achievements: [
-    'Campeón nacional Taekwondo ITF (categoría combate)',
-    'Medallista Juegos Nacionales',
-    'Entrenador de campeones nacionales juveniles y adultos',
-    'Representante ITF en torneos panamericanos',
-    'Más de 15 años como instructor y director técnico',
+    'Múltiple campeón nacional combate Taekwon-Do',
+    'Múltiple campeón nacional rompimiento de fuerza Taekwon-Do',
+    'Múltiple campeón nacional kick boxing',
+    'Subcampeón Panamericano combate Taekwon-Do, Brasil 2018',
+    'Miembro de la Selección Colombia de Taekwon-Do 2017-2023',
+    'Mejor clasificación entre los 8 mejores del mundo categoría crucero Taekwon-Do',
+    'Selección Colombia',
+  ],
+  highlights: [
+    { icon: 'star', label: 'Múltiple campeón nacional Taekwon-Do y kick boxing' },
+    { icon: 'medal', label: 'Subcampeón Panamericano Taekwon-Do, Brasil 2018' },
+    { icon: 'trophy', label: 'Selección Colombia Taekwon-Do 2017–2023' },
+    { icon: 'users', label: 'Formador de nuevas generaciones' },
+  ],
+  quote: 'La verdadera fuerza nace de la disciplina, el respeto y la constancia.',
+  footerPillars: [
+    'Formación técnica',
+    'Desarrollo del carácter',
+    'Espíritu marcial',
+    'Excelencia deportiva',
   ],
 };
