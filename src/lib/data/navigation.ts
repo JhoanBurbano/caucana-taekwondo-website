@@ -6,6 +6,7 @@ export const NAV_LINKS: NavLink[] = [
   { name: 'Academia', href: '#academia' },
   { name: 'Eventos', href: '#eventos' },
   { name: 'Galería', href: '#galeria' },
+  { name: 'Instagram', href: '#instagram' },
   { name: 'Inscripciones', href: '#inscripciones' },
 ];
 

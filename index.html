@@ -1,66 +1,115 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Academia Caucana de Taekwondo ITF | Formando Guerreros con Honor y Disciplina</title>
-    <meta name="title" content="Academia Caucana de Taekwondo ITF | Formando Guerreros con Honor y Disciplina" />
-    <meta name="description" content="Academia Caucana de Taekwondo ITF en Popayán, Cauca. Más de 10 años formando campeones nacionales con valores de honor, disciplina y excelencia. Inscripciones abiertas." />
-    <meta name="keywords" content="taekwondo, taekwondo ITF, Popayán, Cauca, artes marciales, academia, entrenamiento, cinturón negro, campeones" />
+
+    <!-- URL canónica (evita contenido duplicado; ajusta dominio al desplegar) -->
+    <link rel="canonical" href="https://academiacaucana.com/" />
+
+    <!-- Título SERP: ~50–60 caracteres, keyword + marca + local -->
+    <title>Taekwondo ITF en Popayán | Academia Caucana — Kickboxing y Acondicionamiento</title>
+    <meta
+      name="description"
+      content="Academia Caucana en Popayán, Cauca: Taekwondo ITF, Kickboxing y Acondicionamiento Físico. Director Jonathan López Cepeda. Inscripciones, planes y entrenamiento con disciplina y excelencia."
+    />
+    <meta
+      name="keywords"
+      content="taekwondo ITF Popayán, taekwondo Cauca, kickboxing Popayán, acondicionamiento físico, artes marciales Popayán, academia taekwondo, cinturón negro taekwondo, entrenamiento deportivo"
+    />
     <meta name="author" content="Academia Caucana de Taekwondo ITF" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
     <meta name="language" content="Spanish" />
-    <meta name="revisit-after" content="7 days" />
-    
-    <!-- Open Graph / Facebook -->
+    <meta name="geo.region" content="CO-CAU" />
+    <meta name="geo.placename" content="Popayán" />
+
+    <!-- PWA / navegador -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Favicon e iconos (logo en /public) -->
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+    <!-- Open Graph: título y subtítulo al compartir (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:site_name" content="Academia Caucana de Taekwondo ITF" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://academiacaucana.com/" />
-    <meta property="og:title" content="Academia Caucana de Taekwondo ITF | Formando Guerreros con Honor y Disciplina" />
-    <meta property="og:description" content="Más de 10 años formando campeones nacionales con valores de honor, disciplina y excelencia. Inscripciones abiertas." />
-    <meta property="og:image" content="/og-image.jpg" />
     <meta property="og:locale" content="es_CO" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://academiacaucana.com/" />
-    <meta property="twitter:title" content="Academia Caucana de Taekwondo ITF" />
-    <meta property="twitter:description" content="Más de 10 años formando campeones nacionales con valores de honor, disciplina y excelencia." />
-    <meta property="twitter:image" content="/og-image.jpg" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    
-    <!-- Preconnect for Performance -->
+    <meta property="og:title" content="Academia Caucana de Taekwondo ITF" />
+    <meta
+      property="og:description"
+      content="Taekwondo ITF, Kickboxing y Acondicionamiento Físico en Popayán, Cauca. Formación técnica, carácter y excelencia deportiva. Inscríbete hoy."
+    />
+    <meta property="og:image" content="https://academiacaucana.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://academiacaucana.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="349" />
+    <meta property="og:image:height" content="350" />
+    <meta property="og:image:alt" content="Logo Academia Caucana de Taekwondo ITF — Popayán, Cauca" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://academiacaucana.com/" />
+    <meta name="twitter:title" content="Academia Caucana de Taekwondo ITF" />
+    <meta
+      name="twitter:description"
+      content="Taekwondo ITF, Kickboxing y Acondicionamiento Físico en Popayán, Cauca. Disciplina, honor y constancia."
+    />
+    <meta name="twitter:image" content="https://academiacaucana.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Logo Academia Caucana de Taekwondo ITF" />
+
+    <!-- Rendimiento: fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Structured Data (JSON-LD) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <!-- Datos estructurados: organización deportiva + sitio web -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsOrganization",
-      "name": "Academia Caucana de Taekwondo ITF",
-      "description": "Academia de Taekwondo ITF en Popayán, Cauca. Formando guerreros con honor y disciplina desde 2014.",
-      "url": "https://academiacaucana.com",
-      "logo": "https://academiacaucana.com/logo.png",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Calle 5 #10-25",
-        "addressLocality": "Popayán",
-        "addressRegion": "Cauca",
-        "addressCountry": "CO"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+57-312-456-7890",
-        "contactType": "customer service",
-        "email": "info@academiacaucana.com"
-      },
-      "sport": "Taekwondo",
-      "foundingDate": "2014"
-    }
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SportsActivityLocation",
+            "@id": "https://academiacaucana.com/#academia",
+            "name": "Academia Caucana de Taekwondo ITF",
+            "description": "Academia de Taekwondo ITF, Kickboxing y Acondicionamiento Físico en Popayán, Cauca. Formación técnica y valores.",
+            "url": "https://academiacaucana.com/",
+            "image": "https://academiacaucana.com/logo.png",
+            "logo": "https://academiacaucana.com/logo.png",
+            "telephone": "+57-312-456-7890",
+            "email": "info@academiacaucana.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle 5 #10-25",
+              "addressLocality": "Popayán",
+              "addressRegion": "Cauca",
+              "addressCountry": "CO"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "addressCountry": "CO"
+            },
+            "sport": ["Taekwondo", "Kickboxing"],
+            "sameAs": [
+              "https://facebook.com/academiacaucana",
+              "https://www.instagram.com/academiacaucanatkd/",
+              "https://youtube.com/@academiacaucana"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://academiacaucana.com/#website",
+            "url": "https://academiacaucana.com/",
+            "name": "Academia Caucana de Taekwondo ITF",
+            "description": "Taekwondo ITF, Kickboxing y Acondicionamiento Físico en Popayán, Cauca.",
+            "publisher": { "@id": "https://academiacaucana.com/#academia" },
+            "inLanguage": "es-CO"
+          }
+        ]
+      }
     </script>
   </head>
 

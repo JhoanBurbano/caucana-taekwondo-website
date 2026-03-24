@@ -3,8 +3,7 @@ import { motion } from 'motion/react';
 import { Star, Medal, Trophy, Users } from 'lucide-react';
 import type { MaestroHighlightIcon } from '@/lib/types';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { MAESTRO } from '@/lib/data/maestro';
-import { getImageUrl } from '@/lib/assets';
+import { MAESTRO, MAESTRO_PHOTO_SRC } from '@/lib/data/maestro';
 import { COLORS, FONTS, ANIMATIONS } from '@/lib/constants/theme';
 
 const HIGHLIGHT_ICONS: Record<MaestroHighlightIcon, typeof Star> = {
@@ -42,28 +41,44 @@ export const CoachesSection = memo(function CoachesSection() {
           initial={{ opacity: 0, y: 32 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: ANIMATIONS.duration.normal }}
-          className="max-w-5xl mx-auto border border-white/15 overflow-hidden flex flex-col md:flex-row md:min-h-[420px]"
+          className="max-w-5xl mx-auto border border-white/15 overflow-hidden flex flex-col md:flex-row md:items-stretch md:min-h-[420px]"
           style={{ backgroundColor: COLORS.backgroundSecondary }}
         >
-          {/* Columna imagen ~40% — estilo landing, borde acento tipo esquinas */}
-          <div className="relative w-full md:w-[40%] min-h-[300px] md:min-h-[420px] shrink-0">
+          {/* Columna imagen: min-height fija (px) para que hijos absolute tengan caja con altura; md:min-h-0 rompía el layout */}
+          <div
+            className="relative w-full shrink-0 self-stretch md:w-[40%]"
+            style={{ minHeight: 'min(72vw, 420px)' }}
+          >
             <div
-              className="absolute inset-0 overflow-hidden"
+              className="absolute inset-0 overflow-hidden bg-black"
               style={{
                 clipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)',
+                WebkitClipPath: 'polygon(0 0, 100% 0, 90% 100%, 0 100%)',
               }}
             >
-              {/* img nativo: OptimizedImage con lazy + posición absoluta dejaba altura 0 y no disparaba la carga */}
               <img
-                src={getImageUrl(m.image)}
+                src={MAESTRO_PHOTO_SRC}
                 alt={`${m.name} - Director y maestro de la Academia Caucana`}
-                className="absolute inset-0 w-full h-full object-cover object-top"
-                loading="lazy"
+                width={2048}
+                height={2048}
+                loading="eager"
                 decoding="async"
-                width={800}
-                height={1000}
+                className="pointer-events-none"
+                style={{
+                  display: 'block',
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'top center',
+                  opacity: 1,
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/35 pointer-events-none" />
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-transparent to-black/30"
+                aria-hidden
+              />
             </div>
             <div
               className="absolute top-4 left-4 w-10 h-10 border-t-2 border-l-2 z-10 pointer-events-none"

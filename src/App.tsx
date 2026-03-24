@@ -11,6 +11,7 @@ const AboutSection = lazy(() => import('./components/sections/AboutSection').the
 const CoachesSection = lazy(() => import('./components/sections/CoachesSection').then(m => ({ default: m.CoachesSection })));
 const PricingSection = lazy(() => import('./components/sections/PricingSection').then(m => ({ default: m.PricingSection })));
 const GallerySection = lazy(() => import('./components/sections/GallerySection').then(m => ({ default: m.GallerySection })));
+const InstagramSection = lazy(() => import('./components/sections/InstagramSection').then(m => ({ default: m.InstagramSection })));
 const SponsorsSection = lazy(() => import('./components/sections/SponsorsSection').then(m => ({ default: m.SponsorsSection })));
 const FloatingPaymentButton = lazy(() => import('./components/features/FloatingPaymentButton').then(m => ({ default: m.FloatingPaymentButton })));
 
@@ -32,6 +33,9 @@ export default function App() {
           </Suspense>
           <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
             <GallerySection />
+          </Suspense>
+          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
+            <InstagramSection />
           </Suspense>
           <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
             <SponsorsSection />
