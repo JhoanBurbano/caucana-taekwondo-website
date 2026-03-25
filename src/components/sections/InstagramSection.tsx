@@ -50,41 +50,6 @@ export const InstagramSection = memo(function InstagramSection() {
               allow="clipboard-write; encrypted-media; picture-in-picture"
             />
           </div>
-
-          <p
-            className="text-center mt-4 text-white/50 text-sm leading-relaxed"
-            style={{ fontFamily: FONTS.body }}
-          >
-            Si el cuadro sale en blanco o solo con enlace, en Instagram abre un post → <strong>⋯</strong> →{' '}
-            <strong>Insertar</strong> y copia la URL que termina en{' '}
-            <code className="text-white/70 text-xs">/embed/</code>; sustituye{' '}
-            <code className="text-white/70 text-xs">INSTAGRAM_IFRAME_EMBED_URL</code> en{' '}
-            <code className="text-white/70 text-xs">src/lib/constants/social.ts</code>.
-          </p>
-
-          <div className="flex justify-center mt-6">
-            <Button
-              asChild
-              className="text-white px-8 py-6 shadow-lg shadow-red-900/40"
-              style={{
-                fontFamily: FONTS.heading,
-                fontSize: '18px',
-                letterSpacing: '1px',
-                borderRadius: 0,
-                background: `linear-gradient(to right, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
-              }}
-            >
-              <a
-                href={INSTAGRAM_PROFILE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2"
-              >
-                <span>Abrir {INSTAGRAM_HANDLE}</span>
-                <ExternalLink className="w-5 h-5" aria-hidden />
-              </a>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
