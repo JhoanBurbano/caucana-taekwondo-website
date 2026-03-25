@@ -65,7 +65,10 @@ export interface GalleryItem {
 
 export interface Sponsor {
   name: string;
-  logo: string;
+  /** Logo PNG en @/lib/assets/local */
+  image: LocalAssetId;
+  /** Sitio web oficial */
+  href: string;
 }
 
 export interface NavLink {

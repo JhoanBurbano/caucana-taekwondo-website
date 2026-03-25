@@ -11,6 +11,9 @@ export type LocalAssetId =
   | 'hero-kickboxing'
   | 'hero-acondicionamiento'
   | 'director-academia'
+  | 'sponsor-itf-internacional'
+  | 'sponsor-actd-colombia'
+  | 'sponsor-mightyfist'
 /** Identificadores de imágenes externas (URLs) usadas en la app */
 export type ExternalImageId =
   | 'hero-fighter'

@@ -13,7 +13,6 @@ const PricingSection = lazy(() => import('./components/sections/PricingSection')
 const GallerySection = lazy(() => import('./components/sections/GallerySection').then(m => ({ default: m.GallerySection })));
 const InstagramSection = lazy(() => import('./components/sections/InstagramSection').then(m => ({ default: m.InstagramSection })));
 const SponsorsSection = lazy(() => import('./components/sections/SponsorsSection').then(m => ({ default: m.SponsorsSection })));
-const FloatingPaymentButton = lazy(() => import('./components/features/FloatingPaymentButton').then(m => ({ default: m.FloatingPaymentButton })));
 
 export default function App() {
   return (
@@ -42,9 +41,6 @@ export default function App() {
           </Suspense>
         </main>
         <Footer />
-        <Suspense fallback={null}>
-          <FloatingPaymentButton />
-        </Suspense>
         <Toaster />
       </div>
     </ErrorBoundary>

@@ -1,11 +1,19 @@
 import type { Sponsor } from '../types';
 
 export const SPONSORS: Sponsor[] = [
-  { name: 'ITF Colombia', logo: 'ITF' },
-  { name: 'Gobernación del Cauca', logo: 'GOB' },
-  { name: 'Alcaldía de Popayán', logo: 'ALC' },
-  { name: 'Coldeportes', logo: 'COL' },
-  { name: 'SportFit', logo: 'SF' },
-  { name: 'Nutrición Plus', logo: 'NP' },
+  {
+    name: 'Academia Internacional',
+    image: 'sponsor-itf-internacional',
+    href: 'https://www.itftkd.sport/',
+  },
+  {
+    name: 'Asociación Colombiana de Taekwon-Do',
+    image: 'sponsor-actd-colombia',
+    href: 'https://www.taekwondoitfcolombia.com/',
+  },
+  {
+    name: 'Mightyfist',
+    image: 'sponsor-mightyfist',
+    href: 'https://mightyfist.com/',
+  },
 ];
-

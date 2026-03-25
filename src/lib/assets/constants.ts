@@ -69,4 +69,10 @@ export const ASSET_META: AssetMetaMap = {
   'gallery-training': { alt: 'Entrenamiento Intensivo - Entrenamientos' },
   'gallery-event-1': { alt: 'Seminario Internacional - Eventos' },
   'gallery-event-2': { alt: 'Demostración Pública - Eventos' },
+  'sponsor-itf-internacional': {
+    alt: 'Logo International Taekwon-Do Federation (ITF)',
+    credit: 'Wikimedia Commons · ITF Logo New (CC BY-SA 4.0)',
+  },
+  'sponsor-actd-colombia': { alt: 'Logo Asociación Colombiana de Taekwon-Do' },
+  'sponsor-mightyfist': { alt: 'Logo Mightyfist Taekwon-Do' },
 }
