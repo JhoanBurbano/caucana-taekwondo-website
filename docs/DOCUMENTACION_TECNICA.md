@@ -85,12 +85,12 @@ El sitio presenta a la **Academia Caucana de Taekwondo ITF** como escuela en Pop
 ### 5.1 Propuesta de valor y mensaje principal
 
 - **Hero:** “CONVIÉRTETE EN MÁS FUERTE” — Fortalecer mente y cuerpo con entrenamiento disciplinado de Taekwondo ITF. CTAs: “Inscríbete Hoy” y “Ver Galería”.
-- **Academia (About):** “Nuestro Legado de Excelencia” — Formar “guerreros con valores inquebrantables”; no solo habilidades físicas sino carácter, disciplina y honor. +10 años de experiencia, campeones nacionales y principios ITF “más allá del tatami”. Valores destacados: Valor, Disciplina, Poder.
-- **Instructores:** “Nuestros Maestros” — Guiados por expertos comprometidos con la excelencia y el desarrollo de cada guerrero. Cuatro perfiles (Maestro Carlos Rodríguez 6to Dan, Maestra Ana López 5to Dan, etc.) con roles en combate, formas, juveniles, defensa personal y empoderamiento.
+- **Academia (About):** “Nuestro Legado de Excelencia” — Formar “buenas personas con valores inquebrantables”; no solo habilidades físicas sino carácter, disciplina y honor. +10 años de experiencia, campeones nacionales y principios ITF “más allá del tatami”. Valores destacados: Valor, Disciplina, Poder.
+- **Instructores:** “Nuestros Maestros” — Guiados por expertos comprometidos con la excelencia y el desarrollo de cada estudiante. Cuatro perfiles (Maestro Carlos Rodríguez 6to Dan, Maestra Ana López 5to Dan, etc.) con roles en combate, formas, juveniles, defensa personal y empoderamiento.
 - **Precios:** “Planes de Entrenamiento” — Mensual (120.000 COP), Trimestral (330.000 COP, destacado), Anual (1.200.000 COP), con beneficios crecientes (clases ilimitadas, asesoría, eventos, evaluación, seminarios, preparación exámenes).
 - **Galería:** “Logros y Eventos” — Competencias, graduaciones, entrenamientos, seminarios, torneos, demostraciones.
 - **Sponsors:** “Nuestros Aliados” — Sección de patrocinadores.
-- **Footer:** “Forjando guerreros con honor y disciplina desde 2014”; contacto (email, teléfono, dirección Calle 5 #10-25, Popayán), redes (Facebook, Instagram, YouTube), newsletter.
+- **Footer:** “Formando buenas personas con honor y disciplina desde octubre de 2023”; contacto (email, teléfono, dirección Calle 5 #10-25, Popayán), redes (Facebook, Instagram, YouTube), newsletter.
 
 ### 5.2 Dónde está el copy
 

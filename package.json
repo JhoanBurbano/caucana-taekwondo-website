@@ -31,5 +31,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "type-check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
   }
 }

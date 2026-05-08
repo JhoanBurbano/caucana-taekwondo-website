@@ -5,7 +5,7 @@ export const HERO_SLIDES: HeroSlide[] = [
     id: 'taekwondo',
     imageId: 'hero-taekwondo',
     title: 'Taekwondo ITF',
-    subtitle: 'Fortalece tu mente y cuerpo con entrenamiento disciplinado. Formamos guerreros con honor y excelencia.',
+    subtitle: 'Academia Revelación ITF 2025. Más de 100 estudiantes en Popayán con títulos nacionales e internacionales y un proceso de formación integral.',
     primary: true,
   },
   {

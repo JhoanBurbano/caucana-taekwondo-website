@@ -92,6 +92,9 @@ export interface PaymentConcept {
   amount: number;
 }
 
+/** Tipo semántico del hito (gobierna el ícono y acento visual). */
+export type TimelineKind = 'founding' | 'championship' | 'recognition' | 'milestone';
+
 /** Hito del timeline "Nuestra trayectoria" (desde 2023) */
 export interface TimelineMilestone {
   year: number;
@@ -101,5 +104,7 @@ export interface TimelineMilestone {
   description?: string;
   /** Logros en competencias ese periodo */
   achievements: string[];
+  /** Categoría del hito; default: 'milestone' */
+  kind?: TimelineKind;
 }
 

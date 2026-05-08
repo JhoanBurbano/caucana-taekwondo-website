@@ -9,7 +9,7 @@ export const MAESTRO: Maestro = {
   image: 'director-academia',
   roleSubtitle: 'Director y Primer Maestro de la Academia',
   narrative:
-    'Con una trayectoria sólida en el combate y la enseñanza, ha representado a Colombia en el plano internacional y forma a nuevas generaciones con el mismo rigor con el que compitió en tatami y ring.',
+    'Director de la Academia Caucana de Taekwon-Do ITF en Popayán. Con una trayectoria sólida en el combate y la enseñanza, ha representado a Colombia en el plano internacional y hoy lidera un proceso de más de 100 estudiantes con resultados nacionales e internacionales.',
   bio: 'Licenciado en Educación Física por la Universidad Libre. Especialista en Entrenamiento Deportivo. Ex peleador de MMA. Conocimientos en BJJ (Jiu Jitsu Brasileño).',
   disciplines: [
     { name: 'Taekwon-Do', rank: 'Cinturón Negro II Dan' },
@@ -32,11 +32,12 @@ export const MAESTRO: Maestro = {
     { icon: 'trophy', label: 'Selección Colombia Taekwon-Do 2017–2023' },
     { icon: 'users', label: 'Formador de nuevas generaciones' },
   ],
-  quote: 'La verdadera fuerza nace de la disciplina, el respeto y la constancia.',
+  quote:
+    'No nos interesa formar a los mejores deportistas ni competidores, sino las mejores personas.',
   footerPillars: [
-    'Formación técnica',
+    'Formación de personas',
     'Desarrollo del carácter',
-    'Espíritu marcial',
+    'Disciplina y respeto',
     'Excelencia deportiva',
   ],
 };

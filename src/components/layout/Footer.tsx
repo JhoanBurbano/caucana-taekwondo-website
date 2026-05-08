@@ -58,7 +58,7 @@ export function Footer() {
               </div>
             </div>
             <p className="mb-4" style={{ fontFamily: FONTS.body, fontSize: '14px', lineHeight: '1.6', color: COLORS.textTertiary }}>
-              Forjando guerreros con honor y disciplina desde 2014.
+              Formando buenas personas con honor y disciplina desde octubre de 2023.
             </p>
             <div className="flex gap-3">
               <a
@@ -250,7 +250,7 @@ export function Footer() {
             <p
               style={{ fontFamily: FONTS.heading, fontSize: '16px', letterSpacing: '1px', color: COLORS.textTertiary }}
             >
-              Forjando guerreros con honor y disciplina
+              Formando buenas personas con honor y disciplina
             </p>
           </div>
         </div>
