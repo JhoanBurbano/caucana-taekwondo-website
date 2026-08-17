@@ -76,7 +76,11 @@ export interface NavLink {
   href: string;
 }
 
-export interface PaymentFormData {
+/** Tipos para FAQ */
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
   identificationType: string;
   identification: string;
   name: string;
