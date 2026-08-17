@@ -6,10 +6,7 @@
 /** Identificadores de imágenes locales (en /src/assets) */
 export type LocalAssetId =
   | 'hero-pattern'
-  | 'hero-taekwondo'
   | 'logo-academia-caucana'
-  | 'hero-kickboxing'
-  | 'hero-acondicionamiento'
   | 'director-academia'
   | 'sponsor-itf-internacional'
   | 'sponsor-actd-colombia'
