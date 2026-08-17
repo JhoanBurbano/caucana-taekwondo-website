@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://academiacaucana.com/sitemap.xml
+
+# Disallow admin areas (futuro)
+# Disallow: /admin/
+# Disallow: /api/
+
+# Crawl-delay (opcional, para bots lentos)
+Crawl-delay: 1

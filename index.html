@@ -66,7 +66,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
 
-    <!-- Datos estructurados: organización deportiva + sitio web -->
+    <!-- Google Analytics 4 (ACTIVAR: Reemplazar G-XXXXXXXXXX con tu Measurement ID) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <!-- Datos estructurados: organización deportiva + sitio web + FAQ -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -93,6 +104,11 @@
               "addressCountry": "CO"
             },
             "sport": ["Taekwondo", "Kickboxing"],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "47"
+            },
             "sameAs": [
               "https://facebook.com/academiacaucana",
               "https://www.instagram.com/academiacaucanatkd/",
@@ -107,6 +123,43 @@
             "description": "Taekwondo ITF, Kickboxing y Acondicionamiento Físico en Popayán, Cauca.",
             "publisher": { "@id": "https://academiacaucana.com/#academia" },
             "inLanguage": "es-CO"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "¿Cuánto cuesta el Taekwondo ITF en Academia Caucana?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Nuestros planes van desde $80,000 COP/mes (Básico, 2 clases/semana) hasta $150,000 COP/mes (Premium, 4 clases/semana). Ofrecemos una clase de prueba 100% gratis sin compromiso."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Desde qué edad pueden empezar los niños?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Aceptamos niños desde los 5 años. Tenemos grupos estructurados por edad: niños (5-9 años), prejuveniles (10-13 años), jóvenes (14-17 años) y adultos (18+)."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Los instructores están certificados?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Sí, todos nuestros instructores están certificados por la ITF (International Taekwon-Do Federation) y la ACTD (Asociación Colombiana de Taekwon-Do). Nuestro director, Jonathan López Cepeda, es cinturón negro certificado."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "¿Qué logros ha obtenido la academia?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Somos Campeones Centroamericanos 2025 (República Dominicana), Academia Revelación ITF 2025, y obtuvimos el 3er lugar en Juegos Nacionales 2025. También campeones de Copa Súper Campeones 2024 y Copa Pelícano 2025."
+                }
+              }
+            ]
           }
         ]
       }

@@ -97,32 +97,32 @@ export function HeroSection() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
-                  className="text-white px-8 py-6 transition-all duration-300 shadow-lg shadow-red-900/50 hover:shadow-red-900/80"
+                  className="text-white px-10 py-7 transition-all duration-300 shadow-2xl shadow-red-900/80 hover:shadow-red-900/100 hover:scale-105"
                   style={{
                     fontFamily: FONTS.heading,
-                    fontSize: '20px',
+                    fontSize: '22px',
                     letterSpacing: '1.5px',
                     borderRadius: '0',
                     background: `linear-gradient(to right, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
                   }}
                   onClick={() => document.getElementById('inscripciones')?.scrollIntoView({ behavior: 'smooth' })}
-                  aria-label="Ir a sección de inscripciones"
+                  aria-label="Reservar clase de prueba gratis"
                 >
-                  Inscríbete Hoy
+                  Clase de Prueba Gratis
                 </Button>
                 <Button
                   variant="outline"
                   className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-6 transition-all duration-300"
                   style={{
                     fontFamily: FONTS.heading,
-                    fontSize: '20px',
+                    fontSize: '18px',
                     letterSpacing: '1.5px',
                     borderRadius: '0',
                   }}
-                  onClick={() => document.getElementById('galeria')?.scrollIntoView({ behavior: 'smooth' })}
-                  aria-label="Ir a galería de eventos"
+                  onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
+                  aria-label="Conocer más sobre la academia"
                 >
-                  Ver Galería
+                  Conocer Más
                 </Button>
               </div>
             </motion.div>
