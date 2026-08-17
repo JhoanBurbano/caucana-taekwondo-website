@@ -25,3 +25,64 @@
   clip: auto;
   white-space: normal;
 }
+
+/* Dramatic Dark Hero Styles */
+.hero-image-dramatic {
+  filter: contrast(1.15) saturate(1.1) brightness(1.05);
+}
+
+.hero-title-neon {
+  animation: subtleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes subtleGlow {
+  0% {
+    text-shadow: 0 0 20px rgba(220, 38, 38, 0.8), 0 0 40px rgba(220, 38, 38, 0.5), 0 4px 8px rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    text-shadow: 0 0 30px rgba(220, 38, 38, 1), 0 0 60px rgba(220, 38, 38, 0.7), 0 4px 8px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.neon-button-red {
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+.neon-button-red:hover {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.8), 0 0 60px rgba(220, 38, 38, 0.6), 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+  transform: scale(1.05) translateY(-2px);
+}
+
+@keyframes neonPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.4), 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(220, 38, 38, 0.8), 0 0 50px rgba(220, 38, 38, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.achievement-badge {
+  animation: float 3s ease-in-out infinite;
+}
+
+.achievement-badge:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.achievement-badge:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.achievement-badge:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
