@@ -8,38 +8,45 @@
 
 import type { AssetMetaMap } from './types'
 
-/** URLs de imágenes externas (Unsplash, CDN, etc.) */
+/** URLs de imágenes externas (Unsplash, CDN, etc.) - Fotos profesionales de taekwondo y artes marciales 2026 */
 export const EXTERNAL_IMAGES = {
+  // Hero Sections - Fotos de acción high-energy
   'hero-fighter':
-    'https://images.unsplash.com/photo-1617480348565-d60644e43fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1555597408-26bc8e548a46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
   'hero-taekwondo':
-    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
+    'https://images.unsplash.com/photo-1555597408-26bc8e548a46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
   'hero-kickboxing':
-    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
+    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
   'hero-acondicionamiento':
-    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920',
+    'https://images.unsplash.com/photo-1773289338379-5bad1838a860?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
+  
+  // About Section - Training en dojang
   'about-training':
-    'https://images.unsplash.com/photo-1738835934988-ed0d238e8299?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
+  
+  // Coaches - Fotos de instructores en acción (excepto director)
   'coach-1':
-    'https://images.unsplash.com/photo-1738835934988-ed0d238e8299?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
   'coach-2':
-    'https://images.unsplash.com/photo-1617480348565-d60644e43fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
   'coach-3':
-    'https://images.unsplash.com/photo-1506781764019-6039eb82c90b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
   'coach-4':
-    'https://images.unsplash.com/photo-1758778932827-52b7e4799fbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1555597408-26bc8e548a46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
+  
+  // Gallery - Competencias, entrenamientos y eventos
   'gallery-competition-1':
-    'https://images.unsplash.com/photo-1506781764019-6039eb82c90b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1555597408-26bc8e548a46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
   'gallery-competition-2':
-    'https://images.unsplash.com/photo-1506781764019-6039eb82c90b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
   'gallery-graduation':
-    'https://images.unsplash.com/photo-1617480348565-d60644e43fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
   'gallery-training':
-    'https://images.unsplash.com/photo-1758778932827-52b7e4799fbf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
   'gallery-event-1':
-    'https://images.unsplash.com/photo-1738835934988-ed0d238e8299?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
   'gallery-event-2':
-    'https://images.unsplash.com/photo-1617480348565-d60644e43fe3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+    'https://images.unsplash.com/photo-1773289338379-5bad1838a860?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
 } as const
 
 /** Metadata (alt, créditos) para cada asset. Usado por OptimizedImage y SEO. */
