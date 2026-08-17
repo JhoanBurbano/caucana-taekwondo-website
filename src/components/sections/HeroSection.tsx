@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { getImageUrl } from '@/lib/assets';
 import { HERO_SLIDES } from '@/lib/data/hero';
 import { COLORS, FONTS } from '@/lib/constants/theme';
+import { AchievementBadges } from '../features/AchievementBadges';
 
 const AUTOPLAY_MS = 6000;
 
@@ -27,7 +28,7 @@ export function HeroSection() {
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
       aria-label="Carrusel de modalidades: Taekwondo, Kickboxing, Acondicionamiento físico"
     >
       {/* Slides: cada uno con imagen en cover para toda la sección */}
@@ -46,15 +47,20 @@ export function HeroSection() {
           >
             {/* Imagen de fondo: cover en toda la sección */}
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-image-dramatic"
               style={{
                 backgroundImage: `url(${getImageUrl(s.imageId)})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             />
-            {/* Overlay oscuro */}
-            <div className="absolute inset-0 bg-black/60" />
+            {/* Overlay dramático con gradiente rojo */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.9) 100%)',
+              }}
+            />
           </motion.div>
         ))}
       </AnimatePresence>
@@ -70,23 +76,38 @@ export function HeroSection() {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.4 }}
             >
+              {/* Achievement Badges - Solo en el primer slide */}
+              {index === 0 && <AchievementBadges />}
+              
               <h1
-                className="text-white mb-6"
+                className="text-white mb-6 hero-title-neon"
                 style={{
                   fontFamily: FONTS.heading,
-                  fontSize: 'clamp(42px, 7vw, 100px)',
+                  fontSize: 'clamp(50px, 9vw, 120px)',
                   lineHeight: '0.95',
-                  letterSpacing: '2px',
-                  background: 'linear-gradient(135deg, #ffffff 0%, #cccccc 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
+                  letterSpacing: '4px',
+                  textTransform: 'uppercase',
+                  textShadow: '0 0 20px rgba(220, 38, 38, 0.8), 0 0 40px rgba(220, 38, 38, 0.5), 0 4px 8px rgba(0, 0, 0, 0.8)',
                 }}
               >
-                {slide.title.toUpperCase()}
+                {slide.title}
               </h1>
               <p
-                className="text-white/90 mb-8 max-w-2xl"
+                className="text-white mb-3 max-w-2xl"
+                style={{
+                  fontFamily: FONTS.body,
+                  fontSize: 'clamp(13px, 2vw, 16px)',
+                  lineHeight: '1.4',
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  fontWeight: '600',
+                  color: 'rgba(255, 255, 255, 0.95)',
+                }}
+              >
+                Popayán, Cauca
+              </p>
+              <p
+                className="text-white/85 mb-8 max-w-2xl"
                 style={{
                   fontFamily: FONTS.body,
                   fontSize: 'clamp(15px, 1.8vw, 19px)',
@@ -97,32 +118,34 @@ export function HeroSection() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button
-                  className="text-white px-10 py-7 transition-all duration-300 shadow-2xl shadow-red-900/80 hover:shadow-red-900/100 hover:scale-105"
+                  className="text-white px-10 py-7 transition-all duration-300 neon-button-red"
                   style={{
                     fontFamily: FONTS.heading,
                     fontSize: '22px',
                     letterSpacing: '1.5px',
                     borderRadius: '0',
-                    background: `linear-gradient(to right, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
+                    background: `linear-gradient(135deg, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
+                    boxShadow: '0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.4), 0 8px 16px rgba(0, 0, 0, 0.4)',
                   }}
                   onClick={() => document.getElementById('inscripciones')?.scrollIntoView({ behavior: 'smooth' })}
                   aria-label="Reservar clase de prueba gratis"
                 >
-                  Clase de Prueba Gratis
+                  CLASE DE PRUEBA GRATIS
                 </Button>
                 <Button
                   variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-6 transition-all duration-300"
+                  className="border-2 border-white/80 text-white hover:bg-white hover:text-black px-8 py-6 transition-all duration-300"
                   style={{
                     fontFamily: FONTS.heading,
                     fontSize: '18px',
                     letterSpacing: '1.5px',
                     borderRadius: '0',
+                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
                   }}
                   onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
                   aria-label="Conocer más sobre la academia"
                 >
-                  Conocer Más
+                  CONOCER MÁS
                 </Button>
               </div>
             </motion.div>
