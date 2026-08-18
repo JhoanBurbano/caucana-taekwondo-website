@@ -29,6 +29,32 @@
 /* Dramatic Dark Hero Styles */
 .hero-image-dramatic {
   filter: contrast(1.15) saturate(1.1) brightness(1.05);
+  /* Fix distorsión mobile: asegurar center center */
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  /* Smooth transition en cambio de slides */
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* Mobile: Ajustar position para mejor encuadre */
+@media (max-width: 768px) {
+  .hero-image-dramatic {
+    /* En mobile, ajustar ligeramente hacia arriba para evitar cortar caras */
+    background-position: center 40% !important;
+    filter: contrast(1.2) saturate(1.15) brightness(1.1);
+    /* Efecto de zoom sutil en mobile */
+    animation: mobileImageBreathing 8s ease-in-out infinite;
+  }
+}
+
+@keyframes mobileImageBreathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
 .hero-title-neon {
@@ -84,5 +110,122 @@
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+/* ============================================
+   BROCHAZOS VISUALES - Academia Caucana Brand
+   Colores: Negro (#000), Rojo (#DC2626), Blanco (#FFF)
+   ============================================ */
+
+.brush-stroke {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+}
+
+.brush-stroke-red {
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(220, 38, 38, 0.6) 20%,
+    rgba(220, 38, 38, 0.8) 50%,
+    rgba(220, 38, 38, 0.6) 80%,
+    transparent 100%
+  );
+  transform: rotate(-15deg);
+  filter: blur(2px);
+}
+
+.brush-stroke-black {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 20%,
+    rgba(0, 0, 0, 0.7) 50%,
+    rgba(0, 0, 0, 0.5) 80%,
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  filter: blur(1px);
+}
+
+.brush-stroke-white {
+  background: linear-gradient(
+    -45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+  transform: rotate(-10deg);
+  filter: blur(3px);
+}
+
+/* Mobile: Efectos y transiciones con adrenalina */
+@media (max-width: 768px) {
+  /* Títulos más impactantes en mobile */
+  .hero-title-neon {
+    animation: 
+      subtleGlow 2s ease-in-out infinite alternate,
+      mobileTitlePulse 3s ease-in-out infinite;
+  }
+
+  @keyframes mobileTitlePulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Botones más responsive al touch */
+  .neon-button-red:active {
+    transform: scale(0.95) translateY(2px) !important;
+    box-shadow: 0 0 40px rgba(220, 38, 38, 1), 0 0 80px rgba(220, 38, 38, 0.8) !important;
+  }
+
+  /* Badges más visibles en mobile */
+  .achievement-badge {
+    animation: 
+      float 2.5s ease-in-out infinite,
+      mobileBadgeGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes mobileBadgeGlow {
+    0%, 100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.2) drop-shadow(0 0 10px rgba(220, 38, 38, 0.6));
+    }
+  }
+
+  /* Swipe indicator en mobile */
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    animation: swipeIndicator 2s ease-in-out infinite;
+  }
+
+  @keyframes swipeIndicator {
+    0%, 100% {
+      transform: translateX(-50%) translateX(0);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translateX(-50%) translateX(10px);
+      opacity: 1;
+    }
   }
 }
