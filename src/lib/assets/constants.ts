@@ -8,79 +8,62 @@
 
 import type { AssetMetaMap } from './types'
 
-/** URLs de imágenes externas (Unsplash, CDN, etc.) - Fotos profesionales de taekwondo y artes marciales 2026 */
+/** URLs de imágenes externas (Unsplash, CDN, etc.) - Fotos profesionales ALTA CALIDAD 2026 */
 export const EXTERNAL_IMAGES = {
-  // Hero Sections - Fotos de acción high-energy con fondos oscuros/dramáticos
-  'hero-fighter':
-    'https://images.unsplash.com/photo-1767971162450-9477017b2cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
-  // Competencia de artes marciales - fondo oscuro, acción dinámica (Jan 2026)
-  
+  // Hero Sections - ALTA DEFINICIÓN (2560px, quality 95) - Específicas por modalidad
   'hero-taekwondo':
-    'https://images.pexels.com/photos/15937437/pexels-photo-15937437.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080',
-  // Taekwondo ITF: dobok blanco, patada alta, fondo oscuro - IMAGEN CORREGIDA para ser específica de Taekwondo
+    'https://images.pexels.com/photos/15937437/pexels-photo-15937437.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=2',
+  // Taekwondo ITF: dobok blanco, patada alta, fondo oscuro - ESPECÍFICO ITF
   
   'hero-kickboxing':
-    'https://images.unsplash.com/photo-1758778932703-7bfaaf1c42cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
-  // Kickboxing gym con sacos - lighting profesional, múltiples atletas (Sep 2025)
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=95&w=2560',
+  // Kickboxing: Sparring real, acción dramática, lighting profesional
   
   'hero-acondicionamiento':
-    'https://images.unsplash.com/photo-1770513649465-2c60c8039806?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
-  // Dark gym interior con equipamiento - moody, cinematic (Feb 2026)
+    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=95&w=2560',
+  // Fitness: Gym training, equipamiento, atletas en acción
   
   // About Section - Training en dojang
   'about-training':
-    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   
-  // Coaches - Fotos de instructores en acción (excepto director)
+  // Coaches - Fotos de instructores en acción (excepto director) - CALIDAD MEJORADA
   'coach-1':
-    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1200',
   'coach-2':
-    'https://images.unsplash.com/photo-1758778933112-af9fde620101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
-  // Muay Thai sparring - acción dinámica
+    'https://images.unsplash.com/photo-1758778933112-af9fde620101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1200',
   'coach-3':
-    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
-  // Muay Thai training en gym
+    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1200',
   'coach-4':
-    'https://images.unsplash.com/photo-1767971162450-9477017b2cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=800',
-  // Competencia de artes marciales
+    'https://images.unsplash.com/photo-1767971162450-9477017b2cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1200',
   
-  // Gallery - Competencias, entrenamientos y eventos
+  // Gallery - Competencias, entrenamientos y eventos - CALIDAD MEJORADA
   'gallery-competition-1':
-    'https://images.unsplash.com/photo-1767971162450-9477017b2cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Competencia point fighting
+    'https://images.unsplash.com/photo-1767971162450-9477017b2cb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   'gallery-competition-2':
-    'https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Sparring taekwondo
+    'https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   'gallery-graduation':
-    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Training en dojang
+    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   'gallery-training':
-    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Muay Thai training
+    'https://images.unsplash.com/photo-1773289338370-6197ab131713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   'gallery-event-1':
-    'https://images.unsplash.com/photo-1758778932703-7bfaaf1c42cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Kickboxing gym
+    'https://images.unsplash.com/photo-1758778932703-7bfaaf1c42cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
   'gallery-event-2':
-    'https://images.unsplash.com/photo-1758778933112-af9fde620101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1200',
-  // Muay Thai sparring
+    'https://images.unsplash.com/photo-1758778933112-af9fde620101?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
 } as const
 
 /** Metadata (alt, créditos) para cada asset. Usado por OptimizedImage y SEO. */
 export const ASSET_META: AssetMetaMap = {
-  'hero-fighter': {
-    alt: 'Competencia de artes marciales - fighters en acción durante point fighting',
-    credit: 'Unsplash',
-  },
   'hero-taekwondo': { 
-    alt: 'Taekwondo ITF - Atleta con dobok blanco ejecutando patada alta', 
+    alt: 'Taekwondo ITF - Atleta con dobok blanco ejecutando patada alta en combate', 
     credit: 'Pexels' 
   },
   'hero-kickboxing': { 
-    alt: 'Entrenamiento de kickboxing en gym con sacos de boxeo', 
+    alt: 'Kickboxing - Sparring de alta intensidad con técnica de patadas y puños', 
     credit: 'Unsplash' 
   },
   'hero-acondicionamiento': { 
-    alt: 'Gym de acondicionamiento físico con equipamiento profesional en iluminación dramática', 
+    alt: 'Acondicionamiento físico - Entrenamiento funcional en gym con equipamiento profesional', 
     credit: 'Unsplash' 
   },
   'about-training': {
