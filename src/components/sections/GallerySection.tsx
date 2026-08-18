@@ -42,8 +42,8 @@ export const GallerySection = memo(function GallerySection() {
               <OptimizedImage
                 src={getImageUrl(item.image)}
                 alt={`${item.title} - ${item.category} de la Academia Caucana de Taekwondo ITF`}
-                className="w-full h-full transition-transform duration-500 group-hover:scale-110"
-                style={{ aspectRatio: '4/3' }}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                style={{ objectFit: 'cover' }}
               />
 
               {/* Overlay */}
