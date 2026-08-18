@@ -1,62 +1,88 @@
 import { motion } from 'motion/react';
 
+/**
+ * Achievement Badges - Rediseñados para dramatic dark theme
+ * Colores Academia Caucana: Negro, Rojo, Blanco
+ * Estilo agresivo y disruptivo
+ */
+
 const ACHIEVEMENTS = [
   {
     id: 'centroamericanos',
     icon: '🥇',
-    title: 'Campeones',
+    title: 'CAMPEONES',
     subtitle: 'Centroamericanos 2025',
-    color: 'from-yellow-400 to-yellow-600',
+    bgColor: '#DC2626', // Rojo principal
+    borderColor: '#FFFFFF',
     delay: 0,
   },
   {
     id: 'revelacion',
     icon: '🏆',
-    title: 'Academia Revelación',
+    title: 'ACADEMIA REVELACIÓN',
     subtitle: 'ITF Colombia 2025',
-    color: 'from-red-500 to-red-700',
-    delay: 0.2,
+    bgColor: '#000000', // Negro
+    borderColor: '#DC2626',
+    delay: 0.15,
   },
   {
     id: 'nacionales',
     icon: '🥉',
-    title: 'Medallistas',
-    subtitle: 'Campeonato Nacional',
-    color: 'from-orange-400 to-orange-600',
-    delay: 0.4,
+    title: 'MEDALLISTAS',
+    subtitle: 'Nacional 2025',
+    bgColor: '#FFFFFF', // Blanco
+    borderColor: '#DC2626',
+    textColor: '#000000',
+    delay: 0.3,
   },
 ];
 
 export function AchievementBadges() {
   return (
-    <div className="flex flex-wrap gap-4 mb-8">
+    <div className="flex flex-wrap gap-3 mb-6">
       {ACHIEVEMENTS.map((achievement) => (
         <motion.div
           key={achievement.id}
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+          animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 0.8,
             delay: achievement.delay,
             type: 'spring',
-            stiffness: 100,
+            stiffness: 200,
+            damping: 15,
           }}
-          className="achievement-badge"
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.95 }}
+          className="achievement-badge-dramatic"
         >
           <div
-            className={`flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r ${achievement.color} shadow-lg backdrop-blur-sm border border-white/20`}
+            className="flex items-center gap-2 px-3 py-1.5 border-2 backdrop-blur-md"
             style={{
-              boxShadow: '0 0 20px rgba(220, 38, 38, 0.6), 0 8px 16px rgba(0, 0, 0, 0.3)',
+              backgroundColor: achievement.bgColor,
+              borderColor: achievement.borderColor,
+              boxShadow: `0 0 20px ${achievement.bgColor === '#000000' ? 'rgba(220, 38, 38, 0.6)' : 'rgba(0, 0, 0, 0.8)'}, 0 4px 12px rgba(0, 0, 0, 0.5)`,
             }}
           >
-            <span className="text-2xl" aria-hidden="true">
+            <span className="text-xl" aria-hidden="true">
               {achievement.icon}
             </span>
             <div className="flex flex-col">
-              <span className="text-white font-bold text-sm leading-tight">
+              <span
+                className="font-black text-xs leading-none tracking-wider"
+                style={{
+                  color: achievement.textColor || '#FFFFFF',
+                  fontFamily: 'Bebas Neue, sans-serif',
+                }}
+              >
                 {achievement.title}
               </span>
-              <span className="text-white/90 text-xs leading-tight">
+              <span
+                className="text-[10px] leading-none mt-0.5"
+                style={{
+                  color: achievement.textColor ? 'rgba(0,0,0,0.7)' : 'rgba(255,255,255,0.8)',
+                }}
+              >
                 {achievement.subtitle}
               </span>
             </div>

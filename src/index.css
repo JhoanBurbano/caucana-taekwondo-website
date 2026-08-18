@@ -42,18 +42,20 @@
   .hero-image-dramatic {
     /* En mobile, ajustar ligeramente hacia arriba para evitar cortar caras */
     background-position: center 40% !important;
-    filter: contrast(1.2) saturate(1.15) brightness(1.1);
-    /* Efecto de zoom sutil en mobile */
-    animation: mobileImageBreathing 8s ease-in-out infinite;
+    filter: contrast(1.25) saturate(1.2) brightness(1.15);
+    /* Efecto de zoom AGRESIVO en mobile */
+    animation: aggressiveImageBreathing 6s ease-in-out infinite;
   }
 }
 
-@keyframes mobileImageBreathing {
+@keyframes aggressiveImageBreathing {
   0%, 100% {
-    transform: scale(1);
+    transform: scale(1) rotate(0deg);
+    filter: contrast(1.25) saturate(1.2) brightness(1.15);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(0.3deg);
+    filter: contrast(1.3) saturate(1.25) brightness(1.2);
   }
 }
 
@@ -167,65 +169,159 @@
 
 /* Mobile: Efectos y transiciones con adrenalina */
 @media (max-width: 768px) {
-  /* Títulos más impactantes en mobile */
+  /* Títulos MÁS impactantes en mobile - DISRUPTIVOS */
   .hero-title-neon {
     animation: 
       subtleGlow 2s ease-in-out infinite alternate,
-      mobileTitlePulse 3s ease-in-out infinite;
+      aggressiveTitleShake 4s ease-in-out infinite,
+      titleGlitch 8s linear infinite;
   }
 
-  @keyframes mobileTitlePulse {
+  @keyframes aggressiveTitleShake {
     0%, 100% {
+      transform: scale(1) rotate(0deg);
+    }
+    25% {
+      transform: scale(1.03) rotate(0.5deg);
+    }
+    50% {
+      transform: scale(1.05) rotate(-0.5deg);
+    }
+    75% {
+      transform: scale(1.03) rotate(0.3deg);
+    }
+  }
+
+  @keyframes titleGlitch {
+    0%, 90%, 100% {
+      text-shadow: 
+        0 0 20px rgba(220, 38, 38, 0.8),
+        0 0 40px rgba(220, 38, 38, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.8);
+    }
+    91% {
+      text-shadow: 
+        -2px 0 rgba(220, 38, 38, 0.8),
+        2px 0 rgba(0, 255, 255, 0.6),
+        0 0 40px rgba(220, 38, 38, 0.5);
+    }
+    93% {
+      text-shadow: 
+        2px 0 rgba(220, 38, 38, 0.8),
+        -2px 0 rgba(0, 255, 255, 0.6),
+        0 0 40px rgba(220, 38, 38, 0.5);
+    }
+    95% {
+      text-shadow: 
+        0 0 20px rgba(220, 38, 38, 0.8),
+        0 0 40px rgba(220, 38, 38, 0.5),
+        0 4px 8px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  /* Botones CON IMPACTO BRUTAL */
+  .neon-button-red {
+    animation: aggressiveNeonPulse 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes aggressiveNeonPulse {
+    0% {
+      box-shadow: 
+        0 0 20px rgba(220, 38, 38, 0.6),
+        0 0 40px rgba(220, 38, 38, 0.4),
+        0 8px 16px rgba(0, 0, 0, 0.4);
       transform: scale(1);
     }
-    50% {
-      transform: scale(1.02);
+    100% {
+      box-shadow: 
+        0 0 40px rgba(220, 38, 38, 1),
+        0 0 80px rgba(220, 38, 38, 0.8),
+        0 12px 24px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(220, 38, 38, 0.3);
+      transform: scale(1.03);
     }
   }
 
-  /* Botones más responsive al touch */
   .neon-button-red:active {
-    transform: scale(0.95) translateY(2px) !important;
-    box-shadow: 0 0 40px rgba(220, 38, 38, 1), 0 0 80px rgba(220, 38, 38, 0.8) !important;
+    transform: scale(0.92) translateY(4px) rotate(-1deg) !important;
+    box-shadow: 
+      0 0 60px rgba(220, 38, 38, 1), 
+      0 0 120px rgba(220, 38, 38, 0.9),
+      inset 0 0 30px rgba(220, 38, 38, 0.5) !important;
   }
 
-  /* Badges más visibles en mobile */
-  .achievement-badge {
+  /* Badges EXPLOSIVOS */
+  .achievement-badge-dramatic {
     animation: 
-      float 2.5s ease-in-out infinite,
-      mobileBadgeGlow 3s ease-in-out infinite;
+      aggressiveFloat 2s ease-in-out infinite,
+      badgeExplosion 4s ease-in-out infinite;
   }
 
-  @keyframes mobileBadgeGlow {
+  @keyframes aggressiveFloat {
     0%, 100% {
-      filter: brightness(1);
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(2deg);
     }
     50% {
-      filter: brightness(1.2) drop-shadow(0 0 10px rgba(220, 38, 38, 0.6));
+      transform: translateY(-15px) rotate(-1deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(1deg);
     }
   }
 
-  /* Swipe indicator en mobile */
+  @keyframes badgeExplosion {
+    0%, 80%, 100% {
+      filter: brightness(1) drop-shadow(0 0 5px rgba(220, 38, 38, 0.4));
+    }
+    85% {
+      filter: brightness(1.5) drop-shadow(0 0 20px rgba(220, 38, 38, 1));
+    }
+    90% {
+      filter: brightness(1.3) drop-shadow(0 0 15px rgba(220, 38, 38, 0.8));
+    }
+  }
+
+  /* Swipe indicator AGRESIVO */
   .hero-section::after {
     content: '';
     position: absolute;
     bottom: 60px;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.3);
-    animation: swipeIndicator 2s ease-in-out infinite;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #DC2626, transparent);
+    animation: aggressiveSwipeIndicator 1.5s ease-in-out infinite;
   }
 
-  @keyframes swipeIndicator {
+  @keyframes aggressiveSwipeIndicator {
     0%, 100% {
-      transform: translateX(-50%) translateX(0);
-      opacity: 0.3;
+      transform: translateX(-50%) translateX(-20px);
+      opacity: 0;
     }
     50% {
-      transform: translateX(-50%) translateX(10px);
+      transform: translateX(-50%) translateX(20px);
       opacity: 1;
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.8);
+    }
+  }
+
+  /* Imagen breathing MÁS DRAMÁTICO */
+  .hero-image-dramatic {
+    animation: aggressiveImageBreathing 6s ease-in-out infinite !important;
+  }
+
+  @keyframes aggressiveImageBreathing {
+    0%, 100% {
+      transform: scale(1) rotate(0deg);
+      filter: contrast(1.2) saturate(1.15) brightness(1.1);
+    }
+    50% {
+      transform: scale(1.08) rotate(0.3deg);
+      filter: contrast(1.25) saturate(1.2) brightness(1.15);
     }
   }
 }
