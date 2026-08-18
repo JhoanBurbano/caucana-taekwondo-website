@@ -4,7 +4,7 @@ import { Button } from '../ui/button';
 import { getImageUrl } from '@/lib/assets';
 import { HERO_SLIDES } from '@/lib/data/hero';
 import { COLORS, FONTS } from '@/lib/constants/theme';
-import { AchievementBadges } from '../features/AchievementBadges';
+import { AchievementStats } from '../features/AchievementStats';
 import { BrushStrokes } from '../effects/BrushStrokes';
 
 const AUTOPLAY_MS = 6000;
@@ -60,9 +60,6 @@ export function HeroSection() {
       {/* Brochazos visuales de la marca */}
       <BrushStrokes />
 
-      {/* Achievement Badges - Floating en esquinas (solo primer slide) */}
-      {index === 0 && <AchievementBadges />}
-
       {/* Slides: cada uno con imagen en cover para toda la sección */}
       <AnimatePresence mode="wait" initial={false}>
         {HERO_SLIDES.map((s, i) => (
@@ -112,6 +109,9 @@ export function HeroSection() {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.4 }}
             >
+              {/* Achievement Stats - Solo en el primer slide */}
+              {index === 0 && <AchievementStats />}
+              
               <h1
                 className="text-white mb-6 hero-title-neon"
                 style={{

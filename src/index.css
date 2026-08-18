@@ -116,6 +116,39 @@
 }
 
 /* ============================================
+   ACHIEVEMENT STATS - Números destacados
+   ============================================ */
+
+.achievement-stat {
+  animation: statPulse 3s ease-in-out infinite;
+}
+
+.achievement-stat:hover {
+  animation: statPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes statPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(220, 38, 38, 0.5),
+      0 4px 12px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 
+      0 0 40px rgba(220, 38, 38, 0.8),
+      0 0 60px rgba(220, 38, 38, 0.4),
+      0 8px 20px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Mobile: Stats más compactos */
+@media (max-width: 768px) {
+  .achievement-stat {
+    animation: statPulse 2.5s ease-in-out infinite;
+  }
+}
+
+/* ============================================
    BROCHAZOS VISUALES - Academia Caucana Brand
    Colores: Negro (#000), Rojo (#DC2626), Blanco (#FFF)
    ============================================ */
