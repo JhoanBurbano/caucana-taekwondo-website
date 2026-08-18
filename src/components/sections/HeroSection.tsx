@@ -1,16 +1,20 @@
 import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useMotionValue, useTransform } from 'motion/react';
 import { Button } from '../ui/button';
 import { getImageUrl } from '@/lib/assets';
 import { HERO_SLIDES } from '@/lib/data/hero';
 import { COLORS, FONTS } from '@/lib/constants/theme';
 import { AchievementBadges } from '../features/AchievementBadges';
+import { BrushStrokes } from '../effects/BrushStrokes';
 
 const AUTOPLAY_MS = 6000;
+const SWIPE_THRESHOLD = 50;
 
 export function HeroSection() {
   const [index, setIndex] = useState(0);
   const slide = HERO_SLIDES[index];
+  const x = useMotionValue(0);
+  const [isDragging, setIsDragging] = useState(false);
 
   const goTo = useCallback((i: number) => {
     setIndex((i + HERO_SLIDES.length) % HERO_SLIDES.length);
@@ -20,17 +24,42 @@ export function HeroSection() {
     goTo(index + 1);
   }, [index, goTo]);
 
+  const prev = useCallback(() => {
+    goTo(index - 1);
+  }, [index, goTo]);
+
   useEffect(() => {
+    if (isDragging) return;
     const t = setInterval(next, AUTOPLAY_MS);
     return () => clearInterval(t);
-  }, [next]);
+  }, [next, isDragging]);
+
+  // Touch/swipe handlers para mobile
+  const handleDragEnd = useCallback(
+    (_: any, info: { offset: { x: number } }) => {
+      setIsDragging(false);
+      const offsetX = info.offset.x;
+      
+      if (offsetX > SWIPE_THRESHOLD) {
+        prev();
+      } else if (offsetX < -SWIPE_THRESHOLD) {
+        next();
+      }
+      
+      x.set(0);
+    },
+    [next, prev, x]
+  );
 
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
+      className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
       aria-label="Carrusel de modalidades: Taekwondo, Kickboxing, Acondicionamiento físico"
     >
+      {/* Brochazos visuales de la marca */}
+      <BrushStrokes />
+
       {/* Slides: cada uno con imagen en cover para toda la sección */}
       <AnimatePresence mode="wait" initial={false}>
         {HERO_SLIDES.map((s, i) => (
@@ -44,14 +73,18 @@ export function HeroSection() {
             }}
             transition={{ duration: 0.6 }}
             aria-hidden={i !== index}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={handleDragEnd}
+            style={{ x }}
           >
             {/* Imagen de fondo: cover en toda la sección */}
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-image-dramatic"
               style={{
                 backgroundImage: `url(${getImageUrl(s.imageId)})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
               }}
             />
             {/* Overlay dramático con gradiente rojo */}

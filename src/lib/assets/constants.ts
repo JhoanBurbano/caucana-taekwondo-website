@@ -16,8 +16,8 @@ export const EXTERNAL_IMAGES = {
   // Competencia de artes marciales - fondo oscuro, acción dinámica (Jan 2026)
   
   'hero-taekwondo':
-    'https://images.unsplash.com/photo-1564415315949-7a0c4c73aab4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
-  // Sparring de taekwondo - shallow focus, acción real
+    'https://images.pexels.com/photos/15937437/pexels-photo-15937437.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080',
+  // Taekwondo ITF: dobok blanco, patada alta, fondo oscuro - IMAGEN CORREGIDA para ser específica de Taekwondo
   
   'hero-kickboxing':
     'https://images.unsplash.com/photo-1758778932703-7bfaaf1c42cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=85&w=1920',
@@ -72,8 +72,8 @@ export const ASSET_META: AssetMetaMap = {
     credit: 'Unsplash',
   },
   'hero-taekwondo': { 
-    alt: 'Sparring de Taekwondo ITF - dos atletas en combate', 
-    credit: 'Unsplash' 
+    alt: 'Taekwondo ITF - Atleta con dobok blanco ejecutando patada alta', 
+    credit: 'Pexels' 
   },
   'hero-kickboxing': { 
     alt: 'Entrenamiento de kickboxing en gym con sacos de boxeo', 
