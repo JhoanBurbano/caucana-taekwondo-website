@@ -167,6 +167,49 @@
   filter: blur(3px);
 }
 
+/* ============================================
+   ACHIEVEMENT BADGES - FLOATING CORNERS
+   Posicionados en esquinas con efectos 3D
+   ============================================ */
+
+.achievement-badge-floating {
+  animation: 
+    floatingCornerPulse 3s ease-in-out infinite,
+    badge3DEffect 4s ease-in-out infinite;
+}
+
+.achievement-badge-floating:hover {
+  animation: 
+    floatingCornerPulse 1.5s ease-in-out infinite,
+    badge3DEffect 2s ease-in-out infinite;
+}
+
+@keyframes floatingCornerPulse {
+  0%, 100% {
+    transform: perspective(1000px) translateY(0px) scale(1) rotateX(0deg);
+    filter: brightness(1) drop-shadow(0 0 10px rgba(220, 38, 38, 0.5));
+  }
+  50% {
+    transform: perspective(1000px) translateY(-8px) scale(1.05) rotateX(5deg);
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(220, 38, 38, 0.8));
+  }
+}
+
+@keyframes badge3DEffect {
+  0%, 100% {
+    box-shadow: 
+      0 0 30px rgba(220, 38, 38, 0.6),
+      0 8px 24px rgba(0, 0, 0, 0.6);
+  }
+  50% {
+    box-shadow: 
+      0 0 50px rgba(220, 38, 38, 1),
+      0 0 80px rgba(220, 38, 38, 0.6),
+      0 12px 36px rgba(0, 0, 0, 0.8),
+      inset 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+}
+
 /* Mobile: Efectos y transiciones con adrenalina */
 @media (max-width: 768px) {
   /* Títulos MÁS impactantes en mobile - DISRUPTIVOS */
