@@ -8,7 +8,7 @@ export function useScroll(threshold = 20) {
       setIsScrolled(window.scrollY > threshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold]);
 

@@ -1,123 +1,87 @@
 import { useState } from 'react';
-import { Button } from '../ui/button';
-import { Input } from '../ui/input';
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/data/navigation';
-import { COLORS, FONTS } from '@/lib/constants/theme';
+import { CONTACT } from '@/lib/data/contact';
+import { INSTAGRAM_PROFILE_URL } from '@/lib/constants/social';
+import { FONTS } from '@/lib/constants/theme';
 import { notify } from '@/lib/utils';
+import { getImageUrl } from '@/lib/assets';
 
 export function Footer() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-  });
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  const [sending, setSending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validación básica
     if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim()) {
-      notify.error('Campos incompletos', 'Por favor complete todos los campos');
+      notify.error('Faltan datos', 'Completa nombre, correo y teléfono.');
       return;
     }
-
-    // Aquí iría la llamada a la API
+    setSending(true);
     try {
-      // Simular envío
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      notify.success('¡Suscripción exitosa!', 'Gracias por suscribirte a nuestro newsletter');
+      await new Promise((resolve) => setTimeout(resolve, 700));
+      notify.success('Listo', 'Te avisaremos de clases, exámenes y competencias.');
       setFormData({ name: '', email: '', phone: '' });
-    } catch (error) {
-      notify.error('Error al suscribirse', 'Por favor intenta nuevamente');
+    } catch {
+      notify.error('No se pudo enviar', 'Inténtalo de nuevo o escríbenos por WhatsApp.');
+    } finally {
+      setSending(false);
     }
   };
 
   return (
-    <footer className="bg-black border-t" style={{ borderColor: `${COLORS.primary}33` }}>
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* About */}
+    <footer className="border-t border-white/10 bg-black pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] lg:pb-0">
+      <div className="container-page py-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: COLORS.primary }}
-              >
-                <span className="text-white" style={{ fontFamily: FONTS.heading, fontSize: '24px' }}>
-                  AC
-                </span>
-              </div>
+            <div className="mb-5 flex items-center gap-3">
+              <img
+                src={getImageUrl('logo-academia-caucana')}
+                alt=""
+                className="h-12 w-12 rounded-full object-cover"
+                width={48}
+                height={48}
+              />
               <div>
-                <div className="text-white" style={{ fontFamily: FONTS.heading, fontSize: '18px', lineHeight: '1.2' }}>
+                <div className="text-white" style={{ fontFamily: FONTS.heading, fontSize: 18 }}>
                   Academia Caucana
                 </div>
-                <div style={{ color: COLORS.primary, fontSize: '12px', letterSpacing: '1px' }}>
-                  TAEKWONDO ITF
+                <div className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand-light">
+                  Taekwondo ITF
                 </div>
               </div>
             </div>
-            <p className="mb-4" style={{ fontFamily: FONTS.body, fontSize: '14px', lineHeight: '1.6', color: COLORS.textTertiary }}>
-              Formando buenas personas con honor y disciplina desde octubre de 2023.
+            <p className="mb-5 text-[15px] leading-relaxed text-white/60">
+              Formamos personas con honor y disciplina. El deporte es el camino; el carácter es el resultado.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="https://facebook.com/academiacaucana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center transition-colors duration-300"
-                style={{ backgroundColor: COLORS.backgroundSecondary }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COLORS.primary)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = COLORS.backgroundSecondary)}
-                aria-label="Síguenos en Facebook"
-              >
-                <Facebook className="w-5 h-5 text-white" aria-hidden="true" />
-              </a>
-              <a
-                href="https://www.instagram.com/academiacaucanatkd/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center transition-colors duration-300"
-                style={{ backgroundColor: COLORS.backgroundSecondary }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COLORS.primary)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = COLORS.backgroundSecondary)}
-                aria-label="Síguenos en Instagram"
-              >
-                <Instagram className="w-5 h-5 text-white" aria-hidden="true" />
-              </a>
-              <a
-                href="https://youtube.com/@academiacaucana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center transition-colors duration-300"
-                style={{ backgroundColor: COLORS.backgroundSecondary }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COLORS.primary)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = COLORS.backgroundSecondary)}
-                aria-label="Síguenos en YouTube"
-              >
-                <Youtube className="w-5 h-5 text-white" aria-hidden="true" />
-              </a>
+            <div className="flex gap-2">
+              {[
+                { href: 'https://facebook.com/academiacaucana', label: 'Facebook', Icon: Facebook },
+                { href: INSTAGRAM_PROFILE_URL, label: 'Instagram', Icon: Instagram },
+                { href: 'https://youtube.com/@academiacaucana', label: 'YouTube', Icon: Youtube },
+              ].map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-brand"
+                  aria-label={`Síguenos en ${label}`}
+                >
+                  <Icon className="h-5 w-5" aria-hidden />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3
-              className="text-white mb-6"
-              style={{ fontFamily: FONTS.heading, fontSize: '20px', letterSpacing: '1px' }}
-            >
-              Enlaces Rápidos
-            </h3>
-            <ul className="space-y-3">
+            <h2 className="mb-5 text-white" style={{ fontFamily: FONTS.heading, fontSize: 20, letterSpacing: '0.06em' }}>
+              Explorar
+            </h2>
+            <ul className="space-y-1">
               {NAV_LINKS.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="transition-colors duration-300"
-                    style={{ fontFamily: FONTS.body, fontSize: '14px', color: COLORS.textTertiary }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = COLORS.primary)}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = COLORS.textTertiary)}
-                  >
+                  <a href={link.href} className="inline-flex min-h-tap items-center text-[15px] text-white/60 hover:text-white">
                     {link.name}
                   </a>
                 </li>
@@ -125,134 +89,92 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h3
-              className="text-white mb-6"
-              style={{ fontFamily: FONTS.heading, fontSize: '20px', letterSpacing: '1px' }}
-            >
+            <h2 className="mb-5 text-white" style={{ fontFamily: FONTS.heading, fontSize: 20, letterSpacing: '0.06em' }}>
               Contacto
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: COLORS.primary }} />
-                <div>
-                  <div style={{ fontFamily: FONTS.body, fontSize: '14px', color: COLORS.textTertiary }}>
-                    info@academiacaucana.com
-                  </div>
-                </div>
+            </h2>
+            <ul className="space-y-4 text-[15px] text-white/70">
+              <li className="flex gap-3">
+                <Mail className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                <a href={`mailto:${CONTACT.email}`} className="hover:text-white">
+                  {CONTACT.email}
+                </a>
               </li>
-              <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: COLORS.primary }} />
-                <div>
-                  <div style={{ fontFamily: FONTS.body, fontSize: '14px', color: COLORS.textTertiary }}>
-                    +57 312 456 7890
-                  </div>
-                </div>
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                <a href={`tel:${CONTACT.phoneTel}`} className="hover:text-white">
+                  {CONTACT.phoneDisplay}
+                </a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: COLORS.primary }} />
-                <div>
-                  <div style={{ fontFamily: FONTS.body, fontSize: '14px', color: COLORS.textTertiary }}>
-                    Calle 5 #10-25<br />
-                    Popayán, Cauca
-                  </div>
-                </div>
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand" aria-hidden />
+                <span>
+                  {CONTACT.addressLine}
+                  <br />
+                  {CONTACT.city}
+                </span>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div>
-            <h3
-              className="text-white mb-6"
-              style={{ fontFamily: FONTS.heading, fontSize: '20px', letterSpacing: '1px' }}
-            >
-              Newsletter
-            </h3>
+            <h2 className="mb-2 text-white" style={{ fontFamily: FONTS.heading, fontSize: 20, letterSpacing: '0.06em' }}>
+              Novedades
+            </h2>
+            <p className="mb-4 text-[14px] text-white/55">Clases, exámenes y competencias. Sin spam.</p>
             <form onSubmit={handleSubmit} className="space-y-3">
-              <Input
+              <label className="sr-only" htmlFor="news-name">
+                Nombre
+              </label>
+              <input
+                id="news-name"
                 type="text"
+                autoComplete="name"
                 placeholder="Nombre"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                style={{
-                  fontFamily: FONTS.body,
-                  borderRadius: '0',
-                  backgroundColor: COLORS.backgroundSecondary,
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: COLORS.white,
-                }}
-                className="placeholder:text-white/40"
+                className="h-11 w-full rounded-control border border-white/10 bg-white/5 px-3 text-[16px] text-white placeholder:text-white/35"
                 required
-                aria-label="Nombre completo para newsletter"
               />
-              <Input
+              <label className="sr-only" htmlFor="news-email">
+                Correo
+              </label>
+              <input
+                id="news-email"
                 type="email"
-                placeholder="Email"
+                autoComplete="email"
+                placeholder="Correo"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                style={{
-                  fontFamily: FONTS.body,
-                  borderRadius: '0',
-                  backgroundColor: COLORS.backgroundSecondary,
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: COLORS.white,
-                }}
-                className="placeholder:text-white/40"
+                className="h-11 w-full rounded-control border border-white/10 bg-white/5 px-3 text-[16px] text-white placeholder:text-white/35"
                 required
-                aria-label="Correo electrónico para newsletter"
               />
-              <Input
+              <label className="sr-only" htmlFor="news-phone">
+                Teléfono
+              </label>
+              <input
+                id="news-phone"
                 type="tel"
+                autoComplete="tel"
+                inputMode="tel"
                 placeholder="Teléfono"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                style={{
-                  fontFamily: FONTS.body,
-                  borderRadius: '0',
-                  backgroundColor: COLORS.backgroundSecondary,
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  color: COLORS.white,
-                }}
-                className="placeholder:text-white/40"
+                className="h-11 w-full rounded-control border border-white/10 bg-white/5 px-3 text-[16px] text-white placeholder:text-white/35"
                 required
-                aria-label="Teléfono para newsletter"
               />
-              <Button
-                type="submit"
-                className="w-full text-white"
-                style={{
-                  fontFamily: FONTS.heading,
-                  fontSize: '16px',
-                  letterSpacing: '1px',
-                  borderRadius: '0',
-                  backgroundColor: COLORS.primary,
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = COLORS.primaryLight)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = COLORS.primary)}
-              >
-                Suscribirse
-              </Button>
+              <button type="submit" className="btn-primary w-full" disabled={sending}>
+                {sending ? 'Enviando…' : 'Recibir novedades'}
+              </button>
             </form>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="text-center">
-            <p
-              className="mb-2"
-              style={{ fontFamily: FONTS.body, fontSize: '14px', color: COLORS.textMuted }}
-            >
-              © 2025 Academia Caucana de Taekwondo ITF. Todos los derechos reservados.
-            </p>
-            <p
-              style={{ fontFamily: FONTS.heading, fontSize: '16px', letterSpacing: '1px', color: COLORS.textTertiary }}
-            >
-              Formando buenas personas con honor y disciplina
-            </p>
-          </div>
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-center sm:flex-row sm:text-left">
+          <p className="text-[13px] text-white/40">
+            © {new Date().getFullYear()} Academia Caucana de Taekwondo ITF. Popayán, Cauca.
+          </p>
+          <p className="text-[13px] text-white/50">No buscamos solo campeones. Formamos mejores personas.</p>
         </div>
       </div>
     </footer>

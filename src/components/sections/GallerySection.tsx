@@ -1,90 +1,95 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { GALLERY_ITEMS } from '@/lib/data/gallery';
 import { getImageUrl } from '@/lib/assets';
 import { SectionTitle } from '@/shared/SectionTitle';
-import { OptimizedImage } from '@/shared/OptimizedImage';
-import { COLORS, FONTS, ANIMATIONS } from '@/lib/constants/theme';
+import { FONTS } from '@/lib/constants/theme';
 
 export const GallerySection = memo(function GallerySection() {
-  const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.2 });
+  const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
+  const [active, setActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setActive(null);
+    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [active]);
 
   return (
-    <section id="galeria" ref={ref} className="py-20 bg-black">
-      <div className="container mx-auto px-4">
+    <section id="galeria" ref={ref} className="section-y bg-black">
+      <div className="container-page">
         <SectionTitle
-          title="Logros y Eventos"
-          highlight="Eventos"
-          subtitle="Celebrando nuestros triunfos y momentos memorables"
+          eyebrow="Portafolio"
+          title="Logros que se pueden ver"
+          subtitle="Competencias, reconocimientos y el día a día del proceso en Popayán."
           isInView={isInView}
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {GALLERY_ITEMS.map((item, index) => (
-            <motion.div
-              key={`gallery-${item.title}-${index}`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: ANIMATIONS.duration.fast, delay: index * ANIMATIONS.delay.stagger }}
-              className="group relative aspect-[4/3] overflow-hidden cursor-pointer"
-              role="article"
-              aria-label={`${item.title} - ${item.category}`}
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  // Aquí iría la acción de ver más detalles
-                }
-              }}
+            <motion.figure
+              key={item.title}
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.05 }}
+              className="group relative aspect-[4/3] overflow-hidden rounded-card"
             >
-              <OptimizedImage
-                src={getImageUrl(item.image)}
-                alt={`${item.title} - ${item.category} de la Academia Caucana de Taekwondo ITF`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                style={{ objectFit: 'cover' }}
+              <button
+                type="button"
+                className="absolute inset-0 z-10 text-left"
+                onClick={() => setActive(index)}
+                aria-label={`Ampliar: ${item.title}`}
               />
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-300" />
-
-              {/* Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                <div className="mb-2">
-                  <span
-                    className="inline-block px-3 py-1 bg-black/50"
-                    style={{
-                      fontFamily: FONTS.heading,
-                      fontSize: '12px',
-                      letterSpacing: '1px',
-                      color: COLORS.primary,
-                    }}
-                  >
-                    {item.category}
-                  </span>
-                </div>
-                <h3
-                  className="text-white mb-2"
-                  style={{ fontFamily: FONTS.heading, fontSize: '24px', letterSpacing: '1px' }}
-                >
+              <img
+                src={getImageUrl(item.image)}
+                alt={`${item.title}. ${item.category}.`}
+                className="h-full w-full object-cover transition-transform duration-700 ease-apple group-hover:scale-105"
+                loading="lazy"
+              />
+              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 pt-16">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-light">{item.category}</p>
+                <h3 className="text-white" style={{ fontFamily: FONTS.heading, fontSize: 22 }}>
                   {item.title}
                 </h3>
-                <div className="flex items-center gap-2 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span style={{ fontFamily: FONTS.body, fontSize: '14px' }}>Ver más</span>
-                  <ExternalLink className="w-4 h-4" />
-                </div>
-              </div>
-
-              {/* Corner accent */}
-              <div
-                className="absolute top-0 right-0 w-0 h-0 border-l-[40px] border-l-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ borderTopWidth: '40px', borderTopColor: COLORS.primary }}
-              />
-            </motion.div>
+              </figcaption>
+            </motion.figure>
           ))}
         </div>
       </div>
+
+      {active !== null && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={GALLERY_ITEMS[active].title}
+          onClick={() => setActive(null)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white"
+            onClick={() => setActive(null)}
+            aria-label="Cerrar"
+          >
+            ×
+          </button>
+          <img
+            src={getImageUrl(GALLERY_ITEMS[active].image)}
+            alt={GALLERY_ITEMS[active].title}
+            className="max-h-[80vh] max-w-full rounded-card object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 });

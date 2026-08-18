@@ -98,17 +98,17 @@ export function FloatingPaymentButton() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 text-white px-6 py-4 shadow-lg shadow-red-900/50 hover:shadow-red-900/80 transition-all duration-300 z-40 flex items-center gap-2 group"
+        className="fixed bottom-8 left-8 z-40 hidden items-center gap-2 rounded-control px-5 py-3 text-white shadow-glow transition-transform duration-200 hover:scale-[1.02] lg:flex"
         style={{
-          fontFamily: FONTS.heading,
-          fontSize: '18px',
-          letterSpacing: '1px',
-          background: `linear-gradient(to right, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
+          fontFamily: FONTS.body,
+          fontSize: '15px',
+          fontWeight: 600,
+          background: `linear-gradient(180deg, ${COLORS.primaryLight}, ${COLORS.primaryDark})`,
         }}
-        aria-label="Abrir formulario de pago"
+        aria-label="Abrir pago de mensualidad"
       >
-        <CreditCard className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
-        <span>Pagar Mensualidad</span>
+        <CreditCard className="h-5 w-5" aria-hidden="true" />
+        <span>Pagar mensualidad</span>
       </button>
 
       {/* Payment Dialog */}
