@@ -25,7 +25,9 @@ export function HeroSection() {
 
   useEffect(() => {
     if (reduced || paused) return;
-    const t = window.setInterval(next, AUTOPLAY_MS);
+    const t = window.setInterval(() => {
+      if (!document.hidden) next();
+    }, AUTOPLAY_MS);
     return () => window.clearInterval(t);
   }, [next, paused, reduced]);
 
@@ -134,7 +136,7 @@ export function HeroSection() {
                 aria-selected={i === index}
                 aria-label={s.title}
                 onClick={() => goTo(i)}
-                data-active={i === index}
+                data-active={i === index && !paused}
                 className="progress-track"
               >
                 <span className="progress-fill" />

@@ -45,6 +45,7 @@
     min-height: 100%;
     background: var(--bg);
     color: var(--ink);
+    overflow-x: clip;
   }
 
   body {
@@ -71,6 +72,22 @@
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  main section[id] {
+    scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 0.75rem);
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    scroll-margin-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  select,
+  option {
+    color-scheme: dark;
   }
 }
 

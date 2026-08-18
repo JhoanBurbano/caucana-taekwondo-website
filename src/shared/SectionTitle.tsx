@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { FONTS } from '@/lib/constants/theme';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { cn } from '@/components/ui/utils';
 
 interface SectionTitleProps {
   eyebrow?: string;
@@ -39,7 +40,7 @@ export function SectionTitle({
       initial={reduced ? false : { opacity: 0, y: 18 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`mb-10 sm:mb-14 max-w-3xl ${alignCls} ${className}`}
+      className={cn('mb-10 sm:mb-14 max-w-3xl', alignCls, className)}
     >
       {eyebrow && (
         <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-brand-light">
