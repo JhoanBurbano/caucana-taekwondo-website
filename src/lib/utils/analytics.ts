@@ -61,7 +61,7 @@ export const analytics = {
   },
 
   // Trial Form Submit
-  trialFormSubmit: (formData: { name: string; phone: string }) => {
+  trialFormSubmit: (_formData: { name: string; phone: string }) => {
     trackEvent('trial_form_submit', {
       value: 1, // Valor estimado de lead
       currency: 'COP',

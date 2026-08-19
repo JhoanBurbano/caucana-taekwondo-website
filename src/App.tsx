@@ -1,67 +1,77 @@
 import { Suspense, lazy } from 'react';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
+import { StickyMobileCTA } from './components/layout/StickyMobileCTA';
 import { HeroSection } from './components/sections/HeroSection';
 import { ErrorBoundary } from './shared/ErrorBoundary';
 import { Toaster } from './components/ui/toaster';
 import { SkeletonLoader } from './shared/SkeletonLoader';
 import { WhatsAppButton } from './components/features/WhatsAppButton';
-import { FONTS } from './lib/constants/theme';
+import { FloatingPaymentButton } from './components/features/FloatingPaymentButton';
 
-// Lazy load de secciones pesadas
-const AboutSection = lazy(() => import('./components/sections/AboutSection').then(m => ({ default: m.AboutSection })));
-const CoachesSection = lazy(() => import('./components/sections/CoachesSection').then(m => ({ default: m.CoachesSection })));
-const PricingSection = lazy(() => import('./components/sections/PricingSection').then(m => ({ default: m.PricingSection })));
-const GallerySection = lazy(() => import('./components/sections/GallerySection').then(m => ({ default: m.GallerySection })));
-const ReviewsSection = lazy(() => import('./components/sections/ReviewsSection').then(m => ({ default: m.ReviewsSection })));
-const FAQSection = lazy(() => import('./components/sections/FAQSection').then(m => ({ default: m.FAQSection })));
-const InstagramSection = lazy(() => import('./components/sections/InstagramSection').then(m => ({ default: m.InstagramSection })));
-const SponsorsSection = lazy(() => import('./components/sections/SponsorsSection').then(m => ({ default: m.SponsorsSection })));
+const AboutSection = lazy(() => import('./components/sections/AboutSection').then((m) => ({ default: m.AboutSection })));
+const ProgramsSection = lazy(() =>
+  import('./components/sections/ProgramsSection').then((m) => ({ default: m.ProgramsSection })),
+);
+const CoachesSection = lazy(() =>
+  import('./components/sections/CoachesSection').then((m) => ({ default: m.CoachesSection })),
+);
+const PricingSection = lazy(() =>
+  import('./components/sections/PricingSection').then((m) => ({ default: m.PricingSection })),
+);
+const TrialSection = lazy(() => import('./components/sections/TrialSection').then((m) => ({ default: m.TrialSection })));
+const GallerySection = lazy(() =>
+  import('./components/sections/GallerySection').then((m) => ({ default: m.GallerySection })),
+);
+const ReviewsSection = lazy(() =>
+  import('./components/sections/ReviewsSection').then((m) => ({ default: m.ReviewsSection })),
+);
+const FAQSection = lazy(() => import('./components/sections/FAQSection').then((m) => ({ default: m.FAQSection })));
+const InstagramSection = lazy(() =>
+  import('./components/sections/InstagramSection').then((m) => ({ default: m.InstagramSection })),
+);
+const SponsorsSection = lazy(() =>
+  import('./components/sections/SponsorsSection').then((m) => ({ default: m.SponsorsSection })),
+);
+const LocationSection = lazy(() =>
+  import('./components/sections/LocationSection').then((m) => ({ default: m.LocationSection })),
+);
 
 export default function App() {
   return (
     <ErrorBoundary>
-      {/* Skip to content link for accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:outline-none focus:ring-2 focus:ring-red-600"
-        style={{ fontFamily: FONTS.body }}
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-control focus:bg-white focus:px-4 focus:py-3 focus:text-black"
       >
-        Saltar al contenido principal
+        Saltar al contenido
       </a>
 
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-black text-white">
         <Header />
         <main id="main-content">
           <HeroSection />
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
+          <Suspense fallback={<SkeletonLoader variant="card" className="mx-auto my-12 h-64 max-w-6xl" />}>
             <AboutSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
+            <ProgramsSection />
             <CoachesSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
-            <PricingSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
             <GallerySection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
             <ReviewsSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
+            <PricingSection />
+            <TrialSection />
             <FAQSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
+            <LocationSection />
             <InstagramSection />
-          </Suspense>
-          <Suspense fallback={<SkeletonLoader variant="card" className="h-96" />}>
             <SponsorsSection />
           </Suspense>
         </main>
         <Footer />
         <Toaster />
         <WhatsAppButton />
+        <StickyMobileCTA />
+        <div className="hidden lg:block">
+          <FloatingPaymentButton />
+        </div>
       </div>
     </ErrorBoundary>
   );

@@ -1,129 +1,72 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { FAQ_ITEMS } from '@/lib/data/faq';
-import { COLORS, FONTS, ANIMATIONS } from '@/lib/constants/theme';
+import { WHATSAPP_MESSAGES, whatsappUrl } from '@/lib/data/contact';
 
 export function FAQSection() {
-  const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.2 });
+  const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section
-      ref={ref}
-      className="py-20 relative overflow-hidden"
-      style={{ backgroundColor: COLORS.background }}
-    >
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="preguntas" ref={ref} className="section-y bg-black">
+      <div className="container-page">
         <SectionTitle
-          title="Preguntas Frecuentes"
-          highlight="Frecuentes"
-          subtitle="Respuestas a las dudas más comunes sobre nuestros programas"
+          eyebrow="Dudas"
+          title="Preguntas que sí importan"
+          subtitle="Precios, edades, certificación y qué esperar en la primera clase."
           isInView={isInView}
         />
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="mx-auto max-w-3xl space-y-3">
           {FAQ_ITEMS.map((item, index) => {
             const isOpen = openIndex === index;
-
+            const panelId = `faq-panel-${index}`;
+            const btnId = `faq-btn-${index}`;
             return (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.question}
+                initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{
-                  duration: ANIMATIONS.duration.normal,
-                  delay: index * ANIMATIONS.delay.stagger,
-                }}
-                className="border-2 overflow-hidden"
-                style={{
-                  backgroundColor: COLORS.backgroundSecondary,
-                  borderColor: isOpen ? COLORS.primary : 'rgba(255, 255, 255, 0.1)',
-                }}
+                transition={{ delay: index * 0.04 }}
+                className={`overflow-hidden rounded-card border ${isOpen ? 'border-brand/50 bg-surface-grouped' : 'border-white/10 bg-white/[0.03]'}`}
               >
-                <button
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 transition-colors duration-300 hover:bg-white/5"
-                  style={{ fontFamily: FONTS.body }}
-                  aria-expanded={isOpen}
-                  aria-controls={`faq-answer-${index}`}
-                >
-                  <span
-                    style={{
-                      fontFamily: FONTS.heading,
-                      fontSize: '18px',
-                      letterSpacing: '0.5px',
-                      color: isOpen ? COLORS.primary : COLORS.white,
-                    }}
+                <h3>
+                  <button
+                    id={btnId}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls={panelId}
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex min-h-tap w-full items-center justify-between gap-4 px-5 py-4 text-left text-[17px] font-medium text-white"
                   >
                     {item.question}
-                  </span>
-                  <ChevronDown
-                    className="flex-shrink-0 transition-transform duration-300"
-                    style={{
-                      transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                      color: isOpen ? COLORS.primary : COLORS.textSecondary,
-                    }}
-                    size={24}
-                    aria-hidden="true"
-                  />
-                </button>
-
-                <motion.div
-                  id={`faq-answer-${index}`}
-                  initial={false}
-                  animate={{
-                    height: isOpen ? 'auto' : 0,
-                    opacity: isOpen ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  style={{ overflow: 'hidden' }}
-                >
-                  <div
-                    className="px-6 pb-4"
-                    style={{
-                      fontFamily: FONTS.body,
-                      fontSize: '15px',
-                      lineHeight: '1.6',
-                      color: COLORS.textSecondary,
-                    }}
-                  >
-                    {item.answer}
-                  </div>
-                </motion.div>
+                    <ChevronDown
+                      className={`h-5 w-5 shrink-0 text-brand transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                      aria-hidden
+                    />
+                  </button>
+                </h3>
+                <div id={panelId} role="region" aria-labelledby={btnId} hidden={!isOpen} className="px-5 pb-5 text-[15px] leading-relaxed text-white/70">
+                  {item.answer}
+                </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 text-center"
-        >
-          <p style={{ fontFamily: FONTS.body, fontSize: '16px', color: COLORS.textSecondary, marginBottom: '16px' }}>
-            ¿Tienes más preguntas?
-          </p>
+        <p className="mt-10 text-center">
           <a
-            href="https://wa.me/573124567890?text=Hola,%20tengo%20una%20pregunta%20sobre%20Academia%20Caucana"
+            href={whatsappUrl(WHATSAPP_MESSAGES.question)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 text-white transition-all duration-300 hover:scale-105"
-            style={{
-              fontFamily: FONTS.heading,
-              fontSize: '18px',
-              letterSpacing: '1px',
-              background: `linear-gradient(to right, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
-              boxShadow: `0 4px 12px ${COLORS.primary}50`,
-            }}
+            className="btn-secondary"
           >
-            Contáctanos por WhatsApp
+            ¿Otra pregunta? Escríbenos
           </a>
-        </motion.div>
+        </p>
       </div>
     </section>
   );

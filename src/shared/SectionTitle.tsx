@@ -1,68 +1,68 @@
 import { motion } from 'motion/react';
-import { COLORS, FONTS } from '@/lib/constants/theme';
+import { FONTS } from '@/lib/constants/theme';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { cn } from '@/components/ui/utils';
 
 interface SectionTitleProps {
+  eyebrow?: string;
   title: string;
   highlight?: string;
   subtitle?: string;
   className?: string;
-  animate?: boolean;
+  align?: 'center' | 'left';
   isInView?: boolean;
 }
 
 export function SectionTitle({
+  eyebrow,
   title,
   highlight,
   subtitle,
   className = '',
-  animate = true,
+  align = 'center',
   isInView = true,
 }: SectionTitleProps) {
-  const content = (
-    <>
-      <h2
-        className={`text-white mb-4 ${className}`}
-        style={{
-          fontFamily: FONTS.heading,
-          fontSize: 'clamp(36px, 5vw, 64px)',
-          letterSpacing: '2px',
-        }}
-      >
-        {highlight ? (
-          <>
-            {title.split(highlight)[0]}
-            <span style={{ color: COLORS.primary }}>{highlight}</span>
-            {title.split(highlight)[1]}
-          </>
-        ) : (
-          title
-        )}
-      </h2>
-      {subtitle && (
-        <p
-          className="text-white/70 max-w-2xl mx-auto"
-          style={{ fontFamily: FONTS.body, fontSize: '18px' }}
-        >
-          {subtitle}
-        </p>
-      )}
-      <div className="w-24 h-1 mx-auto mt-4" style={{ backgroundColor: COLORS.primary }} />
-    </>
-  );
+  const reduced = usePrefersReducedMotion();
+  const alignCls = align === 'left' ? 'text-left' : 'text-center mx-auto';
 
-  if (!animate) {
-    return <div className="text-center mb-16">{content}</div>;
-  }
+  const heading = highlight ? (
+    <>
+      {title.split(highlight)[0]}
+      <span className="text-brand">{highlight}</span>
+      {title.split(highlight)[1]}
+    </>
+  ) : (
+    title
+  );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={reduced ? false : { opacity: 0, y: 18 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-16"
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      className={cn('mb-10 sm:mb-14 max-w-3xl', alignCls, className)}
     >
-      {content}
+      {eyebrow && (
+        <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-brand-light">
+          {eyebrow}
+        </p>
+      )}
+      <h2
+        className="text-ink mb-3"
+        style={{
+          fontFamily: FONTS.heading,
+          fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+          letterSpacing: '0.04em',
+          lineHeight: 0.98,
+        }}
+      >
+        {heading}
+      </h2>
+      {subtitle && (
+        <p className="text-body text-white/70 max-w-2xl" style={{ marginInline: align === 'center' ? 'auto' : undefined }}>
+          {subtitle}
+        </p>
+      )}
     </motion.div>
   );
 }
-

@@ -6,6 +6,8 @@ export interface HeroSlide {
   imageId: ExternalImageId;
   title: string;
   subtitle: string;
+  /** Línea de contexto sobre el título */
+  eyebrow?: string;
   /** Si true, es la modalidad principal (Taekwondo) */
   primary?: boolean;
 }
@@ -54,6 +56,8 @@ export interface PricingPlan {
   period: string;
   features: string[];
   featured: boolean;
+  cta: string;
+  note?: string;
 }
 
 export interface GalleryItem {
@@ -81,6 +85,8 @@ export interface FAQItem {
   question: string;
   answer: string;
 }
+
+export interface PaymentFormData {
   identificationType: string;
   identification: string;
   name: string;
@@ -112,3 +118,40 @@ export interface TimelineMilestone {
   kind?: TimelineKind;
 }
 
+export interface Program {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  audience: string;
+  imageId: ExternalImageId;
+}
+
+export interface AgeGroup {
+  id: string;
+  label: string;
+  ages: string;
+  focus: string;
+}
+
+export interface AcademyStat {
+  id: string;
+  value: string;
+  label: string;
+  hint: string;
+}
+
+export interface Review {
+  author: string;
+  rating: number;
+  text: string;
+  date: string;
+  location?: string;
+}
+
+export interface TrialFormData {
+  name: string;
+  phone: string;
+  group: string;
+  program: string;
+}

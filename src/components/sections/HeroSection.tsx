@@ -1,221 +1,161 @@
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'motion/react';
-import { Button } from '../ui/button';
+import { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
+import { Pause, Play } from 'lucide-react';
 import { getImageUrl } from '@/lib/assets';
 import { HERO_SLIDES } from '@/lib/data/hero';
-import { COLORS, FONTS } from '@/lib/constants/theme';
-import { AchievementStats } from '../features/AchievementStats';
-import { BrushStrokes } from '../effects/BrushStrokes';
+import { ACADEMY_STATS } from '@/lib/data/stats';
+import { FONTS } from '@/lib/constants/theme';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const AUTOPLAY_MS = 6000;
-const SWIPE_THRESHOLD = 50;
+const SWIPE_THRESHOLD = 48;
 
 export function HeroSection() {
+  const reduced = usePrefersReducedMotion();
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const slide = HERO_SLIDES[index];
-  const x = useMotionValue(0);
-  const [isDragging, setIsDragging] = useState(false);
 
   const goTo = useCallback((i: number) => {
     setIndex((i + HERO_SLIDES.length) % HERO_SLIDES.length);
   }, []);
 
-  const next = useCallback(() => {
-    goTo(index + 1);
-  }, [index, goTo]);
-
-  const prev = useCallback(() => {
-    goTo(index - 1);
-  }, [index, goTo]);
+  const next = useCallback(() => goTo(index + 1), [goTo, index]);
+  const prev = useCallback(() => goTo(index - 1), [goTo, index]);
 
   useEffect(() => {
-    if (isDragging) return;
-    const t = setInterval(next, AUTOPLAY_MS);
-    return () => clearInterval(t);
-  }, [next, isDragging]);
-
-  // Touch/swipe handlers para mobile
-  const handleDragEnd = useCallback(
-    (_: any, info: { offset: { x: number } }) => {
-      setIsDragging(false);
-      const offsetX = info.offset.x;
-      
-      if (offsetX > SWIPE_THRESHOLD) {
-        prev();
-      } else if (offsetX < -SWIPE_THRESHOLD) {
-        next();
-      }
-      
-      x.set(0);
-    },
-    [next, prev, x]
-  );
+    if (reduced || paused) return;
+    const t = window.setInterval(() => {
+      if (!document.hidden) next();
+    }, AUTOPLAY_MS);
+    return () => window.clearInterval(t);
+  }, [next, paused, reduced]);
 
   return (
     <section
       id="inicio"
-      className="hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
-      aria-label="Carrusel de modalidades: Taekwondo, Kickboxing, Acondicionamiento físico"
+      className="relative flex min-h-[100svh] items-end overflow-hidden bg-black pb-24 pt-[calc(var(--header-h)+env(safe-area-inset-top)+1.5rem)] sm:items-center sm:pb-16"
+      aria-roledescription="carrusel"
+      aria-label="Modalidades de la academia"
     >
-      {/* Brochazos visuales de la marca */}
-      <BrushStrokes />
-
-      {/* Slides: cada uno con imagen en cover para toda la sección */}
-      <AnimatePresence mode="wait" initial={false}>
-        {HERO_SLIDES.map((s, i) => (
-          <motion.div
-            key={s.id}
-            className="absolute inset-0"
-            initial={false}
-            animate={{
-              opacity: i === index ? 1 : 0,
-              pointerEvents: i === index ? 'auto' : 'none',
-            }}
-            transition={{ duration: 0.6 }}
-            aria-hidden={i !== index}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.2}
-            onDragStart={() => setIsDragging(true)}
-            onDragEnd={handleDragEnd}
-            style={{ x }}
-          >
-            {/* Imagen de fondo: cover en toda la sección */}
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat hero-image-dramatic"
-              style={{
-                backgroundImage: `url(${getImageUrl(s.imageId)})`,
-              }}
-            />
-            {/* Overlay dramático con gradiente rojo */}
-            <div
+      <AnimatePresence initial={false}>
+        {HERO_SLIDES.map((s, i) =>
+          i === index ? (
+            <motion.div
+              key={s.id}
               className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.9) 100%)',
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: reduced ? 0 : 0.55 }}
+              drag={reduced ? false : 'x'}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.16}
+              onDragEnd={(_, info) => {
+                if (info.offset.x > SWIPE_THRESHOLD) prev();
+                else if (info.offset.x < -SWIPE_THRESHOLD) next();
               }}
-            />
-          </motion.div>
-        ))}
+            >
+              <div
+                className={`hero-media absolute inset-0 ${i === index ? 'is-active' : ''}`}
+                style={{ backgroundImage: `url(${getImageUrl(s.imageId)})` }}
+                role="img"
+                aria-label={s.title}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/35" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/25 to-transparent" />
+              <div className="grain" />
+            </motion.div>
+          ) : null,
+        )}
       </AnimatePresence>
 
-      {/* Contenido (sincronizado con el slide activo) */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl">
+      <div className="container-page relative z-10 w-full">
+        <div className="max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
-              initial={{ opacity: 0, y: 24 }}
+              initial={reduced ? false : { opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
+              exit={reduced ? undefined : { opacity: 0, y: -12 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Achievement Stats - Solo en el primer slide */}
-              {index === 0 && <AchievementStats />}
-              
+              {slide.eyebrow && (
+                <p className="mb-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-brand-light">
+                  {slide.eyebrow}
+                </p>
+              )}
               <h1
-                className="text-white mb-6 hero-title-neon"
+                className="mb-3 text-white"
                 style={{
                   fontFamily: FONTS.heading,
-                  fontSize: 'clamp(50px, 9vw, 120px)',
-                  lineHeight: '0.95',
-                  letterSpacing: '4px',
-                  textTransform: 'uppercase',
-                  textShadow: '0 0 20px rgba(220, 38, 38, 0.8), 0 0 40px rgba(220, 38, 38, 0.5), 0 4px 8px rgba(0, 0, 0, 0.8)',
+                  fontSize: 'clamp(3.25rem, 12vw, 7rem)',
+                  lineHeight: 0.9,
+                  letterSpacing: '0.04em',
                 }}
               >
                 {slide.title}
               </h1>
-              <p
-                className="text-white mb-3 max-w-2xl"
-                style={{
-                  fontFamily: FONTS.body,
-                  fontSize: 'clamp(13px, 2vw, 16px)',
-                  lineHeight: '1.4',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  fontWeight: '600',
-                  color: 'rgba(255, 255, 255, 0.95)',
-                }}
-              >
+              <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-white/80">
                 Popayán, Cauca
               </p>
-              <p
-                className="text-white/85 mb-8 max-w-2xl"
-                style={{
-                  fontFamily: FONTS.body,
-                  fontSize: 'clamp(15px, 1.8vw, 19px)',
-                  lineHeight: '1.6',
-                }}
-              >
-                {slide.subtitle}
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Button
-                  className="text-white px-10 py-7 transition-all duration-300 neon-button-red"
-                  style={{
-                    fontFamily: FONTS.heading,
-                    fontSize: '22px',
-                    letterSpacing: '1.5px',
-                    borderRadius: '0',
-                    background: `linear-gradient(135deg, ${COLORS.primaryDark}, ${COLORS.primaryLight})`,
-                    boxShadow: '0 0 20px rgba(220, 38, 38, 0.6), 0 0 40px rgba(220, 38, 38, 0.4), 0 8px 16px rgba(0, 0, 0, 0.4)',
-                  }}
-                  onClick={() => document.getElementById('inscripciones')?.scrollIntoView({ behavior: 'smooth' })}
-                  aria-label="Reservar clase de prueba gratis"
-                >
-                  CLASE DE PRUEBA GRATIS
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-2 border-white/80 text-white hover:bg-white hover:text-black px-8 py-6 transition-all duration-300"
-                  style={{
-                    fontFamily: FONTS.heading,
-                    fontSize: '18px',
-                    letterSpacing: '1.5px',
-                    borderRadius: '0',
-                    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
-                  }}
-                  onClick={() => document.getElementById('nosotros')?.scrollIntoView({ behavior: 'smooth' })}
-                  aria-label="Conocer más sobre la academia"
-                >
-                  CONOCER MÁS
-                </Button>
+              <p className="mb-8 max-w-xl text-body text-white/85">{slide.subtitle}</p>
+              <div className="flex flex-col gap-3 xs:flex-row xs:flex-wrap">
+                <a href="#inscripciones" className="btn-primary min-h-12 px-7">
+                  Reserva tu clase gratis
+                </a>
+                <a href="#academia" className="btn-secondary min-h-12 px-7">
+                  Conoce la academia
+                </a>
               </div>
             </motion.div>
           </AnimatePresence>
+
+          <ul className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4" aria-label="Cifras de la academia">
+            {ACADEMY_STATS.map((stat) => (
+              <li
+                key={stat.id}
+                className="rounded-card border border-white/12 bg-black/35 px-3 py-3 backdrop-blur-md"
+              >
+                <div className="text-[28px] leading-none text-white sm:text-[32px]" style={{ fontFamily: FONTS.heading }}>
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-[13px] font-medium text-white">{stat.label}</div>
+                <div className="text-[12px] text-white/55">{stat.hint}</div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 flex items-center gap-3">
+          <div className="flex gap-2" role="tablist" aria-label="Elegir modalidad">
+            {HERO_SLIDES.map((s, i) => (
+              <button
+                key={s.id}
+                type="button"
+                role="tab"
+                aria-selected={i === index}
+                aria-label={s.title}
+                onClick={() => goTo(i)}
+                data-active={i === index && !paused}
+                className="progress-track"
+              >
+                <span className="progress-fill" />
+              </button>
+            ))}
+          </div>
+          {!reduced && (
+            <button
+              type="button"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/80"
+              onClick={() => setPaused((v) => !v)}
+              aria-label={paused ? 'Reanudar carrusel' : 'Pausar carrusel'}
+            >
+              {paused ? <Play className="h-4 w-4" aria-hidden /> : <Pause className="h-4 w-4" aria-hidden />}
+            </button>
+          )}
         </div>
       </div>
-
-      {/* Indicadores (dots) */}
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-10"
-        role="tablist"
-        aria-label="Seleccionar modalidad"
-      >
-        {HERO_SLIDES.map((s, i) => (
-          <button
-            key={s.id}
-            type="button"
-            role="tab"
-            aria-selected={i === index}
-            aria-label={`Ver ${s.title}`}
-            onClick={() => goTo(i)}
-            className="w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            style={{
-              backgroundColor: i === index ? COLORS.primary : 'rgba(255,255,255,0.4)',
-              transform: i === index ? 'scale(1.2)' : 'scale(1)',
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Línea de acento inferior */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-1"
-        style={{
-          background: `linear-gradient(to right, transparent, ${COLORS.primary}, transparent)`,
-        }}
-      />
     </section>
   );
 }
