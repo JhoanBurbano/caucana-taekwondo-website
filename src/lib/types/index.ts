@@ -1,9 +1,9 @@
-import type { ExternalImageId, LocalAssetId } from '../assets/types';
+import type { ImageAssetId, LocalAssetId } from '../assets/types';
 
 export interface HeroSlide {
   id: string;
   /** ID de imagen en @/lib/assets (background cover) */
-  imageId: ExternalImageId;
+  imageId: ImageAssetId;
   title: string;
   subtitle: string;
   /** Línea de contexto sobre el título */
@@ -17,7 +17,7 @@ export interface Coach {
   rank: string;
   bio: string;
   /** ID del asset en @/lib/assets (ej: coach-1) */
-  image: ExternalImageId;
+  image: ImageAssetId;
 }
 
 /** Icono para destacados del perfil del maestro (lucide) */
@@ -64,7 +64,7 @@ export interface GalleryItem {
   title: string;
   category: string;
   /** ID del asset en @/lib/assets (ej: gallery-training) */
-  image: ExternalImageId;
+  image: ImageAssetId;
 }
 
 export interface Sponsor {
@@ -124,7 +124,7 @@ export interface Program {
   tagline: string;
   description: string;
   audience: string;
-  imageId: ExternalImageId;
+  imageId: ImageAssetId;
 }
 
 export interface AgeGroup {

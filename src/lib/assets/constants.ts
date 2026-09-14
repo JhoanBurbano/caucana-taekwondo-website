@@ -10,15 +10,10 @@ import type { AssetMetaMap } from './types'
 
 /** URLs de imágenes externas (Unsplash, CDN, etc.) - Fotos profesionales ALTA CALIDAD 2026 */
 export const EXTERNAL_IMAGES = {
-  // Hero Sections - ALTA DEFINICIÓN (2560px, quality 95) - Específicas por modalidad
-  'hero-taekwondo':
-    'https://images.pexels.com/photos/15937437/pexels-photo-15937437.jpeg?auto=compress&cs=tinysrgb&w=2560&h=1440&dpr=2',
-  // Taekwondo ITF: dobok blanco, patada alta, fondo oscuro - ESPECÍFICO ITF
-  
-  'hero-kickboxing':
-    'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=95&w=2560',
-  // Kickboxing: Sparring real, acción dramática, lighting profesional
-  
+  // Hero Sections
+  // hero-taekwondo y hero-kickboxing son fotos REALES del dojang: viven en
+  // src/assets/images y se resuelven desde ./local.ts, no desde aquí.
+  // hero-acondicionamiento sigue siendo stock, pendiente de foto propia.
   'hero-acondicionamiento':
     'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=95&w=2560',
   // Fitness: Gym training, equipamiento, atletas en acción
@@ -54,13 +49,13 @@ export const EXTERNAL_IMAGES = {
 
 /** Metadata (alt, créditos) para cada asset. Usado por OptimizedImage y SEO. */
 export const ASSET_META: AssetMetaMap = {
-  'hero-taekwondo': { 
-    alt: 'Taekwondo ITF - Atleta con dobok blanco ejecutando patada alta en combate', 
-    credit: 'Pexels' 
+  'hero-taekwondo': {
+    alt: 'Clase de Taekwon-Do ITF en el dojang de la Academia Caucana: instructor en posición de guardia frente a un grupo de niños sentados en el tatami',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
   },
-  'hero-kickboxing': { 
-    alt: 'Kickboxing - Sparring de alta intensidad con técnica de patadas y puños', 
-    credit: 'Unsplash' 
+  'hero-kickboxing': {
+    alt: 'Entrenamiento de Kickboxing en la Academia Caucana: dos atletas con guantes y espinilleras durante un sparring de patada alta',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
   },
   'hero-acondicionamiento': { 
     alt: 'Acondicionamiento físico - Entrenamiento funcional en gym con equipamiento profesional', 
