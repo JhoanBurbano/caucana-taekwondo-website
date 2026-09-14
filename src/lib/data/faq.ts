@@ -7,7 +7,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Cuánto cuesta entrenar en Academia Caucana?',
     answer:
-      'El plan mensual es $120.000 COP (3 clases por semana). El trimestral es $330.000 COP y el anual $1.200.000 COP, con más clases y seguimiento. La primera clase de prueba es gratis, sin compromiso.',
+      'El plan mensual es $150.000 COP (3 clases por semana). El trimestral es $405.000 COP y el anual $1.440.000 COP, con más clases y seguimiento. La primera clase de prueba es gratis, sin compromiso.',
   },
   {
     question: '¿Desde qué edad pueden empezar los niños?',

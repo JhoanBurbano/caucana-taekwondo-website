@@ -7,4 +7,6 @@ export const NAV_LINKS: NavLink[] = [
   { name: 'Planes', href: '#planes' },
   { name: 'Galería', href: '#galeria' },
   { name: 'Contacto', href: '#contacto' },
+  // Ruta propia (página estática), no un ancla de la landing.
+  { name: 'Uniforme oficial', href: '/uniforme-oficial/' },
 ];

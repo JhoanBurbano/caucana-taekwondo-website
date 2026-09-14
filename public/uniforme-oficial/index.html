@@ -11,22 +11,7 @@
     />
     <link rel="canonical" href="https://academiacaucana.com/uniforme-oficial/" />
 
-    <!--
-      El formulario vive en un Google Apps Script Web App. Ese endpoint responde con
-      `x-frame-options: SAMEORIGIN`, por lo que NO admite ser embebido en un <iframe>
-      desde academiacaucana.com. Por eso esta ruta redirige en lugar de embeber.
-      Si algún día el script se despliega con HtmlService.XFrameOptionsMode.ALLOWALL,
-      se puede cambiar esta página por un iframe a pantalla completa.
-    -->
-    <!-- Solo para navegadores sin JS: con JS redirige `location.replace` (ver <script> al final). -->
-    <noscript>
-      <meta
-        http-equiv="refresh"
-        content="0; url=https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
-      />
-    </noscript>
-
-    <!-- No indexar: el contenido real es el formulario externo -->
+    <!-- No indexar: el formulario real vive en el dominio de Google -->
     <meta name="robots" content="noindex, follow" />
 
     <meta name="theme-color" content="#000000" />
@@ -48,7 +33,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://script.google.com" />
+    <link rel="preconnect" href="https://script.google.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap"
       rel="stylesheet"
@@ -64,152 +49,204 @@
         --ink-secondary: rgba(245, 245, 247, 0.78);
         --ink-tertiary: rgba(245, 245, 247, 0.58);
         --radius-control: 12px;
-        --radius-card: 20px;
+        --header-h: 60px;
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html,
+      body {
+        height: 100%;
+      }
+
       body {
         margin: 0;
+        display: flex;
+        flex-direction: column;
         min-height: 100svh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        background: radial-gradient(120% 90% at 50% 0%, #1c1c1e 0%, #000000 62%);
+        background: var(--surface);
         color: var(--ink);
         font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
         font-size: 1.0625rem;
         line-height: 1.47;
         letter-spacing: -0.022em;
-        text-align: center;
       }
 
-      .card {
-        width: 100%;
-        max-width: 460px;
-        padding: 40px 28px;
-        border: 1px solid rgba(245, 245, 247, 0.1);
-        border-radius: var(--radius-card);
-        background: rgba(28, 28, 30, 0.6);
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      /* --- Barra superior --- */
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 10px max(12px, env(safe-area-inset-left)) 10px max(12px, env(safe-area-inset-right));
+        padding-top: calc(10px + env(safe-area-inset-top, 0px));
+        border-bottom: 1px solid rgba(245, 245, 247, 0.1);
+        background: rgba(28, 28, 30, 0.92);
+        backdrop-filter: saturate(180%) blur(20px);
       }
 
-      .logo {
-        width: 84px;
-        height: 84px;
-        margin: 0 auto 20px;
-        display: block;
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 44px;
+        color: inherit;
+        text-decoration: none;
       }
 
-      h1 {
-        margin: 0 0 12px;
+      .brand img {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .brand-text {
         font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
-        font-size: clamp(1.9rem, 7vw, 2.5rem);
-        font-weight: 400;
-        line-height: 1.05;
-        letter-spacing: 0.01em;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
       }
 
-      p {
-        margin: 0 0 8px;
-        color: var(--ink-secondary);
+      .brand-sub {
+        display: block;
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 0.625rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--brand-light);
       }
 
-      .hint {
-        margin-top: 24px;
-        font-size: 0.875rem;
-        color: var(--ink-tertiary);
+      .topbar-actions {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
-      .cta {
+      .link-plain,
+      .link-cta {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         min-height: 44px;
-        margin-top: 24px;
-        padding: 12px 28px;
+        padding: 8px 16px;
         border-radius: var(--radius-control);
-        background: var(--brand);
-        color: #fff;
+        font-size: 0.9375rem;
         font-weight: 600;
         text-decoration: none;
-        box-shadow: 0 8px 32px rgba(255, 59, 48, 0.28);
-        transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.28s;
+        white-space: nowrap;
       }
 
-      .cta:hover {
+      .link-plain {
+        color: var(--ink-secondary);
+      }
+
+      .link-plain:hover {
+        color: var(--ink);
+      }
+
+      .link-cta {
+        background: var(--brand);
+        color: #fff;
+      }
+
+      .link-cta:hover {
         background: var(--brand-light);
-        transform: translateY(-2px);
       }
 
-      .cta:focus-visible {
+      .link-plain:focus-visible,
+      .link-cta:focus-visible,
+      .brand:focus-visible {
         outline: 3px solid var(--brand-light);
-        outline-offset: 3px;
+        outline-offset: 2px;
       }
 
-      .back {
-        display: inline-block;
-        margin-top: 16px;
-        color: var(--ink-tertiary);
+      /* --- Marco del formulario --- */
+      .frame-wrap {
+        position: relative;
+        flex: 1 1 auto;
+        min-height: 0;
+        background: #fff;
+      }
+
+      iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /*
+        Aviso de respaldo: se muestra SIEMPRE bajo el marco, porque desde el
+        navegador no hay forma fiable de detectar cross-origin si el iframe
+        se pintó o quedó bloqueado por X-Frame-Options.
+      */
+      .fallback {
+        padding: 14px max(12px, env(safe-area-inset-left)) calc(14px + env(safe-area-inset-bottom, 0px));
+        border-top: 1px solid rgba(245, 245, 247, 0.1);
+        background: var(--surface-grouped);
+        text-align: center;
         font-size: 0.875rem;
+        color: var(--ink-tertiary);
       }
 
-      .spinner {
-        width: 22px;
-        height: 22px;
-        margin: 20px auto 0;
-        border: 2px solid rgba(245, 245, 247, 0.22);
-        border-top-color: var(--brand);
-        border-radius: 50%;
-        animation: spin 0.9s linear infinite;
+      .fallback a {
+        color: var(--brand-light);
+        font-weight: 600;
       }
 
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .spinner {
-          animation: none;
-        }
-        .cta {
-          transition: none;
-        }
-        .cta:hover {
-          transform: none;
+      @media (max-width: 480px) {
+        .brand-text {
+          display: none;
         }
       }
     </style>
   </head>
 
   <body>
-    <main class="card">
-      <img class="logo" src="/logo.png" alt="Academia Caucana de Taekwon-Do ITF" width="84" height="84" />
+    <header class="topbar">
+      <a class="brand" href="/">
+        <img src="/logo.png" alt="" width="34" height="34" />
+        <span class="brand-text">
+          Pedido de Uniforme
+          <span class="brand-sub">Academia Caucana ITF</span>
+        </span>
+      </a>
 
-      <h1>Pedido de Uniforme Oficial</h1>
-      <p>Te estamos llevando al formulario oficial de pedido.</p>
+      <div class="topbar-actions">
+        <a class="link-plain" href="/">← Volver al sitio</a>
+        <a
+          class="link-cta"
+          href="https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Abrir aparte</a
+        >
+      </div>
+    </header>
 
-      <div class="spinner" role="status" aria-label="Redirigiendo al formulario"></div>
+    <div class="frame-wrap">
+      <iframe
+        title="Formulario de pedido de uniforme oficial"
+        src="https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
+        loading="eager"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
 
+    <p class="fallback">
+      ¿El formulario no se ve?
       <a
-        class="cta"
         href="https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
-        >Abrir formulario</a
-      >
-
-      <p class="hint">Si no se abre automáticamente, toca el botón.</p>
-
-      <a class="back" href="/">← Volver a academiacaucana.com</a>
-    </main>
-
-    <script>
-      // `replace` en lugar de `assign`: no deja esta página en el historial,
-      // así el botón "atrás" del navegador no reenvía al formulario en bucle.
-      window.location.replace(document.querySelector('.cta').href);
-    </script>
+        target="_blank"
+        rel="noopener noreferrer"
+        >Ábrelo en una pestaña nueva</a
+      >.
+    </p>
   </body>
 </html>
