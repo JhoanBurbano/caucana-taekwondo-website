@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Pedido de Uniforme Oficial | Academia Caucana de Taekwon-Do ITF</title>
+    <meta
+      name="description"
+      content="Formulario oficial de pedido de uniforme (dobok) de la Academia Caucana de Taekwon-Do ITF en Popayán, Cauca."
+    />
+    <link rel="canonical" href="https://academiacaucana.com/uniforme-oficial/" />
+
+    <!--
+      El formulario vive en un Google Apps Script Web App. Ese endpoint responde con
+      `x-frame-options: SAMEORIGIN`, por lo que NO admite ser embebido en un <iframe>
+      desde academiacaucana.com. Por eso esta ruta redirige en lugar de embeber.
+      Si algún día el script se despliega con HtmlService.XFrameOptionsMode.ALLOWALL,
+      se puede cambiar esta página por un iframe a pantalla completa.
+    -->
+    <!-- Solo para navegadores sin JS: con JS redirige `location.replace` (ver <script> al final). -->
+    <noscript>
+      <meta
+        http-equiv="refresh"
+        content="0; url=https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
+      />
+    </noscript>
+
+    <!-- No indexar: el contenido real es el formulario externo -->
+    <meta name="robots" content="noindex, follow" />
+
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+    <meta property="og:site_name" content="Academia Caucana de Taekwondo ITF" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://academiacaucana.com/uniforme-oficial/" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:title" content="Pedido de Uniforme Oficial | Academia Caucana de Taekwon-Do ITF" />
+    <meta
+      property="og:description"
+      content="Diligencia el formulario oficial para pedir tu dobok de la Academia Caucana de Taekwon-Do ITF."
+    />
+    <meta property="og:image" content="https://academiacaucana.com/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://script.google.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand: #ff3b30;
+        --brand-light: #ff6961;
+        --surface: #000000;
+        --surface-grouped: #1c1c1e;
+        --ink: #f5f5f7;
+        --ink-secondary: rgba(245, 245, 247, 0.78);
+        --ink-tertiary: rgba(245, 245, 247, 0.58);
+        --radius-control: 12px;
+        --radius-card: 20px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: radial-gradient(120% 90% at 50% 0%, #1c1c1e 0%, #000000 62%);
+        color: var(--ink);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+        font-size: 1.0625rem;
+        line-height: 1.47;
+        letter-spacing: -0.022em;
+        text-align: center;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 460px;
+        padding: 40px 28px;
+        border: 1px solid rgba(245, 245, 247, 0.1);
+        border-radius: var(--radius-card);
+        background: rgba(28, 28, 30, 0.6);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      }
+
+      .logo {
+        width: 84px;
+        height: 84px;
+        margin: 0 auto 20px;
+        display: block;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-family: 'Bebas Neue', 'Arial Narrow', sans-serif;
+        font-size: clamp(1.9rem, 7vw, 2.5rem);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+      }
+
+      p {
+        margin: 0 0 8px;
+        color: var(--ink-secondary);
+      }
+
+      .hint {
+        margin-top: 24px;
+        font-size: 0.875rem;
+        color: var(--ink-tertiary);
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        margin-top: 24px;
+        padding: 12px 28px;
+        border-radius: var(--radius-control);
+        background: var(--brand);
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 8px 32px rgba(255, 59, 48, 0.28);
+        transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.28s;
+      }
+
+      .cta:hover {
+        background: var(--brand-light);
+        transform: translateY(-2px);
+      }
+
+      .cta:focus-visible {
+        outline: 3px solid var(--brand-light);
+        outline-offset: 3px;
+      }
+
+      .back {
+        display: inline-block;
+        margin-top: 16px;
+        color: var(--ink-tertiary);
+        font-size: 0.875rem;
+      }
+
+      .spinner {
+        width: 22px;
+        height: 22px;
+        margin: 20px auto 0;
+        border: 2px solid rgba(245, 245, 247, 0.22);
+        border-top-color: var(--brand);
+        border-radius: 50%;
+        animation: spin 0.9s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .spinner {
+          animation: none;
+        }
+        .cta {
+          transition: none;
+        }
+        .cta:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="card">
+      <img class="logo" src="/logo.png" alt="Academia Caucana de Taekwon-Do ITF" width="84" height="84" />
+
+      <h1>Pedido de Uniforme Oficial</h1>
+      <p>Te estamos llevando al formulario oficial de pedido.</p>
+
+      <div class="spinner" role="status" aria-label="Redirigiendo al formulario"></div>
+
+      <a
+        class="cta"
+        href="https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec"
+        >Abrir formulario</a
+      >
+
+      <p class="hint">Si no se abre automáticamente, toca el botón.</p>
+
+      <a class="back" href="/">← Volver a academiacaucana.com</a>
+    </main>
+
+    <script>
+      // `replace` en lugar de `assign`: no deja esta página en el historial,
+      // así el botón "atrás" del navegador no reenvía al formulario en bucle.
+      window.location.replace(document.querySelector('.cta').href);
+    </script>
+  </body>
+</html>
