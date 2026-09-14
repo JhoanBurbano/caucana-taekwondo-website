@@ -11,8 +11,8 @@ export function LocationSection() {
       <div className="container-page">
         <SectionTitle
           eyebrow="Visítanos"
-          title="El dojang está en el centro de Popayán"
-          subtitle="Agenda tu clase de prueba y llega con ropa cómoda. Te recibimos y te ubicamos en tu grupo."
+          title="El dojang está en la zona norte de Popayán"
+          subtitle="Estamos en la Vía al Bosque, contiguo al sector Montelugano. Agenda tu clase de prueba y llega con ropa cómoda: te recibimos y te ubicamos en tu grupo."
           isInView={isInView}
         />
 
@@ -24,6 +24,8 @@ export function LocationSection() {
               </p>
               <p className="text-[17px] text-white">
                 {CONTACT.addressLine}
+                <br />
+                {CONTACT.addressArea}
                 <br />
                 {CONTACT.city}
               </p>

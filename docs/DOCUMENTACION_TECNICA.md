@@ -90,7 +90,7 @@ El sitio presenta a la **Academia Caucana de Taekwondo ITF** como escuela en Pop
 - **Precios:** “Planes de Entrenamiento” — Mensual (120.000 COP), Trimestral (330.000 COP, destacado), Anual (1.200.000 COP), con beneficios crecientes (clases ilimitadas, asesoría, eventos, evaluación, seminarios, preparación exámenes).
 - **Galería:** “Logros y Eventos” — Competencias, graduaciones, entrenamientos, seminarios, torneos, demostraciones.
 - **Sponsors:** “Nuestros Aliados” — Sección de patrocinadores.
-- **Footer:** “Formando buenas personas con honor y disciplina desde octubre de 2023”; contacto (email, teléfono, dirección Calle 5 #10-25, Popayán), redes (Facebook, Instagram, YouTube), newsletter.
+- **Footer:** “Formando buenas personas con honor y disciplina desde octubre de 2023”; contacto (email, teléfono, dirección Transversal 9A # 55N-30, Vía al Bosque / sector Montelugano, Popayán), redes (Facebook, Instagram, YouTube), newsletter.
 
 ### 5.2 Dónde está el copy
 

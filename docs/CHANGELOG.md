@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+### 🔧 Corregido
+
+- ✅ **Datos de contacto reales**: teléfono/WhatsApp `+57 317 244 7000` (antes el
+  placeholder `+57 312 456 7890`) y dirección `Transversal 9A # 55N-30`, Vía al Bosque /
+  sector Montelugano, zona norte de Popayán (antes `Calle 5 #10-25`). El mapa ahora se
+  centra en las coordenadas exactas `2.483163, -76.578619`. Actualizados `contact.ts`,
+  el JSON-LD de `index.html`, la FAQ y el copy de `LocationSection`.
+
 ### ✨ Nuevo
 
 - ✅ **Ruta `/uniforme-oficial`**: página estática (`public/uniforme-oficial/index.html`)
