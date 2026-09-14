@@ -6,6 +6,8 @@
 /** Identificadores de imágenes locales (en /src/assets) */
 export type LocalAssetId =
   | 'hero-pattern'
+  | 'hero-taekwondo'
+  | 'hero-kickboxing'
   | 'logo-academia-caucana'
   | 'director-academia'
   | 'sponsor-itf-internacional'
@@ -14,8 +16,6 @@ export type LocalAssetId =
 /** Identificadores de imágenes externas (URLs) usadas en la app */
 export type ExternalImageId =
   | 'hero-fighter'
-  | 'hero-taekwondo'
-  | 'hero-kickboxing'
   | 'hero-acondicionamiento'
   | 'about-training'
   | 'coach-1'

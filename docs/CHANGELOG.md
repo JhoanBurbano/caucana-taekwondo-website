@@ -21,6 +21,18 @@
 - ✅ **"Uniforme oficial" en la navegación**: nueva entrada en `NAV_LINKS`, visible en el
   menú del `Header` (desktop y móvil) y en los enlaces del `Footer`.
 
+### 🖼️ Imágenes
+
+- ✅ **Fotos reales del dojang en el hero**: `hero-taekwondo` y `hero-kickboxing` pasan de
+  stock (Pexels/Unsplash) a fotos propias de la academia, servidas como assets locales
+  desde `src/assets/images/`. Convertidas de PNG a JPEG q86 (2,6 MB → ~550 KB cada una).
+  Alcanzan también a `ProgramsSection`, que reusa los mismos `imageId`.
+- ⏳ **`hero-acondicionamiento` sigue en stock**: la tercera imagen entregada era un
+  duplicado byte a byte de la primera (mismo SHA-256), así que no se tocó.
+- ✅ **`HeroSlide.imageId`, `Program.imageId`, `Coach.image` y `GalleryItem.image`** pasan
+  de `ExternalImageId` a `ImageAssetId`: el tipo impedía usar una imagen local como
+  contenido, que es justo lo que se necesitaba acá.
+
 ### 💵 Precios
 
 - ✅ **Planes actualizados** manteniendo los descuentos vigentes (10% trimestral,

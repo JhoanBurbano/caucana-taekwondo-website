@@ -4,6 +4,8 @@
  */
 
 import heroPattern from '@/assets/images/hero-pattern.png';
+import heroTaekwondo from '@/assets/images/hero-taekwondo.jpg';
+import heroKickboxing from '@/assets/images/hero-kickboxing.jpg';
 import logoAcademiaCaucana from '@/assets/images/logo.png';
 import directorAcademia from '@/assets/images/director-academia.png';
 import sponsorItfInternacional from '@/assets/images/sponsors/sponsor-itf-internacional.png';
@@ -12,6 +14,8 @@ import sponsorMightyfist from '@/assets/images/sponsors/sponsor-mightyfist.png';
 
 export const LOCAL_IMAGE_URLS = {
   'hero-pattern': heroPattern as string,
+  'hero-taekwondo': heroTaekwondo as string,
+  'hero-kickboxing': heroKickboxing as string,
   'logo-academia-caucana': logoAcademiaCaucana as string,
   'director-academia': directorAcademia as string,
   'sponsor-itf-internacional': sponsorItfInternacional as string,
