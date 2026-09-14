@@ -1,5 +1,15 @@
 # Changelog
 
+## [Unreleased]
+
+### ✨ Nuevo
+
+- ✅ **Ruta `/uniforme-oficial`**: página estática (`public/uniforme-oficial/index.html`)
+  que lleva al formulario de pedido de uniforme alojado en Google Apps Script.
+  Redirige con `location.replace` (con `<noscript>` y botón de respaldo) porque el
+  endpoint `/exec` responde `x-frame-options: SAMEORIGIN` y no admite `<iframe>`.
+  Ver [UNIFORME_OFICIAL.md](./UNIFORME_OFICIAL.md).
+
 ## [0.2.0] - 2025-01-27
 
 ### ✨ Mejoras Implementadas
