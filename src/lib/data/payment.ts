@@ -19,7 +19,7 @@ export const COLOMBIAN_BANKS = [
 export const IDENTIFICATION_TYPES = ['CC', 'CE', 'NIT', 'TI'] as const;
 
 export const PAYMENT_CONCEPTS = [
-  { concept: 'Mensualidad Taekwondo ITF', amount: 120000 },
+  { concept: 'Mensualidad Taekwondo ITF', amount: 150000 },
   { concept: 'Seguro deportivo', amount: 15000 },
 ] as const;
 

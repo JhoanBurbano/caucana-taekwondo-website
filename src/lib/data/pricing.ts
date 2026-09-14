@@ -3,7 +3,7 @@ import type { PricingPlan } from '../types';
 export const PRICING_PLANS: PricingPlan[] = [
   {
     name: 'Mensual',
-    price: '120.000',
+    price: '150.000',
     period: 'mes',
     features: [
       '3 clases semanales',
@@ -18,7 +18,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     name: 'Trimestral',
-    price: '330.000',
+    price: '405.000',
     period: '3 meses',
     features: [
       'Clases ilimitadas en tu grupo',
@@ -35,7 +35,7 @@ export const PRICING_PLANS: PricingPlan[] = [
   },
   {
     name: 'Anual',
-    price: '1.200.000',
+    price: '1.440.000',
     period: 'año',
     features: [
       'Clases ilimitadas en tu grupo',

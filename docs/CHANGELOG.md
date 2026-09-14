@@ -13,10 +13,20 @@
 ### ✨ Nuevo
 
 - ✅ **Ruta `/uniforme-oficial`**: página estática (`public/uniforme-oficial/index.html`)
-  que lleva al formulario de pedido de uniforme alojado en Google Apps Script.
-  Redirige con `location.replace` (con `<noscript>` y botón de respaldo) porque el
-  endpoint `/exec` responde `x-frame-options: SAMEORIGIN` y no admite `<iframe>`.
-  Ver [UNIFORME_OFICIAL.md](./UNIFORME_OFICIAL.md).
+  que **embebe** en un `<iframe>` el formulario de pedido de uniforme alojado en Google
+  Apps Script, con barra de marca y accesos directos de respaldo.
+  ⚠️ Requiere redesplegar el Apps Script con
+  `HtmlService.XFrameOptionsMode.ALLOWALL`; hoy responde `x-frame-options: SAMEORIGIN`
+  y el marco queda bloqueado. Ver [UNIFORME_OFICIAL.md](./UNIFORME_OFICIAL.md).
+- ✅ **"Uniforme oficial" en la navegación**: nueva entrada en `NAV_LINKS`, visible en el
+  menú del `Header` (desktop y móvil) y en los enlaces del `Footer`.
+
+### 💵 Precios
+
+- ✅ **Planes actualizados** manteniendo los descuentos vigentes (10% trimestral,
+  20% anual): mensual `$120.000 → $150.000`, trimestral `$330.000 → $405.000`,
+  anual `$1.200.000 → $1.440.000`. Sincronizados `pricing.ts`, `payment.ts`
+  (`PAYMENT_CONCEPTS`), la FAQ y el JSON-LD de `index.html`.
 
 ## [0.2.0] - 2025-01-27
 
