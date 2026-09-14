@@ -111,6 +111,8 @@ export function Footer() {
                 <span>
                   {CONTACT.addressLine}
                   <br />
+                  {CONTACT.addressArea}
+                  <br />
                   {CONTACT.city}
                 </span>
               </li>

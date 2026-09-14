@@ -27,7 +27,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Dónde están ubicados en Popayán?',
     answer:
-      'En Calle 5 #10-25, Popayán, Cauca. Escríbenos por WhatsApp al +57 312 456 7890 o al correo info@academiacaucana.com para coordinar tu visita.',
+      'En la Transversal 9A # 55N-30, zona norte de Popayán (Vía al Bosque, contiguo al sector Montelugano). Escríbenos por WhatsApp al +57 317 244 7000 o al correo info@academiacaucana.com para coordinar tu visita.',
   },
   {
     question: '¿Qué incluye la clase de prueba gratis?',
