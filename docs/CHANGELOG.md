@@ -38,6 +38,9 @@
 
 ### 🏅 Contenido
 
+- ✅ **Nacional de Chía y Juegos Nacionales 2025 eran el mismo torneo**: estaban duplicados
+  como dos logros y dos hitos distintos. Fusionados en un solo registro, fechado en
+  noviembre de 2025. Deduplicado también en la FAQ y el JSON-LD.
 - ✅ **Suramericano 2026 (Perú)**: se suma al palmarés y a la línea de tiempo como
   participación con 4.º puesto. `GalleryItem` gana `resultKind`, que separa el badge de
   podio (medalla, acento de marca) del de participación (banderín, tono neutro), para no
