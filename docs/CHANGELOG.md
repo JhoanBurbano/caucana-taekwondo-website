@@ -21,8 +21,26 @@
 - ✅ **"Uniforme oficial" en la navegación**: nueva entrada en `NAV_LINKS`, visible en el
   menú del `Header` (desktop y móvil) y en los enlaces del `Footer`.
 
+### 🧹 Eliminado
+
+- ✅ **Pago de mensualidad**: fuera el `FloatingPaymentButton` y su flujo PSE, que era un
+  mockup (generaba una referencia `PSE-` aleatoria y no cobraba nada). Se eliminan también
+  `lib/data/payment.ts` y los tipos `PaymentFormData` / `PaymentStep` / `PaymentConcept`.
+  El bundle principal baja de **490 kB a 354 kB** (gzip 158 → 114 kB).
+
+### 🔽 Secciones expandibles
+
+- ✅ **"Logros que se pueden ver"** arranca con 6 tarjetas y un botón *Ver N logros más*.
+  Seis llena filas completas en los tres breakpoints del grid (1 / 2 / 3 columnas), así que
+  lo que queda oculto es siempre la última fila, nunca media fila suelta.
+- ✅ **"Nuestra historia"** arranca contraída con 3 hitos y un botón que indica cuántos
+  faltan y hasta qué año llegan.
+
 ### 🏅 Contenido
 
+- ✅ **Dos hitos nuevos en la línea de tiempo**: *Podio en el Nacional de Chía* (3.er puesto,
+  Campeonato Nacional de Taekwon-Do 2025) y *Podio en la Copa Yom-Chi II* (3.er lugar, 2026,
+  Bogotá), que faltaban en `about-timeline.ts`.
 - ✅ **Palmarés con puestos en el podio**: `GalleryItem` gana `result` y `place`, que se
   pintan como badge y subtítulo en cada tarjeta. Lista reordenada de lo más reciente a lo
   más antiguo, encabezada por **Copa Yom-Chi II 2026 (Bogotá, 3.er puesto)**. Se sustituye

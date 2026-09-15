@@ -1,4 +1,5 @@
-import { Award, Check, Flag, Sparkles, Trophy } from 'lucide-react';
+import { useState } from 'react';
+import { Award, Check, ChevronDown, Flag, Sparkles, Trophy } from 'lucide-react';
 import { motion } from 'motion/react';
 import type { TimelineKind, TimelineMilestone } from '@/lib/types';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -15,8 +16,16 @@ const KIND_META: Record<TimelineKind, { icon: typeof Sparkles; label: string }> 
   milestone: { icon: Flag, label: 'Hito' },
 };
 
+/** Hitos visibles antes de desplegar la línea de tiempo completa. */
+const COLLAPSED_COUNT = 3;
+
 export function AboutSection() {
   const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
+  const [expanded, setExpanded] = useState(false);
+
+  const hidden = ABOUT_TIMELINE.length - COLLAPSED_COUNT;
+  const visible = expanded ? ABOUT_TIMELINE : ABOUT_TIMELINE.slice(0, COLLAPSED_COUNT);
+  const lastYear = ABOUT_TIMELINE[ABOUT_TIMELINE.length - 1].year;
 
   return (
     <section id="academia" ref={ref} className="section-y bg-surface-grouped">
@@ -29,10 +38,27 @@ export function AboutSection() {
         />
 
         <ol className="relative mx-auto max-w-3xl space-y-4 before:absolute before:bottom-4 before:left-[1.15rem] before:top-4 before:w-px before:bg-white/10 sm:before:left-8">
-          {ABOUT_TIMELINE.map((milestone, i) => (
+          {visible.map((milestone, i) => (
             <TimelineItem key={`${milestone.year}-${milestone.month ?? 0}-${i}`} milestone={milestone} index={i} visible={isInView} />
           ))}
         </ol>
+
+        {hidden > 0 && (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="btn-secondary inline-flex"
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ease-apple ${expanded ? 'rotate-180' : ''}`}
+                aria-hidden
+              />
+              {expanded ? 'Ver menos' : `Ver toda la historia · ${hidden} hitos más, hasta ${lastYear}`}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

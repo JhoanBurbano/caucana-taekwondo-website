@@ -7,7 +7,6 @@ import { ErrorBoundary } from './shared/ErrorBoundary';
 import { Toaster } from './components/ui/toaster';
 import { SkeletonLoader } from './shared/SkeletonLoader';
 import { WhatsAppButton } from './components/features/WhatsAppButton';
-import { FloatingPaymentButton } from './components/features/FloatingPaymentButton';
 
 const AboutSection = lazy(() => import('./components/sections/AboutSection').then((m) => ({ default: m.AboutSection })));
 const ProgramsSection = lazy(() =>
@@ -69,9 +68,6 @@ export default function App() {
         <Toaster />
         <WhatsAppButton />
         <StickyMobileCTA />
-        <div className="hidden lg:block">
-          <FloatingPaymentButton />
-        </div>
       </div>
     </ErrorBoundary>
   );

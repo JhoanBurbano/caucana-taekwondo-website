@@ -1,15 +1,26 @@
 import { memo, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { Medal } from 'lucide-react';
+import { ChevronDown, Medal } from 'lucide-react';
 import { GALLERY_ITEMS } from '@/lib/data/gallery';
 import { getImageUrl } from '@/lib/assets';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { FONTS } from '@/lib/constants/theme';
 
+/**
+ * Logros visibles antes de pulsar "Ver más". Seis llena filas completas en los tres
+ * breakpoints del grid (1 / 2 / 3 columnas), así que lo que queda oculto es siempre
+ * la última fila, nunca media fila suelta.
+ */
+const COLLAPSED_COUNT = 6;
+
 export const GallerySection = memo(function GallerySection() {
   const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
   const [active, setActive] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+
+  const hidden = GALLERY_ITEMS.length - COLLAPSED_COUNT;
+  const visibleItems = expanded ? GALLERY_ITEMS : GALLERY_ITEMS.slice(0, COLLAPSED_COUNT);
 
   useEffect(() => {
     if (active === null) return;
@@ -36,7 +47,7 @@ export const GallerySection = memo(function GallerySection() {
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {GALLERY_ITEMS.map((item, index) => (
+          {visibleItems.map((item, index) => (
             <motion.figure
               key={item.title}
               initial={{ opacity: 0, y: 16 }}
@@ -72,6 +83,23 @@ export const GallerySection = memo(function GallerySection() {
             </motion.figure>
           ))}
         </div>
+
+        {hidden > 0 && (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setExpanded((v) => !v)}
+              aria-expanded={expanded}
+              className="btn-secondary inline-flex"
+            >
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-300 ease-apple ${expanded ? 'rotate-180' : ''}`}
+                aria-hidden
+              />
+              {expanded ? 'Ver menos' : `Ver ${hidden} logro${hidden === 1 ? '' : 's'} más`}
+            </button>
+          </div>
+        )}
       </div>
 
       {active !== null && (
