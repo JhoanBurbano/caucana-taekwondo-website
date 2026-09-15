@@ -38,6 +38,11 @@
 
 ### 🏅 Contenido
 
+- ✅ **Suramericano 2026 (Perú)**: se suma al palmarés y a la línea de tiempo como
+  participación con 4.º puesto. `GalleryItem` gana `resultKind`, que separa el badge de
+  podio (medalla, acento de marca) del de participación (banderín, tono neutro), para no
+  presentar un 4.º puesto como si fuera podio. Va antes de la Copa Yom-Chi II, que es
+  posterior.
 - ✅ **Dos hitos nuevos en la línea de tiempo**: *Podio en el Nacional de Chía* (3.er puesto,
   Campeonato Nacional de Taekwon-Do 2025) y *Podio en la Copa Yom-Chi II* (3.er lugar, 2026,
   Bogotá), que faltaban en `about-timeline.ts`.

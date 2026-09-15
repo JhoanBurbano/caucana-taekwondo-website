@@ -87,6 +87,17 @@ export const ABOUT_TIMELINE: TimelineMilestone[] = [
   {
     year: 2026,
     kind: 'milestone',
+    title: 'Suramericano en Perú',
+    description:
+      'Participación de la academia en el Campeonato Suramericano 2026, disputado en Perú.',
+    achievements: [
+      '4.º puesto en el Suramericano 2026',
+      'Segunda salida internacional del proceso',
+    ],
+  },
+  {
+    year: 2026,
+    kind: 'milestone',
     title: 'Podio en la Copa Yom-Chi II',
     description:
       'Tercer lugar en la Copa Yom-Chi II 2026, en Bogotá: el resultado más reciente del proceso.',

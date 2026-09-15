@@ -20,6 +20,14 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     image: GALLERY_IMAGE_IDS[0],
   },
   {
+    title: 'Suramericano 2026',
+    category: 'Competencias internacionales',
+    result: '4.º puesto',
+    resultKind: 'participation',
+    place: 'Perú',
+    image: GALLERY_IMAGE_IDS[3],
+  },
+  {
     title: 'Campeonato Nacional de Taekwon-Do 2025',
     category: 'Competencias',
     result: '3.er puesto',
