@@ -65,8 +65,13 @@ export interface GalleryItem {
   category: string;
   /** ID del asset en @/lib/assets (ej: gallery-training) */
   image: ImageAssetId;
-  /** Puesto obtenido en el podio (ej: "Campeones", "3.er puesto"). Omitir si no aplica. */
+  /** Puesto obtenido (ej: "Campeones", "3.er puesto"). Omitir si no aplica. */
   result?: string;
+  /**
+   * Cómo se presenta `result`. 'podium' (por defecto) lo marca con medalla y acento de
+   * marca; 'participation' lo muestra en tono neutro, para resultados fuera del podio.
+   */
+  resultKind?: 'podium' | 'participation';
   /** Ciudad o país donde se compitió */
   place?: string;
 }

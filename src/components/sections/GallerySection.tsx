@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-import { ChevronDown, Medal } from 'lucide-react';
+import { ChevronDown, Flag, Medal } from 'lucide-react';
 import { GALLERY_ITEMS } from '@/lib/data/gallery';
 import { getImageUrl } from '@/lib/assets';
 import { SectionTitle } from '@/shared/SectionTitle';
@@ -67,12 +67,23 @@ export const GallerySection = memo(function GallerySection() {
                 className="h-full w-full object-cover transition-transform duration-700 ease-apple group-hover:scale-105"
                 loading="lazy"
               />
-              {item.result && (
-                <p className="absolute right-3 top-3 z-[5] inline-flex items-center gap-1.5 rounded-full border border-brand/50 bg-black/70 px-3 py-1.5 text-[12px] font-semibold text-brand-light backdrop-blur-md">
-                  <Medal className="h-3.5 w-3.5" aria-hidden />
-                  {item.result}
-                </p>
-              )}
+              {item.result &&
+                (() => {
+                  const isPodium = item.resultKind !== 'participation';
+                  const BadgeIcon = isPodium ? Medal : Flag;
+                  return (
+                    <p
+                      className={`absolute right-3 top-3 z-[5] inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[12px] font-semibold backdrop-blur-md ${
+                        isPodium
+                          ? 'border-brand/50 bg-black/70 text-brand-light'
+                          : 'border-white/25 bg-black/70 text-white/80'
+                      }`}
+                    >
+                      <BadgeIcon className="h-3.5 w-3.5" aria-hidden />
+                      {item.result}
+                    </p>
+                  );
+                })()}
               <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-4 pt-16">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-light">{item.category}</p>
                 <h3 className="text-white" style={{ fontFamily: FONTS.heading, fontSize: 22 }}>
