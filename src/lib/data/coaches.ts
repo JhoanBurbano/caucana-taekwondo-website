@@ -1,3 +1,10 @@
+/**
+ * ⚠️ NO SE RENDERIZA ACTUALMENTE.
+ *
+ * El cuerpo técnico adicional está oculto en CoachesSection: hoy el único
+ * instructor de la academia es el director (ver maestro.ts). Estos datos son
+ * de relleno y quedan aquí a la espera de instructores reales.
+ */
 import type { Coach } from '../types';
 import type { ExternalImageId } from '../assets/types';
 

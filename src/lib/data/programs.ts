@@ -7,7 +7,7 @@ export const PROGRAMS: Program[] = [
     tagline: 'El corazón de la academia',
     description:
       'Formas (tul), combate, rompimiento y defensa personal. Un proceso técnico completo para competir y para formar carácter.',
-    audience: 'Desde los 5 años',
+    audience: 'Desde los 6 años',
     imageId: 'hero-taekwondo',
   },
   {

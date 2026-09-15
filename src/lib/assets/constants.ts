@@ -11,13 +11,9 @@ import type { AssetMetaMap } from './types'
 /** URLs de imágenes externas (Unsplash, CDN, etc.) - Fotos profesionales ALTA CALIDAD 2026 */
 export const EXTERNAL_IMAGES = {
   // Hero Sections
-  // hero-taekwondo y hero-kickboxing son fotos REALES del dojang: viven en
-  // src/assets/images y se resuelven desde ./local.ts, no desde aquí.
-  // hero-acondicionamiento sigue siendo stock, pendiente de foto propia.
-  'hero-acondicionamiento':
-    'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=95&w=2560',
-  // Fitness: Gym training, equipamiento, atletas en acción
-  
+  // Las tres (hero-taekwondo, hero-kickboxing, hero-acondicionamiento) son fotos
+  // REALES del dojang: viven en src/assets/images y se resuelven desde ./local.ts.
+
   // About Section - Training en dojang
   'about-training':
     'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=90&w=1600',
@@ -57,9 +53,9 @@ export const ASSET_META: AssetMetaMap = {
     alt: 'Entrenamiento de Kickboxing en la Academia Caucana: dos atletas con guantes y espinilleras durante un sparring de patada alta',
     credit: 'Academia Caucana de Taekwon-Do ITF',
   },
-  'hero-acondicionamiento': { 
-    alt: 'Acondicionamiento físico - Entrenamiento funcional en gym con equipamiento profesional', 
-    credit: 'Unsplash' 
+  'hero-acondicionamiento': {
+    alt: 'Clase de acondicionamiento físico en la Academia Caucana: atleta entrenando con battle ropes mientras el grupo trabaja con kettlebells y escalera de agilidad en el tatami',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
   },
   'about-training': {
     alt: 'Instructor de Taekwondo enseñando técnicas de combate a estudiantes en el dojang',

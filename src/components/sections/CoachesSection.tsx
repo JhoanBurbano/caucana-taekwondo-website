@@ -4,8 +4,6 @@ import { Star, Medal, Trophy, Users, Quote } from 'lucide-react';
 import type { MaestroHighlightIcon } from '@/lib/types';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { MAESTRO, MAESTRO_PHOTO_SRC } from '@/lib/data/maestro';
-import { COACHES } from '@/lib/data/coaches';
-import { getImageUrl } from '@/lib/assets';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { FONTS } from '@/lib/constants/theme';
 
@@ -26,7 +24,7 @@ export const CoachesSection = memo(function CoachesSection() {
         <SectionTitle
           eyebrow="Equipo"
           title="Quién te espera en el dojang"
-          subtitle="Un director con palmarés internacional y un cuerpo técnico certificado para cada etapa."
+          subtitle="Un director con palmarés internacional al frente de cada clase."
           isInView={isInView}
         />
 
@@ -101,33 +99,12 @@ export const CoachesSection = memo(function CoachesSection() {
           </div>
         </motion.article>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {COACHES.map((coach, i) => (
-            <motion.article
-              key={coach.name}
-              initial={{ opacity: 0, y: 16 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + i * 0.06 }}
-              className="overflow-hidden rounded-card border border-white/10 bg-surface-grouped"
-            >
-              <div className="aspect-[4/5] overflow-hidden">
-                <img
-                  src={getImageUrl(coach.image)}
-                  alt={`${coach.name}, ${coach.rank}`}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-4">
-                <h4 className="text-white" style={{ fontFamily: FONTS.heading, fontSize: 20 }}>
-                  {coach.name}
-                </h4>
-                <p className="mb-2 text-[13px] text-brand-light">{coach.rank}</p>
-                <p className="text-[13px] leading-relaxed text-white/65">{coach.bio}</p>
-              </div>
-            </motion.article>
-          ))}
-        </div>
+        {/*
+          Cuerpo técnico adicional: oculto a propósito. Hoy el único instructor es
+          el director, Jonathan López Cepeda, así que las tarjetas de COACHES
+          (src/lib/data/coaches.ts) mostraban personas que no existen en la academia.
+          Para reactivarlo: restaurar el grid con COACHES.map y su import.
+        */}
       </div>
     </section>
   );
