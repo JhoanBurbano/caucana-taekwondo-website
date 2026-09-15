@@ -36,6 +36,25 @@
 - ✅ **"Nuestra historia"** arranca contraída con 3 hitos y un botón que indica cuántos
   faltan y hasta qué año llegan.
 
+### 🎨 Identidad
+
+- ✅ **Logo nuevo**: reemplaza al anterior (aro negro con texto blanco) por el definitivo
+  (aro blanco con texto negro, estrella abajo). En la app se usa el **SVG** —vector puro,
+  59 paths, sin texto ni fuentes externas—, así que Header y Footer quedan nítidos a
+  cualquier densidad y se eliminan `logo.png`, `logo@2x.png` y `logo@3x.png`.
+- ✅ **Assets de `public/` regenerados** desde el SVG: `logo.png` 1024², `favicon.png` 512²
+  (ambos con transparencia), `apple-touch-icon.png` 180² y `og-image.png` **1200×630**
+  (ambos aplanados sobre negro, porque las tarjetas sociales y los tiles de iOS no deben
+  llevar alfa). El `og-image` pasa de 349×350 a la proporción recomendada; actualizados
+  `og:image:width` / `og:image:height`.
+
+### 📷 Fotos reales del palmarés
+
+- ✅ **Nacional de Chía 2025, Suramericano Perú 2026 y Copa Yom-Chi II 2026** dejan el stock
+  y usan las piezas oficiales de la academia (PNG → JPEG q86). La tabla de índices
+  `GALLERY_IMAGE_IDS` se elimina: cubría 4 tarjetas y dejaba 3 entradas muertas, así que
+  cada logro nombra su asset directamente.
+
 ### 🏅 Contenido
 
 - ✅ **Nacional de Chía y Juegos Nacionales 2025 eran el mismo torneo**: estaban duplicados

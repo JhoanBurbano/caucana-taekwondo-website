@@ -61,6 +61,18 @@ export const ASSET_META: AssetMetaMap = {
     alt: 'Instructor de Taekwondo enseñando técnicas de combate a estudiantes en el dojang',
     credit: 'Unsplash',
   },
+  'gallery-nacional-chia': {
+    alt: 'Delegación de la Academia Caucana con sus medallas en el Campeonato Nacional de Taekwon-Do ITF 2025, Chía (Cundinamarca), noviembre de 2025 — 3.er puesto',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
+  },
+  'gallery-suramericano-peru': {
+    alt: 'Delegación colombiana con la bandera en el Campeonato Suramericano de Taekwon-Do ITF 2026 en Perú',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
+  },
+  'gallery-yomchi-2026': {
+    alt: 'Equipo de la Academia Caucana con el trofeo de la Copa Yom-Chi II 2026 en Bogotá — 3.er puesto',
+    credit: 'Academia Caucana de Taekwon-Do ITF',
+  },
   'hero-pattern': {
     alt: '',
   },
