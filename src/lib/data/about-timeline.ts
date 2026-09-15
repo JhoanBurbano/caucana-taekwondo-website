@@ -51,25 +51,14 @@ export const ABOUT_TIMELINE: TimelineMilestone[] = [
   },
   {
     year: 2025,
+    month: 11,
     kind: 'milestone',
     title: 'Podio en el Nacional de Chía',
     description:
-      'Tercer puesto en el Campeonato Nacional de Taekwon-Do 2025, disputado en Chía (Cundinamarca).',
+      'Tercer puesto en el Campeonato Nacional de Taekwon-Do 2025, disputado en Chía (Cundinamarca) en noviembre.',
     achievements: [
       '3.er puesto en el Campeonato Nacional de Taekwon-Do 2025',
       'Podio nacional frente a las escuelas más fuertes del país',
-    ],
-  },
-  {
-    year: 2025,
-    month: 10,
-    kind: 'milestone',
-    title: 'Juegos Nacionales 2025',
-    description:
-      'Confirmación del rendimiento frente a los mejores procesos del país.',
-    achievements: [
-      'Tercer lugar en Juegos Nacionales 2025',
-      'Sostenimiento de nivel competitivo nacional',
     ],
   },
   {

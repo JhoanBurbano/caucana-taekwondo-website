@@ -22,7 +22,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Qué logros ha obtenido la academia?',
     answer:
-      'Lo más reciente: 3.er puesto en la Copa Yom-Chi II 2026 (Bogotá), participación en el Suramericano 2026 en Perú (4.º puesto) y 3.er puesto en el Campeonato Nacional de Taekwon-Do 2025 (Chía). Antes: campeones Centroamericanos 2025 en República Dominicana, Academia Revelación ITF 2025, tercer lugar en Juegos Nacionales 2025, campeones Copa Súper Campeones 2024 y Copa Pelícano 2025.',
+      'Lo más reciente: 3.er puesto en la Copa Yom-Chi II 2026 (Bogotá), participación en el Suramericano 2026 en Perú (4.º puesto) y 3.er puesto en el Campeonato Nacional de Taekwon-Do 2025, disputado en Chía en noviembre. Antes: campeones Centroamericanos 2025 en República Dominicana, Academia Revelación ITF 2025, campeones Copa Súper Campeones 2024 y Copa Pelícano 2025.',
   },
   {
     question: '¿Dónde están ubicados en Popayán?',

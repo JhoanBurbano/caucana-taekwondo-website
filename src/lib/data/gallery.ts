@@ -28,10 +28,11 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     image: GALLERY_IMAGE_IDS[3],
   },
   {
+    // Mismo torneo que los Juegos Nacionales 2025: un solo registro, no dos.
     title: 'Campeonato Nacional de Taekwon-Do 2025',
     category: 'Competencias',
     result: '3.er puesto',
-    place: 'Chía',
+    place: 'Chía · noviembre',
     image: GALLERY_IMAGE_IDS[1],
   },
   {
@@ -40,12 +41,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     result: 'Campeones',
     place: 'República Dominicana',
     image: GALLERY_IMAGE_IDS[2],
-  },
-  {
-    title: 'Juegos Nacionales 2025',
-    category: 'Competencias',
-    result: '3.er lugar',
-    image: GALLERY_IMAGE_IDS[3],
   },
   {
     title: 'Copa Pelícano 2025',
