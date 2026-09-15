@@ -65,6 +65,10 @@ export interface GalleryItem {
   category: string;
   /** ID del asset en @/lib/assets (ej: gallery-training) */
   image: ImageAssetId;
+  /** Puesto obtenido en el podio (ej: "Campeones", "3.er puesto"). Omitir si no aplica. */
+  result?: string;
+  /** Ciudad o país donde se compitió */
+  place?: string;
 }
 
 export interface Sponsor {

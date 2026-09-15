@@ -1,20 +1,59 @@
 import type { GalleryItem } from '../types';
-import type { ExternalImageId } from '../assets/types';
+import type { ImageAssetId } from '../assets/types';
 
-const GALLERY_IMAGE_IDS: ExternalImageId[] = [
+const GALLERY_IMAGE_IDS: ImageAssetId[] = [
   'gallery-competition-1',
-  'gallery-graduation',
-  'gallery-training',
-  'gallery-event-1',
-  'gallery-event-2',
   'gallery-competition-2',
+  'gallery-event-1',
+  'gallery-training',
+  'gallery-event-2',
+  'gallery-graduation',
 ];
 
+/** Palmarés de la academia, del resultado más reciente al más antiguo. */
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { title: 'Campeones Copa Súper Campeones 2024', category: 'Competencias', image: GALLERY_IMAGE_IDS[0] },
-  { title: 'Academia Revelación ITF 2025', category: 'Reconocimientos', image: GALLERY_IMAGE_IDS[1] },
-  { title: 'Entrenamiento por grupos de edad', category: 'Entrenamientos', image: GALLERY_IMAGE_IDS[2] },
-  { title: 'Centroamericanos 2025 — República Dominicana', category: 'Competencias internacionales', image: GALLERY_IMAGE_IDS[3] },
-  { title: 'Campeones Copa Pelícano 2025', category: 'Competencias', image: GALLERY_IMAGE_IDS[4] },
-  { title: 'Tercer Lugar Juegos Nacionales 2025', category: 'Competencias', image: GALLERY_IMAGE_IDS[5] },
+  {
+    title: 'Copa Yom-Chi II 2026',
+    category: 'Competencias',
+    result: '3.er puesto',
+    place: 'Bogotá',
+    image: GALLERY_IMAGE_IDS[0],
+  },
+  {
+    title: 'Campeonato Nacional de Taekwon-Do 2025',
+    category: 'Competencias',
+    result: '3.er puesto',
+    place: 'Chía',
+    image: GALLERY_IMAGE_IDS[1],
+  },
+  {
+    title: 'Centroamericanos 2025',
+    category: 'Competencias internacionales',
+    result: 'Campeones',
+    place: 'República Dominicana',
+    image: GALLERY_IMAGE_IDS[2],
+  },
+  {
+    title: 'Juegos Nacionales 2025',
+    category: 'Competencias',
+    result: '3.er lugar',
+    image: GALLERY_IMAGE_IDS[3],
+  },
+  {
+    title: 'Copa Pelícano 2025',
+    category: 'Competencias',
+    result: 'Campeones',
+    image: GALLERY_IMAGE_IDS[4],
+  },
+  {
+    title: 'Copa Súper Campeones 2024',
+    category: 'Competencias',
+    result: 'Campeones',
+    image: GALLERY_IMAGE_IDS[5],
+  },
+  {
+    title: 'Academia Revelación ITF 2025',
+    category: 'Reconocimientos',
+    image: GALLERY_IMAGE_IDS[2],
+  },
 ];

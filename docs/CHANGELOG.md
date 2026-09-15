@@ -21,14 +21,37 @@
 - ✅ **"Uniforme oficial" en la navegación**: nueva entrada en `NAV_LINKS`, visible en el
   menú del `Header` (desktop y móvil) y en los enlaces del `Footer`.
 
+### 🏅 Contenido
+
+- ✅ **Palmarés con puestos en el podio**: `GalleryItem` gana `result` y `place`, que se
+  pintan como badge y subtítulo en cada tarjeta. Lista reordenada de lo más reciente a lo
+  más antiguo, encabezada por **Copa Yom-Chi II 2026 (Bogotá, 3.er puesto)**. Se sustituye
+  "Entrenamiento por grupos de edad" por **Campeonato Nacional de Taekwon-Do 2025
+  (Chía, 3.er puesto)**, y Centroamericanos 2025 (R. Dominicana) queda marcado como
+  **Campeones**.
+- ✅ **Edad mínima 6 años** (antes 5): `groups.ts`, `programs.ts`, la FAQ y el JSON-LD.
+- ✅ **Cuerpo técnico adicional oculto**: hoy el único instructor es el director, así que
+  las tarjetas de `COACHES` mostraban personas que no existen. El grid sale de
+  `CoachesSection` (los datos quedan en `coaches.ts`, marcados como no renderizados) y el
+  subtítulo deja de prometer "un cuerpo técnico certificado para cada etapa".
+- ✅ **Contacto solo por mensaje**: el pie del formulario decía "O llama al…"; ahora enlaza
+  a WhatsApp y aclara que se atiende por mensaje, no por llamada.
+
+### 📸 Comunidad
+
+- ✅ **Instagram embebido**: la cuadrícula de fotos de stock de `InstagramSection` se
+  reemplaza por un `<iframe>` del perfil público `@academiacaucanatkd`, enmarcado en una
+  tarjeta con la identidad del sitio (cabecera con handle, borde de marca y enlace de
+  respaldo).
+
 ### 🖼️ Imágenes
 
 - ✅ **Fotos reales del dojang en el hero**: `hero-taekwondo` y `hero-kickboxing` pasan de
   stock (Pexels/Unsplash) a fotos propias de la academia, servidas como assets locales
   desde `src/assets/images/`. Convertidas de PNG a JPEG q86 (2,6 MB → ~550 KB cada una).
   Alcanzan también a `ProgramsSection`, que reusa los mismos `imageId`.
-- ⏳ **`hero-acondicionamiento` sigue en stock**: la tercera imagen entregada era un
-  duplicado byte a byte de la primera (mismo SHA-256), así que no se tocó.
+- ✅ **`hero-acondicionamiento`** también pasa a foto real del dojang (2,5 MB PNG →
+  560 KB JPEG). Con eso, las tres imágenes del hero dejan de ser stock.
 - ✅ **`HeroSlide.imageId`, `Program.imageId`, `Coach.image` y `GalleryItem.image`** pasan
   de `ExternalImageId` a `ImageAssetId`: el tipo impedía usar una imagen local como
   contenido, que es justo lo que se necesitaba acá.

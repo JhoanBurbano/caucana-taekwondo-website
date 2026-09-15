@@ -4,7 +4,7 @@ export const AGE_GROUPS: AgeGroup[] = [
   {
     id: 'ninos',
     label: 'Niños',
-    ages: '5 a 9 años',
+    ages: '6 a 9 años',
     focus: 'Juego, coordinación y primeros hábitos de respeto.',
   },
   {

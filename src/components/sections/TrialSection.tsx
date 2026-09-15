@@ -78,7 +78,7 @@ export function TrialSection() {
                 type="tel"
                 inputMode="tel"
                 autoComplete="tel"
-                placeholder="312 456 7890"
+                placeholder="300 123 4567"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 className="h-12 w-full rounded-control border border-white/12 bg-black/40 px-3 text-[16px] text-white"
@@ -125,7 +125,16 @@ export function TrialSection() {
               {sending ? 'Abriendo…' : 'Reservar por WhatsApp'}
             </button>
             <p className="text-center text-[13px] text-white/45">
-              O llama al {CONTACT.phoneDisplay}. Respondemos en horario de clases.
+              O escríbenos al{' '}
+              <a
+                href={whatsappUrl(WHATSAPP_MESSAGES.info)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-white/70 underline underline-offset-2 hover:text-brand-light"
+              >
+                {CONTACT.phoneDisplay}
+              </a>
+              . Atendemos solo por mensaje, no por llamada. Respondemos en horario de clases.
             </p>
           </div>
         </motion.form>
