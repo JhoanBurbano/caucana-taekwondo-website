@@ -51,6 +51,17 @@ export const ABOUT_TIMELINE: TimelineMilestone[] = [
   },
   {
     year: 2025,
+    kind: 'milestone',
+    title: 'Podio en el Nacional de Chía',
+    description:
+      'Tercer puesto en el Campeonato Nacional de Taekwon-Do 2025, disputado en Chía (Cundinamarca).',
+    achievements: [
+      '3.er puesto en el Campeonato Nacional de Taekwon-Do 2025',
+      'Podio nacional frente a las escuelas más fuertes del país',
+    ],
+  },
+  {
+    year: 2025,
     month: 10,
     kind: 'milestone',
     title: 'Juegos Nacionales 2025',
@@ -71,6 +82,17 @@ export const ABOUT_TIMELINE: TimelineMilestone[] = [
     achievements: [
       'Distinción Academia Revelación Taekwon-Do ITF 2025',
       'Más de 100 estudiantes activos en cuatro grupos por edad',
+    ],
+  },
+  {
+    year: 2026,
+    kind: 'milestone',
+    title: 'Podio en la Copa Yom-Chi II',
+    description:
+      'Tercer lugar en la Copa Yom-Chi II 2026, en Bogotá: el resultado más reciente del proceso.',
+    achievements: [
+      '3.er lugar en la Copa Yom-Chi II 2026',
+      'Continuidad del podio nacional en un año nuevo',
     ],
   },
 ];

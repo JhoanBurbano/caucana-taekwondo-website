@@ -90,22 +90,6 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface PaymentFormData {
-  identificationType: string;
-  identification: string;
-  name: string;
-  email: string;
-  phone: string;
-  selectedBank: string;
-}
-
-export type PaymentStep = 'identification' | 'summary' | 'pse';
-
-export interface PaymentConcept {
-  concept: string;
-  amount: number;
-}
-
 /** Tipo semántico del hito (gobierna el ícono y acento visual). */
 export type TimelineKind = 'founding' | 'championship' | 'recognition' | 'milestone';
 
