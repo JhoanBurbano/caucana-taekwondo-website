@@ -34,8 +34,10 @@
     <meta name="format-detection" content="telephone=no" />
 
     <!-- Favicon e iconos (logo en /public) -->
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <!-- SVG primero: lo usan Chrome, Firefox y Edge, y escala nítido a cualquier tamaño.
+         El PNG queda de respaldo para navegadores que aún no leen favicons SVG. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
 
     <!-- Open Graph: título y subtítulo al compartir (Facebook, LinkedIn, WhatsApp, etc.) -->
