@@ -43,7 +43,9 @@
   59 paths, sin texto ni fuentes externas—, así que Header y Footer quedan nítidos a
   cualquier densidad y se eliminan `logo.png`, `logo@2x.png` y `logo@3x.png`.
 - ✅ **Favicon en SVG**: `favicon.svg` se declara primero con `type="image/svg+xml"` y el
-  PNG queda de respaldo para navegadores que aún no leen favicons vectoriales.
+  PNG queda de respaldo para navegadores que aún no leen favicons vectoriales. Usa una
+  **versión reducida del logo, solo el emblema sin la tipografía circular**, que es lo
+  único que sobrevive legible a 16 px de pestaña.
 - ✅ **Assets de `public/` regenerados** desde el SVG: `logo.png` 1024², `favicon.png` 512²
   (ambos con transparencia), `apple-touch-icon.png` 180² y `og-image.png` **1200×630**
   (ambos aplanados sobre negro, porque las tarjetas sociales y los tiles de iOS no deben
