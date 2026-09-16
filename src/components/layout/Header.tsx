@@ -5,6 +5,7 @@ import { useLockBody } from '@/hooks/useMediaQuery';
 import { NAV_LINKS } from '@/lib/data/navigation';
 import { FONTS } from '@/lib/constants/theme';
 import { getImageUrl } from '@/lib/assets';
+import { analytics } from '@/lib/utils/analytics';
 
 export function Header() {
   const isScrolled = useScroll(12);
@@ -62,7 +63,11 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <a href="#inscripciones" className="btn-primary hidden h-11 px-5 text-[15px] lg:inline-flex">
+            <a
+              href="#inscripciones"
+              onClick={() => analytics.ctaClick('Reserva tu clase', 'header')}
+              className="btn-primary hidden h-11 px-5 text-[15px] lg:inline-flex"
+            >
               Reserva tu clase
             </a>
             <button
@@ -99,7 +104,14 @@ export function Header() {
                 {link.name}
               </a>
             ))}
-            <a href="#inscripciones" onClick={close} className="btn-primary mt-4 w-full">
+            <a
+              href="#inscripciones"
+              onClick={() => {
+                analytics.ctaClick('Reserva tu clase gratis', 'menu_movil');
+                close();
+              }}
+              className="btn-primary mt-4 w-full"
+            >
               Reserva tu clase gratis
             </a>
           </nav>

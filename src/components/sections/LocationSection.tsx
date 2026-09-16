@@ -2,6 +2,7 @@ import { MapPin, Phone, Mail, Navigation } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { CONTACT, MAPS_EMBED_URL, MAPS_OPEN_URL } from '@/lib/data/contact';
+import { analytics } from '@/lib/utils/analytics';
 
 export function LocationSection() {
   const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
@@ -34,7 +35,11 @@ export function LocationSection() {
               <p className="mb-1 flex items-center gap-2 text-[13px] uppercase tracking-wider text-white/45">
                 <Phone className="h-4 w-4 text-brand" aria-hidden /> Teléfono
               </p>
-              <a href={`tel:${CONTACT.phoneTel}`} className="text-[17px] text-white hover:text-brand-light">
+              <a
+                href={`tel:${CONTACT.phoneTel}`}
+                onClick={() => analytics.phoneClick('seccion_contacto')}
+                className="text-[17px] text-white hover:text-brand-light"
+              >
                 {CONTACT.phoneDisplay}
               </a>
             </div>
@@ -50,6 +55,7 @@ export function LocationSection() {
               href={MAPS_OPEN_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => analytics.ctaClick('Cómo llegar', 'seccion_contacto')}
               className="btn-secondary w-full"
             >
               <Navigation className="h-4 w-4" aria-hidden />

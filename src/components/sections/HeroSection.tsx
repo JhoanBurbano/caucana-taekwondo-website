@@ -6,6 +6,7 @@ import { HERO_SLIDES } from '@/lib/data/hero';
 import { ACADEMY_STATS } from '@/lib/data/stats';
 import { FONTS } from '@/lib/constants/theme';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { analytics } from '@/lib/utils/analytics';
 
 const AUTOPLAY_MS = 6000;
 const SWIPE_THRESHOLD = 48;
@@ -101,7 +102,11 @@ export function HeroSection() {
               </p>
               <p className="mb-8 max-w-xl text-body text-white/85">{slide.subtitle}</p>
               <div className="flex flex-col gap-3 xs:flex-row xs:flex-wrap">
-                <a href="#inscripciones" className="btn-primary min-h-12 px-7">
+                <a
+                  href="#inscripciones"
+                  onClick={() => analytics.ctaClick('Reserva tu clase gratis', `hero_${slide.id}`)}
+                  className="btn-primary min-h-12 px-7"
+                >
                   Reserva tu clase gratis
                 </a>
                 <a href="#academia" className="btn-secondary min-h-12 px-7">

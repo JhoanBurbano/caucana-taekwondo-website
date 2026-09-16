@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { PRICING_PLANS } from '@/lib/data/pricing';
 import { SectionTitle } from '@/shared/SectionTitle';
+import { analytics } from '@/lib/utils/analytics';
 import { FONTS } from '@/lib/constants/theme';
 import { WHATSAPP_MESSAGES, whatsappUrl } from '@/lib/data/contact';
 
@@ -60,6 +61,7 @@ export function PricingSection() {
                 href={whatsappUrl(`${WHATSAPP_MESSAGES.trial} Me interesa el plan ${plan.name}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClick(`plan_${plan.name.toLowerCase()}`)}
                 className={plan.featured ? 'btn-primary w-full' : 'btn-secondary w-full'}
               >
                 {plan.cta}

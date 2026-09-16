@@ -7,6 +7,7 @@ import {
   INSTAGRAM_IFRAME_EMBED_URL,
   INSTAGRAM_PROFILE_URL,
 } from '@/lib/constants/social';
+import { analytics } from '@/lib/utils/analytics';
 
 export const InstagramSection = memo(function InstagramSection() {
   const { ref, isInView } = useIntersectionObserver({ once: true, amount: 0.12 });
@@ -75,6 +76,7 @@ export const InstagramSection = memo(function InstagramSection() {
             href={INSTAGRAM_PROFILE_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.socialClick('instagram', INSTAGRAM_PROFILE_URL)}
             className="btn-secondary inline-flex"
           >
             <Instagram className="h-5 w-5" aria-hidden />

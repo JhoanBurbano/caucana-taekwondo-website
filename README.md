@@ -85,11 +85,12 @@ Colores, fuentes y animaciones centralizados en `src/lib/constants/theme.ts`.
 
 ### Variables de Entorno
 
-Crear `.env` para variables de entorno (futuro):
+Copiar `.env.example` a `.env.local`:
 
 ```env
-VITE_API_URL=https://api.example.com
-VITE_PSE_URL=https://pse.example.com
+# Measurement ID de Google Analytics 4. Sin esta variable el sitio
+# funciona igual: no carga gtag.js ni escribe cookies.
+VITE_GA4_ID=G-XXXXXXXXXX
 ```
 
 ### Alias de Imports
