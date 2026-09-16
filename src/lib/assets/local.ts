@@ -11,7 +11,7 @@ import galleryNacionalChia from '@/assets/images/gallery-nacional-chia.jpg';
 import gallerySuramericanoPeru from '@/assets/images/gallery-suramericano-peru.jpg';
 import galleryYomchi2026 from '@/assets/images/gallery-yomchi-2026.jpg';
 import logoAcademiaCaucana from '@/assets/images/logo.svg';
-import directorAcademia from '@/assets/images/director-academia.png';
+import directorAcademia from '@/assets/images/director-academia.jpg';
 import sponsorItfInternacional from '@/assets/images/sponsors/sponsor-itf-internacional.png';
 import sponsorActdColombia from '@/assets/images/sponsors/sponsor-actd-colombia.png';
 import sponsorMightyfist from '@/assets/images/sponsors/sponsor-mightyfist.png';
