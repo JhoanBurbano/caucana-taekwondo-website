@@ -68,10 +68,15 @@
     <meta name="twitter:image" content="https://academiacaucana.com/og-image.png" />
     <meta name="twitter:image:alt" content="Logo Academia Caucana de Taekwondo ITF" />
 
-    <!-- Rendimiento: fuentes -->
+    <!-- Fuentes: el <link> va aquí y no como @import en el CSS. Un @import encadena
+         las descargas (HTML → CSS → parseo → recién ahí la fuente) y deja inútil el
+         preconnect de arriba, porque la petición no arranca hasta el final. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap"
+    />
 
     <!-- Google Analytics 4: lo inyecta initAnalytics() desde src/lib/utils/analytics.ts
          cuando existe la variable VITE_GA4_ID. Sin esa variable no se carga nada. -->
