@@ -15,9 +15,9 @@ export const FAQ_ITEMS: FAQItem[] = [
       'Desde los 6 años. Trabajamos por grupos: niños (6–9), prejuveniles (10–13), jóvenes (14–17) y adultos (18+). Así cada clase tiene el ritmo y la exigencia adecuados.',
   },
   {
-    question: '¿Los instructores están certificados?',
+    question: '¿Quién dicta las clases y con qué certificación?',
     answer:
-      'Sí. El proceso está alineado con la ITF (International Taekwon-Do Federation) y la ACTD. El director, Jonathan López Cepeda, es cinturón negro II Dan, ex Selección Colombia y subcampeón panamericano.',
+      'Las dicta el director, Jonathan López Cepeda: cinturón negro II Dan, ex Selección Colombia de Taekwon-Do y subcampeón panamericano. El proceso está alineado con la ITF (International Taekwon-Do Federation) y la ACTD.',
   },
   {
     question: '¿Qué logros ha obtenido la academia?',
