@@ -7,6 +7,7 @@ import { PROGRAMS } from '@/lib/data/programs';
 import { CONTACT, WHATSAPP_MESSAGES, whatsappUrl } from '@/lib/data/contact';
 import { notify } from '@/lib/utils';
 import { analytics } from '@/lib/utils/analytics';
+import { saveLead } from '@/lib/utils/leads';
 import { validators } from '@/lib/utils/validators';
 
 export function TrialSection() {
@@ -32,6 +33,10 @@ export function TrialSection() {
     const programLabel = PROGRAMS.find((p) => p.id === program)?.title ?? program;
     const message = `${WHATSAPP_MESSAGES.trial} Soy ${name.trim()}, grupo ${groupLabel}, programa ${programLabel}. Tel: ${phone}.`;
     analytics.trialFormSubmit({ name: name.trim(), phone });
+    // Antes de abrir WhatsApp: si la persona no llega a enviar el mensaje, el lead
+    // ya quedó registrado. No se espera la respuesta para no perder el gesto del
+    // usuario, que es lo que permite abrir la pestaña sin que la bloqueen.
+    saveLead({ name: name.trim(), phone, group: groupLabel, program: programLabel });
     window.open(whatsappUrl(message), '_blank', 'noopener,noreferrer');
     notify.success('Te abrimos WhatsApp', 'Completa el mensaje y lo enviamos al dojang.');
     setSending(false);

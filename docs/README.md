@@ -9,6 +9,7 @@
 - [Implementación Completa](./IMPLEMENTACION_COMPLETA.md) - Detalles de implementación
 - [Decisiones de Arquitectura](./ARCHITECTURE_DECISIONS.md) - Justificación de decisiones técnicas
 - [Ruta /uniforme-oficial](./UNIFORME_OFICIAL.md) - Formulario de pedido de uniforme (Apps Script)
+- [Registro de leads](./LEADS.md) - Cómo se guardan los datos del formulario de prueba
 
 ### Secciones
 - [Arquitectura](./architecture/README.md) - Estructura del proyecto y decisiones de diseño

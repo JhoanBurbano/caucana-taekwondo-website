@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### 📥 Leads
+
+- ✅ **Los datos del formulario dejan de perderse**: `saveLead()` los registra **antes** de
+  abrir WhatsApp, así que un lead cuenta aunque la persona nunca envíe el mensaje. Se
+  activa con `VITE_LEADS_ENDPOINT`; sin esa variable no se envía nada.
+- ✅ Envío por `navigator.sendBeacon` (sobrevive a que la pestaña pierda el foco), sin
+  esperar respuesta —esperarla haría que el bloqueador de ventanas emergentes cancelara
+  la apertura de WhatsApp— y como `text/plain` para evitar el preflight CORS que Apps
+  Script no responde. Documentado en [LEADS.md](./LEADS.md) con el `doPost` listo.
+
 ### 🖼️ WebP
 
 - ✅ **Las siete fotos pasan a WebP** (q82): 3,9 MB → 1,5 MB, **−60%**, sin fallback JPEG
