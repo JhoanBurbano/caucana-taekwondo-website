@@ -9,6 +9,5 @@ export { SPONSORS } from './sponsors';
 export { PROGRAMS } from './programs';
 export { AGE_GROUPS } from './groups';
 export { ACADEMY_STATS } from './stats';
-export { REVIEWS, REVIEW_SUMMARY } from './reviews';
 export { FAQ_ITEMS } from './faq';
 export { CONTACT, WHATSAPP_MESSAGES, whatsappUrl } from './contact';
