@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### 🚨 Riesgo retirado
+
+- ✅ **Fuera el `aggregateRating` inventado** del JSON-LD (`4.9` / `47 reseñas`). No había 47
+  reseñas: había 3 testimonios escritos a mano. Google exige que el rating agregado provenga
+  de reseñas reales y visibles; el marcado inventado es causa de acción manual sobre todo el
+  dominio.
+- ✅ **Fuera las reseñas inventadas** y con ellas `ReviewsSection`: los tres nombres eran de
+  relleno —uno de ellos, «Carlos Rodríguez», el mismo del instructor ficticio que ya se había
+  retirado del equipo—. La sección vuelve en cuanto haya testimonios reales con autorización.
+
 ### 🔧 Corregido
 
 - ✅ **Datos de contacto reales**: teléfono/WhatsApp `+57 317 244 7000` (antes el
