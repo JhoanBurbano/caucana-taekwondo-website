@@ -134,13 +134,6 @@ export interface AcademyStat {
   hint: string;
 }
 
-export interface Review {
-  author: string;
-  rating: number;
-  text: string;
-  date: string;
-  location?: string;
-}
 
 export interface TrialFormData {
   name: string;

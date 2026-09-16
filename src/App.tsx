@@ -22,9 +22,6 @@ const TrialSection = lazy(() => import('./components/sections/TrialSection').the
 const GallerySection = lazy(() =>
   import('./components/sections/GallerySection').then((m) => ({ default: m.GallerySection })),
 );
-const ReviewsSection = lazy(() =>
-  import('./components/sections/ReviewsSection').then((m) => ({ default: m.ReviewsSection })),
-);
 const FAQSection = lazy(() => import('./components/sections/FAQSection').then((m) => ({ default: m.FAQSection })));
 const InstagramSection = lazy(() =>
   import('./components/sections/InstagramSection').then((m) => ({ default: m.InstagramSection })),
@@ -55,7 +52,6 @@ export default function App() {
             <ProgramsSection />
             <CoachesSection />
             <GallerySection />
-            <ReviewsSection />
             <PricingSection />
             <TrialSection />
             <FAQSection />
