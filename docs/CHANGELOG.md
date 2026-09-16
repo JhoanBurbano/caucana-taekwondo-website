@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### 🧮 Coherencia de datos
+
+- ✅ **Componentes muertos eliminados**: `AchievementStats` y `AchievementBadges` no se
+  renderizaban en ninguna parte, pero el primero declaraba «15+ AÑOS de trayectoria»,
+  «50+ MEDALLAS» y «10+ CAMPEONATOS». La academia abrió en octubre de 2023. Se borran para
+  que nadie los conecte «porque se ven bien» y publique eso.
+- ✅ **Cifras del hero derivadas de los datos**: «Títulos clave: 5» estaba escrito a mano y
+  el palmarés ya tenía 7. Ahora sale de `GALLERY_ITEMS.length` y de `AGE_GROUPS.length`,
+  así que no vuelve a desfasarse.
+- ✅ **FAQ en singular**: la pregunta «¿Los instructores están certificados?» hablaba de un
+  cuerpo técnico que hoy no existe. Pasa a «¿Quién dicta las clases y con qué
+  certificación?», sincronizada con el JSON-LD.
+
 ### 🔎 SEO on-page
 
 - ✅ **`<h1>` estable**: el título grande del hero rotaba cada 6 s con el carrusel y *era* el

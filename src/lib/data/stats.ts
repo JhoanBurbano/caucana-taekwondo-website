@@ -1,4 +1,6 @@
 import type { AcademyStat } from '../types';
+import { GALLERY_ITEMS } from './gallery';
+import { AGE_GROUPS } from './groups';
 
 /** Cifras reales del proceso (fundación 2023). No se infla la antigüedad de la academia. */
 export const ACADEMY_STATS: AcademyStat[] = [
@@ -10,13 +12,14 @@ export const ACADEMY_STATS: AcademyStat[] = [
   },
   {
     id: 'titles',
-    value: '5',
-    label: 'Títulos clave',
+    // Derivado del palmarés: escrito a mano decía 5 cuando ya había 7.
+    value: `${GALLERY_ITEMS.length}`,
+    label: 'Logros',
     hint: 'Nacionales e internacionales',
   },
   {
     id: 'groups',
-    value: '4',
+    value: `${AGE_GROUPS.length}`,
     label: 'Grupos',
     hint: 'Por edad y etapa',
   },
