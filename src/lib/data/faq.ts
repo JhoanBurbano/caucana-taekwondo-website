@@ -10,6 +10,11 @@ export const FAQ_ITEMS: FAQItem[] = [
       'El plan mensual es $150.000 COP (3 clases por semana). El trimestral es $405.000 COP y el anual $1.440.000 COP, con más clases y seguimiento. La primera clase de prueba es gratis, sin compromiso.',
   },
   {
+    question: '¿Cuánto cuesta empezar, además de la mensualidad?',
+    answer:
+      'La matrícula es $100.000 COP, pago único al inscribirse, y solo aplica a Taekwondo ITF. El uniforme oficial (dobok) cuesta $250.000 COP. Aparte y de forma opcional, el conjunto de sudadera y chaqueta rompevientos vale $230.000 COP, o $150.000 COP si prefieres solo la chaqueta. El uniforme se pide desde academiacaucana.com/uniforme-oficial.',
+  },
+  {
     question: '¿Desde qué edad pueden empezar los niños?',
     answer:
       'Desde los 6 años. Trabajamos por grupos: niños (6–9), prejuveniles (10–13), jóvenes (14–17) y adultos (18+). Así cada clase tiene el ritmo y la exigencia adecuados.',
