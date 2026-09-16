@@ -1,5 +1,6 @@
 import { MessageCircle } from 'lucide-react';
 import { WHATSAPP_MESSAGES, whatsappUrl } from '@/lib/data/contact';
+import { analytics } from '@/lib/utils/analytics';
 
 export function WhatsAppButton() {
   return (
@@ -7,6 +8,7 @@ export function WhatsAppButton() {
       href={whatsappUrl(WHATSAPP_MESSAGES.info)}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => analytics.whatsappClick('fab_desktop')}
       className="fixed z-40 hidden h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-sheet transition-transform duration-200 ease-apple hover:scale-105 lg:flex"
       style={{
         right: 'max(1.5rem, env(safe-area-inset-right))',

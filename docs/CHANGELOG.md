@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+### 📊 Analítica
+
+- ✅ **GA4 conectado de verdad**: `initAnalytics()` inyecta gtag.js desde `main.tsx` cuando
+  existe `VITE_GA4_ID`. Antes el snippet vivía comentado en `index.html` y `trackEvent()`
+  no se invocaba **ni una sola vez** en todo el código.
+- ✅ **12 puntos de conversión instrumentados**: FAB de WhatsApp, CTA fijo de móvil (ambos
+  botones), CTA del header y del menú móvil, CTA del hero (con la modalidad del slide),
+  los tres planes de precios, el envío del formulario de prueba, el teléfono, «Cómo llegar»
+  y el enlace a Instagram.
+- ✅ **Sin la variable no se carga nada**: ni script, ni cookies, ni peticiones. Verificado
+  compilando en los dos modos.
+- ✅ **`process.env.NODE_ENV` sustituido por `import.meta.env.DEV`** en `trackEvent`: `process`
+  no existe en el navegador con Vite.
+
 ### ⚡ Rendimiento
 
 - ✅ **La foto del director baja de 6,8 MB a 222 KB** (−97%): era un PNG de 2048² para una

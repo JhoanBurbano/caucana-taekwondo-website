@@ -6,6 +6,7 @@ import { AGE_GROUPS } from '@/lib/data/groups';
 import { PROGRAMS } from '@/lib/data/programs';
 import { CONTACT, WHATSAPP_MESSAGES, whatsappUrl } from '@/lib/data/contact';
 import { notify } from '@/lib/utils';
+import { analytics } from '@/lib/utils/analytics';
 import { validators } from '@/lib/utils/validators';
 
 export function TrialSection() {
@@ -30,6 +31,7 @@ export function TrialSection() {
     const groupLabel = AGE_GROUPS.find((g) => g.id === group)?.label ?? group;
     const programLabel = PROGRAMS.find((p) => p.id === program)?.title ?? program;
     const message = `${WHATSAPP_MESSAGES.trial} Soy ${name.trim()}, grupo ${groupLabel}, programa ${programLabel}. Tel: ${phone}.`;
+    analytics.trialFormSubmit({ name: name.trim(), phone });
     window.open(whatsappUrl(message), '_blank', 'noopener,noreferrer');
     notify.success('Te abrimos WhatsApp', 'Completa el mensaje y lo enviamos al dojang.');
     setSending(false);
@@ -130,6 +132,7 @@ export function TrialSection() {
                 href={whatsappUrl(WHATSAPP_MESSAGES.info)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClick('pie_formulario')}
                 className="font-medium text-white/70 underline underline-offset-2 hover:text-brand-light"
               >
                 {CONTACT.phoneDisplay}
