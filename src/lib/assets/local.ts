@@ -4,14 +4,14 @@
  */
 
 import heroPattern from '@/assets/images/hero-pattern.png';
-import heroTaekwondo from '@/assets/images/hero-taekwondo.jpg';
-import heroKickboxing from '@/assets/images/hero-kickboxing.jpg';
-import heroAcondicionamiento from '@/assets/images/hero-acondicionamiento.jpg';
-import galleryNacionalChia from '@/assets/images/gallery-nacional-chia.jpg';
-import gallerySuramericanoPeru from '@/assets/images/gallery-suramericano-peru.jpg';
-import galleryYomchi2026 from '@/assets/images/gallery-yomchi-2026.jpg';
+import heroTaekwondo from '@/assets/images/hero-taekwondo.webp';
+import heroKickboxing from '@/assets/images/hero-kickboxing.webp';
+import heroAcondicionamiento from '@/assets/images/hero-acondicionamiento.webp';
+import galleryNacionalChia from '@/assets/images/gallery-nacional-chia.webp';
+import gallerySuramericanoPeru from '@/assets/images/gallery-suramericano-peru.webp';
+import galleryYomchi2026 from '@/assets/images/gallery-yomchi-2026.webp';
 import logoAcademiaCaucana from '@/assets/images/logo.svg';
-import directorAcademia from '@/assets/images/director-academia.jpg';
+import directorAcademia from '@/assets/images/director-academia.webp';
 import sponsorItfInternacional from '@/assets/images/sponsors/sponsor-itf-internacional.png';
 import sponsorActdColombia from '@/assets/images/sponsors/sponsor-actd-colombia.png';
 import sponsorMightyfist from '@/assets/images/sponsors/sponsor-mightyfist.png';

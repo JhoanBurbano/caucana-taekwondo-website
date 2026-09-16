@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### 🖼️ WebP
+
+- ✅ **Las siete fotos pasan a WebP** (q82): 3,9 MB → 1,5 MB, **−60%**, sin fallback JPEG
+  porque WebP lo soportan todos los navegadores desde 2020 (Safari 14 incluido).
+  Con esto el build completo queda en **2,7 MB**, frente a los 12 MB de partida.
+
 ### 🧮 Coherencia de datos
 
 - ✅ **Componentes muertos eliminados**: `AchievementStats` y `AchievementBadges` no se

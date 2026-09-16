@@ -1,5 +1,5 @@
 import type { Maestro } from '../types';
-import directorAcademiaPhoto from '@/assets/images/director-academia.jpg';
+import directorAcademiaPhoto from '@/assets/images/director-academia.webp';
 
 /** URL resuelta por Vite (evita fallos si getImageUrl no coincide con el bundle) */
 export const MAESTRO_PHOTO_SRC: string = directorAcademiaPhoto;
