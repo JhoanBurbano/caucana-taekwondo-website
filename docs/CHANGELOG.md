@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+### 💰 Costos de inicio
+
+- ✅ **Se publica lo que cuesta empezar**, que antes no aparecía en ninguna parte: matrícula
+  $100.000 (pago único, solo Taekwondo ITF), dobok $250.000, y de forma opcional el conjunto
+  de sudadera y chaqueta rompevientos $230.000 o solo la chaqueta $150.000.
+- ✅ Van en un bloque aparte de `PRICING_PLANS` a propósito: un plan se paga cada mes y esto
+  una sola vez; mezclarlos haría parecer que el primer mes cuesta lo mismo que los
+  siguientes. Con enlace directo a `/uniforme-oficial`, que hasta ahora solo se alcanzaba
+  desde el menú.
+- ✅ Nueva pregunta en la FAQ y en el `FAQPage` del JSON-LD.
+
 ### 📥 Leads
 
 - ✅ **Los datos del formulario dejan de perderse**: `saveLead()` los registra **antes** de

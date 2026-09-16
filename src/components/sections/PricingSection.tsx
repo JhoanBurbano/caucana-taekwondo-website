@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
-import { Check } from 'lucide-react';
+import { Check, ShoppingBag } from 'lucide-react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { PRICING_PLANS } from '@/lib/data/pricing';
+import { ENROLLMENT_COSTS, UNIFORM_ORDER_PATH } from '@/lib/data/enrollment';
 import { SectionTitle } from '@/shared/SectionTitle';
 import { analytics } from '@/lib/utils/analytics';
 import { FONTS } from '@/lib/constants/theme';
@@ -69,6 +70,56 @@ export function PricingSection() {
             </motion.article>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.3 }}
+          className="mt-12 rounded-card border border-white/10 bg-black/40 p-6 sm:p-8"
+        >
+          <div className="mb-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3
+              className="text-white"
+              style={{ fontFamily: FONTS.heading, fontSize: 26, letterSpacing: '0.04em' }}
+            >
+              Lo que cuesta empezar
+            </h3>
+            <p className="text-[14px] text-white/55">Se paga una sola vez, aparte de la mensualidad.</p>
+          </div>
+
+          <ul className="divide-y divide-white/8">
+            {ENROLLMENT_COSTS.map((item) => (
+              <li key={item.id} className="flex flex-wrap items-baseline gap-x-4 gap-y-1 py-4 first:pt-0 last:pb-0">
+                <div className="min-w-0 flex-1">
+                  <p className="flex flex-wrap items-center gap-2 text-[16px] text-white">
+                    {item.name}
+                    {item.optional && (
+                      <span className="rounded-full border border-white/20 px-2 py-0.5 text-[11px] uppercase tracking-wider text-white/60">
+                        Opcional
+                      </span>
+                    )}
+                  </p>
+                  <p className="mt-0.5 text-[14px] text-white/55">{item.detail}</p>
+                </div>
+                <p
+                  className="text-[20px] tabular-nums text-white"
+                  style={{ fontFamily: FONTS.heading, letterSpacing: '0.02em' }}
+                >
+                  ${item.price}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={UNIFORM_ORDER_PATH}
+            onClick={() => analytics.ctaClick('Pedir uniforme', 'planes')}
+            className="btn-secondary mt-7 w-full sm:w-auto"
+          >
+            <ShoppingBag className="h-4 w-4" aria-hidden />
+            Pedir el uniforme
+          </a>
+        </motion.div>
       </div>
     </section>
   );

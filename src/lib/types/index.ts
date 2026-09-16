@@ -111,6 +111,19 @@ export interface TimelineMilestone {
   kind?: TimelineKind;
 }
 
+/** Costo de una sola vez al inscribirse (matrícula, uniforme). */
+export interface EnrollmentCost {
+  id: string;
+  name: string;
+  /** En pesos colombianos, con separador de miles y sin símbolo. */
+  price: string;
+  detail: string;
+  /** Si no es indispensable para entrenar. */
+  optional?: boolean;
+  /** Si se pide desde /uniforme-oficial. */
+  orderable?: boolean;
+}
+
 export interface Program {
   id: string;
   title: string;
