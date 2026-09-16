@@ -73,6 +73,16 @@ export function HeroSection() {
 
       <div className="container-page relative z-10 w-full">
         <div className="max-w-3xl">
+          {/*
+            El H1 tiene que ser estable: el título grande de abajo rota cada 6 s con el
+            carrusel, y un H1 que cambia solo le da a los buscadores una señal de tema
+            distinta en cada render. Este dice marca, disciplinas y ciudad, que es por lo
+            que buscan a la academia; el rótulo visible de cada slide queda como <p>.
+          */}
+          <h1 className="sr-only">
+            Academia Caucana de Taekwon-Do ITF — Taekwondo ITF, Kickboxing y acondicionamiento
+            físico en Popayán, Cauca
+          </h1>
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.id}
@@ -86,7 +96,7 @@ export function HeroSection() {
                   {slide.eyebrow}
                 </p>
               )}
-              <h1
+              <p
                 className="mb-3 text-white"
                 style={{
                   fontFamily: FONTS.heading,
@@ -96,7 +106,7 @@ export function HeroSection() {
                 }}
               >
                 {slide.title}
-              </h1>
+              </p>
               <p className="mb-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-white/80">
                 Popayán, Cauca
               </p>

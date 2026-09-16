@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### 🔎 SEO on-page
+
+- ✅ **`<h1>` estable**: el título grande del hero rotaba cada 6 s con el carrusel y *era* el
+  H1, así que la señal de tema cambiaba sola. Ahora el H1 nombra marca, disciplinas y
+  ciudad, y el rótulo visible de cada slide pasa a `<p>` con el mismo estilo — sin cambio
+  visual.
+- ✅ **Fuentes movidas del CSS al `<head>`**: el `@import` de `globals.css` encadenaba las
+  descargas (HTML → CSS → parseo → recién ahí la fuente) y dejaba inútil el `preconnect`
+  que ya existía, porque la petición no arrancaba hasta el final de esa cadena.
+- ✅ **`lastmod` del sitemap automático**: un plugin de Vite lo reescribe con la fecha del
+  build. Estaba congelado en `2026-08-17`, lo que le dice a Google que no vale la pena
+  volver a rastrear.
+
 ### 📊 Analítica
 
 - ✅ **GA4 conectado de verdad**: `initAnalytics()` inyecta gtag.js desde `main.tsx` cuando
