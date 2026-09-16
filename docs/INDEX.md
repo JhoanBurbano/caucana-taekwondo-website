@@ -9,6 +9,7 @@
 5. [Implementación Completa](./IMPLEMENTACION_COMPLETA.md) - Detalles técnicos
 6. [Decisiones de Arquitectura](./ARCHITECTURE_DECISIONS.md) - Justificación técnica
 7. [Ruta /uniforme-oficial](./UNIFORME_OFICIAL.md) - Formulario de pedido de uniforme (Apps Script)
+8. [Registro de leads](./LEADS.md) - Cómo se guardan los datos del formulario de prueba
 
 ## 🏗️ Arquitectura
 
