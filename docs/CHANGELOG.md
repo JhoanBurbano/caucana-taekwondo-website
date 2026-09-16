@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### ⚡ Rendimiento
+
+- ✅ **La foto del director baja de 6,8 MB a 222 KB** (−97%): era un PNG de 2048² para una
+  fotografía, formato sin pérdida pensado para gráficos con transparencia. Se verificó que
+  el canal alfa era opaco en todas partes antes de convertir a JPEG q86 a 1400 px.
+  El build completo pasa de **12 MB a 5,1 MB**.
+- ✅ **Medidas declaradas corregidas**: el `<img>` decía `2048×2560` sobre un archivo 1:1, así
+  que el navegador reservaba una caja con la proporción equivocada y la corregía al cargar
+  (salto de layout, CLS).
+
 ### 🚨 Riesgo retirado
 
 - ✅ **Fuera el `aggregateRating` inventado** del JSON-LD (`4.9` / `47 reseñas`). No había 47

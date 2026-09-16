@@ -37,8 +37,8 @@ export const CoachesSection = memo(function CoachesSection() {
             <img
               src={MAESTRO_PHOTO_SRC}
               alt={`${m.name}, director de la Academia Caucana`}
-              width={2048}
-              height={2560}
+              width={1400}
+              height={1400}
               className="absolute inset-0 h-full w-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-surface-grouped" />
