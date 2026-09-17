@@ -3,7 +3,7 @@
 Ruta pública que muestra el **formulario oficial de pedido de uniforme (dobok)** de la
 Academia Caucana de Taekwon-Do ITF, embebido en un `<iframe>`.
 
-- **URL del sitio:** `https://academiacaucana.com/uniforme-oficial/`
+- **URL del sitio:** `https://www.caucanadetaekwondo.com/uniforme-oficial/`
 - **Formulario:** Google Apps Script Web App
   `https://script.google.com/macros/s/AKfycbyKVTPBO36vJl6f2q7wGM5aoRMYlX3pHFMcU4XqN6i4zdScFeFfmCpANP6Hileq3J2qdQ/exec`
 - **Archivo:** [`public/uniforme-oficial/index.html`](../public/uniforme-oficial/index.html)

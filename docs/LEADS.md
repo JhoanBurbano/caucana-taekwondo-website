@@ -89,7 +89,7 @@ navegador lo rechaza por cuota, cae a `fetch` con `keepalive: true`.
   "program": "Taekwondo ITF",
   "source": "web_clase_prueba",
   "submittedAt": "2026-09-16T14:32:00.000Z",
-  "page": "https://academiacaucana.com/"
+  "page": "https://www.caucanadetaekwondo.com/"
 }
 ```
 

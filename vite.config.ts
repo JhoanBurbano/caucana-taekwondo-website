@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import { writeFileSync } from 'fs';
 import path from 'path';
 
-const SITE_URL = 'https://academiacaucana.com/';
+const SITE_URL = 'https://www.caucanadetaekwondo.com/';
 
 /**
  * Reescribe el sitemap al compilar con la fecha del build.
