@@ -2,7 +2,7 @@ export const CONTACT = {
   phoneDisplay: '+57 317 244 7000',
   phoneTel: '+573172447000',
   whatsapp: '573172447000',
-  email: 'info@academiacaucana.com',
+  email: 'info@www.caucanadetaekwondo.com',
   addressLine: 'Transversal 9A # 55N-30',
   addressArea: 'Vía al Bosque · sector Montelugano',
   city: 'Popayán, Cauca',

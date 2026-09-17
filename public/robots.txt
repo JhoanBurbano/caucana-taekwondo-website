@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://academiacaucana.com/sitemap.xml
+Sitemap: https://www.caucanadetaekwondo.com/sitemap.xml
 
 # Disallow admin areas (futuro)
 # Disallow: /admin/

@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+### 🌐 Dominio corregido
+
+- ✅ **El sitio apuntaba a `academiacaucana.com`, un dominio que no existe** (sin registrar,
+  sin DNS), en 26 lugares: `canonical`, Open Graph, Twitter Card, JSON-LD, sitemap,
+  robots.txt, la página de uniforme, la FAQ y el plugin del sitemap. Con ese `canonical`,
+  Google no indexaba ni la URL real ni la declarada.
+- ✅ Todo pasa a **`https://www.caucanadetaekwondo.com`**, que es donde está desplegado. Se
+  usa la forma `www` porque el apex responde `307` redirigiendo a ella: el `canonical` debe
+  apuntar al destino final, no al que redirige.
+
 ### 💬 Testimonios reales
 
 - ✅ **Vuelve la sección de reseñas**, ahora con 10 testimonios de estudiantes y familias

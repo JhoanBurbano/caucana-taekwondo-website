@@ -17,7 +17,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Cuánto cuesta empezar, además de la mensualidad?',
     answer:
-      'La matrícula es $100.000 COP, pago único al inscribirse, y solo aplica a Taekwondo ITF. El uniforme oficial (dobok) cuesta $250.000 COP. Aparte y de forma opcional, el conjunto de sudadera y chaqueta rompevientos vale $230.000 COP, o $150.000 COP si prefieres solo la chaqueta. El uniforme se pide desde academiacaucana.com/uniforme-oficial.',
+      'La matrícula es $100.000 COP, pago único al inscribirse, y solo aplica a Taekwondo ITF. El uniforme oficial (dobok) cuesta $250.000 COP. Aparte y de forma opcional, el conjunto de sudadera y chaqueta rompevientos vale $230.000 COP, o $150.000 COP si prefieres solo la chaqueta. El uniforme se pide desde www.caucanadetaekwondo.com/uniforme-oficial.',
   },
   {
     question: '¿Desde qué edad pueden empezar los niños?',
@@ -37,7 +37,7 @@ export const FAQ_ITEMS: FAQItem[] = [
   {
     question: '¿Dónde están ubicados en Popayán?',
     answer:
-      'En la Transversal 9A # 55N-30, zona norte de Popayán (Vía al Bosque, contiguo al sector Montelugano). Escríbenos por WhatsApp al +57 317 244 7000 o al correo info@academiacaucana.com para coordinar tu visita.',
+      'En la Transversal 9A # 55N-30, zona norte de Popayán (Vía al Bosque, contiguo al sector Montelugano). Escríbenos por WhatsApp al +57 317 244 7000 o al correo info@www.caucanadetaekwondo.com para coordinar tu visita.',
   },
   {
     question: '¿Qué incluye la clase de prueba gratis?',
