@@ -13,12 +13,14 @@ export const ENROLLMENT_COSTS: EnrollmentCost[] = [
     name: 'Matrícula',
     price: '100.000',
     detail: 'Pago único al inscribirse. Solo aplica a Taekwondo ITF.',
+    category: 'matricula',
   },
   {
     id: 'dobok',
     name: 'Uniforme oficial (dobok)',
     price: '250.000',
     detail: 'El uniforme de entrenamiento de Taekwon-Do ITF.',
+    category: 'uniforme',
     orderable: true,
   },
   {
@@ -26,6 +28,7 @@ export const ENROLLMENT_COSTS: EnrollmentCost[] = [
     name: 'Sudadera y chaqueta rompevientos',
     price: '230.000',
     detail: 'Conjunto completo para viajes y competencias.',
+    category: 'uniforme',
     optional: true,
     orderable: true,
   },
@@ -34,6 +37,7 @@ export const ENROLLMENT_COSTS: EnrollmentCost[] = [
     name: 'Solo la chaqueta rompevientos',
     price: '150.000',
     detail: 'Si prefieres llevar la chaqueta por separado.',
+    category: 'uniforme',
     optional: true,
     orderable: true,
   },
@@ -41,3 +45,9 @@ export const ENROLLMENT_COSTS: EnrollmentCost[] = [
 
 /** Ruta del formulario de pedido de uniforme. */
 export const UNIFORM_ORDER_PATH = '/uniforme-oficial/';
+
+/** Solo los conceptos de uniforme, para el panel de Uniforme. */
+export const UNIFORM_COSTS = ENROLLMENT_COSTS.filter((c) => c.category === 'uniforme');
+
+/** La matrícula, que acompaña a los planes mensuales. */
+export const MATRICULA = ENROLLMENT_COSTS.find((c) => c.category === 'matricula')!;

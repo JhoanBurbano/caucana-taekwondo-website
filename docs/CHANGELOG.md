@@ -2,6 +2,27 @@
 
 ## [Unreleased]
 
+### 🗂️ Información práctica en pestañas
+
+- ✅ **Horarios, Planes, Uniforme y Cómo llegar** se agrupan en una sola sección con
+  pestañas verticales (rail a la izquierda en escritorio, tira horizontal en móvil). La
+  landing baja de **13 secciones a 11**, y las tres que desaparecen del flujo eran de las
+  más altas: la tabla de horarios, la malla de planes y el mapa.
+- ✅ **Las anclas de siempre siguen funcionando**: los `id` (`#horarios`, `#planes`,
+  `#contacto`) viven ahora en el botón de cada pestaña, así que los enlaces del menú llevan
+  al sitio correcto **y** abren su panel. Un `hashchange` cubre los saltos dentro de la
+  misma página.
+- ✅ **Los cuatro paneles se montan siempre** y se ocultan con `hidden`: el contenido sigue
+  en el HTML para el buscador, y cambiar de pestaña no rehace el mapa ni la tabla.
+- ✅ La entrada de menú «Uniforme oficial» pasa a **«Uniforme»** y apunta a la pestaña, que
+  muestra los precios antes de mandar al formulario de pedido.
+
+### 💬 Testimonios en carrusel
+
+- ✅ Los diez testimonios pasan de malla a carrusel (3 / 2 / 1 según el ancho), con avance
+  automático cada 7 s que se detiene al pasar el ratón o al enfocar con el teclado. La
+  sección baja de ~1400 px a ~520 px sin esconder ninguno.
+
 ### 🌐 Dominio corregido
 
 - ✅ **El sitio apuntaba a `academiacaucana.com`, un dominio que no existe** (sin registrar,

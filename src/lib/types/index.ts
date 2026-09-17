@@ -160,6 +160,8 @@ export interface EnrollmentCost {
   /** En pesos colombianos, con separador de miles y sin símbolo. */
   price: string;
   detail: string;
+  /** Agrupa el concepto en su pestaña: la matrícula va con los planes. */
+  category: 'matricula' | 'uniforme';
   /** Si no es indispensable para entrenar. */
   optional?: boolean;
   /** Si se pide desde /uniforme-oficial. */
