@@ -111,6 +111,22 @@ export interface TimelineMilestone {
   kind?: TimelineKind;
 }
 
+/** Colores de grado en Taekwon-Do ITF. */
+export type BeltColor = 'blanco' | 'amarillo' | 'verde' | 'azul' | 'rojo' | 'negro';
+
+/** Testimonio de un estudiante o de una familia de la academia. */
+export interface Review {
+  author: string;
+  /** Grado tal y como se nombra en el dojang: "Cinturón verde", "Franja azul". */
+  rank: string;
+  belt: BeltColor;
+  /** Franja (grado intermedio) en lugar de cinturón pleno. */
+  stripe?: boolean;
+  /** De 1 a 5; admite decimales. */
+  rating: number;
+  text: string;
+}
+
 /** Día de la semana en el horario de clases. */
 export interface ScheduleDay {
   id: ScheduleDayId;
