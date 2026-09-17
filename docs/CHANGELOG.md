@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### 💬 Testimonios reales
+
+- ✅ **Vuelve la sección de reseñas**, ahora con 10 testimonios de estudiantes y familias
+  reales, con nombre y grado. Reemplaza a los tres inventados que se retiraron en el PR #19.
+- ✅ **Promedio y total calculados**, nunca escritos a mano: la versión anterior declaraba
+  «4.9 sobre 47 reseñas» con solo tres testimonios de relleno.
+- ✅ **Distintivo de grado por tarjeta**: barra del color del cinturón, con banda intermedia
+  cuando es franja en vez de cinturón pleno.
+- ⚠️ **No se restaura el `aggregateRating` en el JSON-LD.** Google restringe el marcado de
+  valoración autorecogida en el propio sitio; lo que sí cuenta son las reseñas en el perfil
+  de Google Business. Estos diez testimonios sirven para convertir, no para pedir estrellas
+  en los resultados.
+
 ### 🗓️ Horarios
 
 - ✅ **Nueva sección `#horarios`** con el horario 2026 completo: 9 franjas, 37 clases, de

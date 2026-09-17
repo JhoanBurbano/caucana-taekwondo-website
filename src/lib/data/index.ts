@@ -11,3 +11,4 @@ export { AGE_GROUPS } from './groups';
 export { ACADEMY_STATS } from './stats';
 export { FAQ_ITEMS } from './faq';
 export { CONTACT, WHATSAPP_MESSAGES, whatsappUrl } from './contact';
+export { REVIEWS, REVIEW_SUMMARY, BELT_HEX } from './reviews';
