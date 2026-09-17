@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+### 🗓️ Horarios
+
+- ✅ **Nueva sección `#horarios`** con el horario 2026 completo: 9 franjas, 37 clases, de
+  lunes a sábado. Era el hueco más grande del sitio y una de las búsquedas locales de más
+  intención.
+- ✅ **Dos vistas del mismo dato**: en móvil se agrupa por día, porque una malla de 6 días ×
+  9 franjas es ilegible en un teléfono —y ahí es donde se consulta—; la tabla completa
+  aparece a partir de `lg`. La de escritorio es una `<table>` real, con `<th scope>` y
+  `<caption>`.
+- ✅ **`openingHoursSpecification` en el JSON-LD** (6 franjas derivadas del horario), que es
+  lo que Google lee para mostrar el horario en la ficha local.
+- ✅ Entrada **«Horarios»** en la navegación y pregunta nueva en la FAQ, que pasa a 7.
+
 ### 💰 Costos de inicio
 
 - ✅ **Se publica lo que cuesta empezar**, que antes no aparecía en ninguna parte: matrícula

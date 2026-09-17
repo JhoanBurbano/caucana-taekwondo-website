@@ -10,6 +10,11 @@ export const FAQ_ITEMS: FAQItem[] = [
       'El plan mensual es $150.000 COP (3 clases por semana). El trimestral es $405.000 COP y el anual $1.440.000 COP, con más clases y seguimiento. La primera clase de prueba es gratis, sin compromiso.',
   },
   {
+    question: '¿Cuáles son los horarios de clase?',
+    answer:
+      'Entrenamos de lunes a sábado, mañana y tarde. Taekwon-Do tiene grupos de 4:00 p. m. a 8:00 p. m. entre semana y sábados a las 9:00 a. m.; Kickboxing y Boxeo van a las 9:00 a. m. y a las 7:00 p. m.; el acondicionamiento físico (entrenamiento funcional) es de 7:00 a 9:00 a. m. de martes a viernes, más el grupo de adultos los lunes a las 6:00 p. m. La tabla completa está en la sección Horarios.',
+  },
+  {
     question: '¿Cuánto cuesta empezar, además de la mensualidad?',
     answer:
       'La matrícula es $100.000 COP, pago único al inscribirse, y solo aplica a Taekwondo ITF. El uniforme oficial (dobok) cuesta $250.000 COP. Aparte y de forma opcional, el conjunto de sudadera y chaqueta rompevientos vale $230.000 COP, o $150.000 COP si prefieres solo la chaqueta. El uniforme se pide desde academiacaucana.com/uniforme-oficial.',

@@ -12,6 +12,9 @@ const AboutSection = lazy(() => import('./components/sections/AboutSection').the
 const ProgramsSection = lazy(() =>
   import('./components/sections/ProgramsSection').then((m) => ({ default: m.ProgramsSection })),
 );
+const ScheduleSection = lazy(() =>
+  import('./components/sections/ScheduleSection').then((m) => ({ default: m.ScheduleSection })),
+);
 const CoachesSection = lazy(() =>
   import('./components/sections/CoachesSection').then((m) => ({ default: m.CoachesSection })),
 );
@@ -50,6 +53,7 @@ export default function App() {
           <Suspense fallback={<SkeletonLoader variant="card" className="mx-auto my-12 h-64 max-w-6xl" />}>
             <AboutSection />
             <ProgramsSection />
+            <ScheduleSection />
             <CoachesSection />
             <GallerySection />
             <PricingSection />

@@ -111,6 +111,32 @@ export interface TimelineMilestone {
   kind?: TimelineKind;
 }
 
+/** Día de la semana en el horario de clases. */
+export interface ScheduleDay {
+  id: ScheduleDayId;
+  /** Abreviatura para la cabecera de la tabla. */
+  short: string;
+  label: string;
+}
+
+export type ScheduleDayId = 'lun' | 'mar' | 'mie' | 'jue' | 'vie' | 'sab';
+
+/** Disciplina de una clase; gobierna el color con el que se pinta en el horario. */
+export type ClassDiscipline = 'taekwondo' | 'combate' | 'acondicionamiento' | 'otro';
+
+export interface ClassSlot {
+  title: string;
+  /** Edades o matiz del grupo, cuando el horario lo especifica. */
+  detail?: string;
+  discipline: ClassDiscipline;
+}
+
+/** Una franja horaria con lo que ocurre en cada día. Los días sin clase se omiten. */
+export interface ScheduleRow {
+  time: string;
+  slots: Partial<Record<ScheduleDayId, ClassSlot>>;
+}
+
 /** Costo de una sola vez al inscribirse (matrícula, uniforme). */
 export interface EnrollmentCost {
   id: string;
