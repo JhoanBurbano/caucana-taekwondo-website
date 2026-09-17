@@ -12,14 +12,11 @@ const AboutSection = lazy(() => import('./components/sections/AboutSection').the
 const ProgramsSection = lazy(() =>
   import('./components/sections/ProgramsSection').then((m) => ({ default: m.ProgramsSection })),
 );
-const ScheduleSection = lazy(() =>
-  import('./components/sections/ScheduleSection').then((m) => ({ default: m.ScheduleSection })),
+const InfoSection = lazy(() =>
+  import('./components/sections/InfoSection').then((m) => ({ default: m.InfoSection })),
 );
 const CoachesSection = lazy(() =>
   import('./components/sections/CoachesSection').then((m) => ({ default: m.CoachesSection })),
-);
-const PricingSection = lazy(() =>
-  import('./components/sections/PricingSection').then((m) => ({ default: m.PricingSection })),
 );
 const TrialSection = lazy(() => import('./components/sections/TrialSection').then((m) => ({ default: m.TrialSection })));
 const GallerySection = lazy(() =>
@@ -34,9 +31,6 @@ const InstagramSection = lazy(() =>
 );
 const SponsorsSection = lazy(() =>
   import('./components/sections/SponsorsSection').then((m) => ({ default: m.SponsorsSection })),
-);
-const LocationSection = lazy(() =>
-  import('./components/sections/LocationSection').then((m) => ({ default: m.LocationSection })),
 );
 
 export default function App() {
@@ -56,14 +50,12 @@ export default function App() {
           <Suspense fallback={<SkeletonLoader variant="card" className="mx-auto my-12 h-64 max-w-6xl" />}>
             <AboutSection />
             <ProgramsSection />
-            <ScheduleSection />
             <CoachesSection />
             <GallerySection />
             <ReviewsSection />
-            <PricingSection />
+            <InfoSection />
             <TrialSection />
             <FAQSection />
-            <LocationSection />
             <InstagramSection />
             <SponsorsSection />
           </Suspense>
